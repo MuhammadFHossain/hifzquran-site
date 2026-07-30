@@ -374,13 +374,8 @@ section { padding: 88px 0; position: relative; }
 }
 .back:hover { color: var(--tealText); }
 .callout {
-  position: relative;
   background: var(--paperDeep); border: 1px solid var(--line); border-radius: 18px;
   padding: 22px 24px; margin: 26px 0;
-}
-.callout::before {
-  content: ""; position: absolute; left: 0; top: 16px; bottom: 16px; width: 3px;
-  border-radius: 3px; background: var(--teal);
 }
 .callout p:last-child { margin-bottom: 0; }
 .signoff {

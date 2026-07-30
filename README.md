@@ -18,11 +18,19 @@ assets/
   styles.css      the whole design system (brand teal #28ABC2 from the app icon)
   fonts/          Fraunces (headings, OFL) + UthmanicHafsV22 (the mushaf face, KFGQPC)
   img/            app-icon, mark (the open-mushaf logo), apple-touch-icon, favicon-64, og.png
-  shots/          the six landing-page screenshots (web-optimized)
+  shots/          the five landing-page screenshots (web-optimized, 684×1486)
 appstore-screenshots/
-  6.9-inch-light/ 01..06  full-res 1320×2868 (iPhone 16 Pro Max), light mode
-  6.9-inch-dark/  01..05  full-res 1320×2868, dark mode
+  6.9-inch-light/ full-res 1320×2868 (iPhone 16 Pro Max), light mode
+  6.9-inch-dark/  full-res 1320×2868, dark mode
+  6.5-inch-light/ 1284×2778, scaled from the 6.9" masters and trimmed 6px top and bottom
+  6.5-inch-dark/  1284×2778, same treatment
 ```
+
+Every screenshot set is a capture of **1.0.0 build 2** (2026-07-30) and holds the same
+five screens: `01_mushaf`, `04_memorize`, `05_repeat`, `03_test`, `06_tajweed`. The old
+`02_recite` and `03_finish` shots are gone, along with the recite-from-memory feature
+they showed. Nothing on this site may imply the app listens to you: it has no microphone
+access and no speech recognition, and it asks for no permissions at all.
 
 ## For the App Store submission
 
@@ -34,11 +42,15 @@ In App Store Connect, use these URLs:
 - **EULA**: either leave Apple's standard EULA, or paste `https://hifzquran.org/terms.html`
 
 **Screenshots** in `appstore-screenshots/` are the exact 6.9" size (1320×2868) App Store
-Connect wants for the primary set. They cover: the page-exact mushaf, reciting with the
-live reveal + a soft crimson slip, finishing a portion, the Memorize cockpit (due for
-review + weak spots), the repeat drill sheet, and the tajwīd-colored mushaf. Both a light
-and a dark set are included; upload whichever you prefer as the primary. (Apple derives the
-6.5" set from these, so a separate 6.5" capture is optional.)
+Connect wants for the primary set, plus a 6.5" set (1284×2778) because ASC's upload slots
+ask for one in practice. They cover, in upload order: the page-exact mushaf with a range
+selected, the Memorize tab (what is due for review and what you are working on), the
+repeat sheet, the hide-and-reveal test, and the tajwīd-colored mushaf. Light and dark
+sets are both included; supply one set per size, not a light/dark pair.
+
+Captions, in the same order: *The page you memorize from* · *Pick a surah, see your
+progress* · *Set the counts, then repeat* · *Hide it, then check yourself* · *Every rule
+in color*.
 
 Store copy (name, subtitle, description, keywords) lives in
 `../HifzQuran/APPSTORE.md`.
