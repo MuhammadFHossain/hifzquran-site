@@ -177,7 +177,13 @@ p { margin: 0 0 1em; }
   box-shadow: 0 10px 26px var(--shadow);
 }
 .btn-solid:hover { transform: translateY(-1px); }
+.btn-quiet {
+  color: var(--ink2);
+  background: transparent;
+  border-color: var(--line2);
+}
 .btn svg.appleglyph { width: 19px; height: 19px; }
+.btn svg.droidglyph { width: 19px; height: 19px; }
 
 /* ---- sections ---- */
 section { padding: 88px 0; position: relative; }
@@ -201,7 +207,7 @@ section { padding: 88px 0; position: relative; }
 .hero-grid { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 52px; align-items: center; }
 .hero h1 .soft { color: var(--gold); font-style: italic; }
 .hero .lead { margin-top: 22px; max-width: 34ch; }
-.hero .cta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 32px; }
+.hero .cta { display: flex; align-items: center; gap: 20px; row-gap: 12px; flex-wrap: wrap; margin-top: 32px; }
 .hero .fine { margin-top: 16px; }
 
 /* ---- the mushaf card in the hero (mirrors the app's page) ---- */
