@@ -2,30 +2,38 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Support · Hifz Quran</title>
 <link rel="canonical" href="https://hifzquran.org/support.html">
 <meta property="og:url" content="https://hifzquran.org/support.html">
-<meta name="description" content="Help for Hifz Quran. How repeating and testing work, what you need, privacy, and how to reach a real person.">
-<link rel="icon" type="image/png" href="assets/img/favicon-64.png">
+<meta name="description" content="Help with Hifz Quran: repeating an ayah, prayer times, widgets, reciters, and where your progress is kept. A real person reads every email.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <meta property="og:title" content="Support · Hifz Quran">
-<meta property="og:description" content="Help for Hifz Quran. How it works, what you need, and how to reach a real person.">
+<meta property="og:description" content="Help with Hifz Quran. A real person reads every email.">
 <meta property="og:image" content="https://hifzquran.org/assets/img/og.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://hifzquran.org/assets/img/og.png">
-<meta name="theme-color" content="#F7F8F6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#14120D" media="(prefers-color-scheme: dark)">
-<link rel="stylesheet" href="assets/styles.css?v=20260801">
+<meta name="theme-color" content="#F7F8F6">
+<link rel="stylesheet" href="assets/styles.css?v=20260901">
 </head>
 <body>
 
+<div class="ground" aria-hidden="true">
+  <div class="g-photo"></div>
+  <div class="g-night"><canvas></canvas></div>
+  <div class="g-grade"></div>
+  <div class="g-tint"></div>
+  <div class="g-veil"></div>
+</div>
+
 <header class="site-header">
-  <div class="wrap bar">
+  <div class="bar">
     <a class="wordmark" href="/">
-      <img class="mark" src="assets/img/mark.png" alt="" width="26" height="26">
-      <b>Hifz <span class="g">Quran</span></b>
+      <span class="mark" aria-hidden="true"></span>
+      <b>Hifz <i>Quran</i></b>
     </a>
     <nav class="nav">
       <a href="privacy.html">Privacy</a>
@@ -35,7 +43,8 @@
 </header>
 
 <main class="doc">
-  <a class="back" href="/">← Back to Hifz Quran</a>
+  <a class="back" href="/">‹ Back to Hifz Quran</a>
+  <div class="paper card glass">
   <h1>Support</h1>
   <p class="updated">A real person reads every email.</p>
 
@@ -47,70 +56,74 @@
   <h2>What you need</h2>
   <ul>
     <li>An iPhone running <strong>iOS 17</strong> or later.</li>
-    <li>No permissions. The app does not ask for the microphone or anything else.</li>
-    <li>An internet connection the first time you play a reciter; after that, audio is cached and works offline.</li>
-    <li>About <strong>190 MB</strong> of space, and Wi-Fi for the first install.</li>
+    <li>No permissions. Location, notifications and alarms are optional, and the app asks only when you turn the
+    feature on.</li>
+    <li>An internet connection the first time you play a reciter. After that the audio is cached and works
+    offline.</li>
+    <li>Space. The app is large, over <strong>300 MB</strong> once installed, so install it over Wi-Fi.</li>
   </ul>
 
   <h2>Common questions</h2>
 
   <h3>How do I repeat an ayah?</h3>
-  <p>Open a surah and tap an ayah on the page. Tap a second ayah if you want a range. The strip at the bottom then
-  says what you have selected: tap <strong>Repeat</strong> and it starts playing straight away. The sliders button
-  beside it is where you change how many times each ayah repeats, how long a gap to leave for reciting along, and
-  which reciter. With nothing selected, that same strip offers the whole surah.</p>
+  <p>Open a surah and tap an ayah on the page. Tap a second ayah if you want a range. The bar at the bottom then
+  says what you have chosen: tap <strong>Repeat</strong> and it starts playing. The sliders button beside it is
+  where you change how many times each ayah plays, how long a gap to leave for reciting along, and which
+  reciter. With nothing chosen, the same bar offers the whole surah.</p>
 
-  <h3>How does testing yourself work?</h3>
-  <p>Select the passage you have been working on and tap <strong>Test</strong>. The āyāt blank out on the page.
-  Recite each one from memory, tap <strong>Reveal</strong> to check yourself, and at the end mark the run
-  <strong>Solid</strong> or <strong>Shaky</strong>. That answer is what decides when the passage comes back around
-  for review. Nothing listens to you. You check your own recall, the way you would with a teacher.</p>
 
-  <h3>Is my recitation really private?</h3>
-  <p>There is nothing to keep private, because nothing is recorded. Hifz Quran has <strong>no microphone access
-  and no speech recognition</strong>. It asks for no permissions of any kind, has no accounts, no analytics, and
-  no servers of ours. See the <a href="privacy.html">privacy policy</a> for the full picture.</p>
+  <h3>How do I get prayer times for my city?</h3>
+  <p>The Salah tab asks where you are praying. Choose a city by name from the built-in list, which needs no
+  permission, or tap <strong>Use my location</strong> and allow location once. The times, the Hijri date and the
+  qibla direction are then worked out on your phone.</p>
+
+  <h3>The widget says to choose a city</h3>
+  <p>The widgets read the city from the app. Open Hifz Quran, go to the Salah tab and choose a city. The widgets
+  fill in after that.</p>
+
+  <h3>The adhan or the alert did not sound</h3>
+  <p>Each prayer has its own switch for an alert or an adhan in the app. Turn it on, and allow notifications when
+  asked. If your phone is on silent or in a Focus, a normal notification stays quiet; for a prayer that must wake
+  you, turn on its alarm instead, which asks for its own permission and sounds through the silent switch.</p>
 
   <h3>Do I need the internet?</h3>
-  <p>Only for recitation audio. The mushaf, the Quran text, and all ten translations are inside the app and work
-  offline from the start. The internet is used to fetch a reciter’s audio the first time you play it; after that it
-  is cached on your iPhone. You can also download a surah ahead of time from the repeat settings.</p>
+  <p>Only for recitation audio. The mushaf, the Quran text, the translations, the word meanings and the duas are
+  inside the app and work offline from the start. The internet is used to fetch a reciter's audio the first time
+  you play it; after that it is cached on your iPhone. You can also download a surah ahead of time from the
+  repeat settings.</p>
 
   <h3>What does it cost?</h3>
   <p>Hifz Quran is <strong>free</strong>, with no subscription, no in-app purchases, and no account to make.</p>
 
   <h3>Which reciters are included?</h3>
-  <p>Ten: Alafasy, Al-Husary, Al-Minshawi, Abdul Basit, As-Sudais, Ash-Shuraim, Al-Ghamdi, Al-Muaiqly, Ad-Dosari,
-  and Badr al-Turki. You can set per-āyah and whole-group repeat counts, recite-along pauses, and playback speed.</p>
+  <p>Thirty-one, every one of them recorded ayah by ayah, so a repeat always starts and stops on the ayah. Among
+  them: Mishary Alafasy, Mahmoud Al-Husary, Mohamed El-Minshawi, Abdul Basit, Abdul Rahman As-Sudais, Saud
+  Ash-Shuraim, Saad Al-Ghamdi, Maher Al-Muaiqly and Yasser Ad-Dosari. The full list is in the app.</p>
 
-  <h3>A reciter is greyed out</h3>
-  <p>That will be Badr al-Turki. No ayah-by-ayah recording of his exists anywhere, so his āyah timings had to be
-  derived from his surah recordings, and he is offered only on the <strong>77 surahs whose timings were checked
-  against the audio</strong>, all of Juz ‘Amma among them. On the rest, pick another reciter. The other nine have a
-  separate file for every āyah and work throughout.</p>
 
   <h3>Where is my progress kept?</h3>
-  <p>On your iPhone, in the app’s own storage. It is not sent anywhere and there is no account attached to it.
+  <p>On your iPhone, in the app's own storage. It is not sent anywhere and there is no account attached to it.
   Deleting the app deletes it, so if you are moving to a new phone, use an iPhone or iCloud device backup to carry
   the app and its data across.</p>
 
   <h3>The app is large</h3>
-  <p>It is around 190 MB, because the mushaf ships as 604 page-exact fonts rather than pictures of pages. That is
-  what lets a page stay sharp at any size and match the print line for line. Install over Wi-Fi. Recitation audio is
-  downloaded separately as you play it, and you can clear it any time from <em>Settings → Audio → Downloaded
-  recitations → Clear</em>.</p>
+  <p>It is over 300 MB, because the mushaf is built from more than a thousand page fonts rather than pictures of
+  pages, and three prints are included. That is what lets a page stay sharp at any size and match the print line
+  for line. Install over Wi-Fi. Recitation audio is downloaded separately as you play it, and you can clear it any
+  time from <em>Settings → Audio → Downloaded recitations → Clear</em>.</p>
 
   <h3>Is this a replacement for a teacher?</h3>
-  <p>No. Hifz Quran is a companion for your daily practice, a patient way to drill and review between lessons. The
-  memorization of the Quran and the correctness of your tajwīd are best confirmed with a knowledgeable teacher.</p>
+  <p>No. Hifz Quran is a companion for your daily practice, a patient way to drill and review between lessons.
+  Your memorization and your tajwīd are best checked with a knowledgeable teacher.</p>
 
   <h2>Still stuck?</h2>
   <p>Email <a href="mailto:contact@bluetomatostudio.com?subject=Hifz%20Quran%20support">contact@bluetomatostudio.com</a> with
   your iPhone model and iOS version, and a short note about what happened. That helps us help you faster.</p>
 
   <div class="signoff">
-    <img class="mark" src="assets/img/mark.png" alt="" aria-hidden="true">
+    <span class="mark" aria-hidden="true"></span>
     <p>May Allah accept it from you, and put barakah in your time.</p>
+  </div>
   </div>
 </main>
 
@@ -118,10 +131,10 @@
   <div class="wrap foot-grid">
     <div>
       <a class="wordmark" href="/">
-        <img class="mark" src="assets/img/mark.png" alt="" width="26" height="26">
-        <b>Hifz <span class="g">Quran</span></b>
+        <span class="mark" aria-hidden="true"></span>
+        <b>Hifz <i>Quran</i></b>
       </a>
-      <p class="small muted" style="margin-top:10px; max-width:34ch;">Memorize the Quran by choosing an ayah and repeating it, at your own pace.</p>
+      <p class="foot-ayah" lang="ar" dir="rtl" aria-hidden="true">وَلَقَدۡ يَسَّرۡنَا ٱلۡقُرۡءَانَ لِلذِّكۡرِ</p>
     </div>
     <div>
       <div class="foot-links">
@@ -130,10 +143,11 @@
         <a href="terms.html">Terms</a>
         <a href="mailto:contact@bluetomatostudio.com">Contact</a>
       </div>
-      <p class="foot-note">© 2026 Hifz Quran · Made by Farhan Hossain · <a href="mailto:contact@bluetomatostudio.com" style="color:inherit;">contact@bluetomatostudio.com</a></p>
+      <p class="foot-note">© 2026 Hifz Quran · Made by Farhan Hossain</p>
     </div>
   </div>
 </footer>
 
+<script src="assets/sky.js?v=20260901"></script>
 </body>
 </html>

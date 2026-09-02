@@ -2,30 +2,38 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Terms of Use · Hifz Quran</title>
 <link rel="canonical" href="https://hifzquran.org/terms.html">
 <meta property="og:url" content="https://hifzquran.org/terms.html">
-<meta name="description" content="The terms for using the Hifz Quran app: your license, your content, the sources it is built on, and the usual legal notes.">
-<link rel="icon" type="image/png" href="assets/img/favicon-64.png">
+<meta name="description" content="The terms of use for the Hifz Quran app. Free, your progress is yours, and it is a practice aid, not a replacement for a teacher.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <meta property="og:title" content="Terms of Use · Hifz Quran">
-<meta property="og:description" content="The terms for using Hifz Quran: your license, your content, and the usual legal notes.">
+<meta property="og:description" content="The terms of use for the Hifz Quran app.">
 <meta property="og:image" content="https://hifzquran.org/assets/img/og.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://hifzquran.org/assets/img/og.png">
-<meta name="theme-color" content="#F7F8F6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#14120D" media="(prefers-color-scheme: dark)">
-<link rel="stylesheet" href="assets/styles.css?v=20260801">
+<meta name="theme-color" content="#F7F8F6">
+<link rel="stylesheet" href="assets/styles.css?v=20260901">
 </head>
 <body>
 
+<div class="ground" aria-hidden="true">
+  <div class="g-photo"></div>
+  <div class="g-night"><canvas></canvas></div>
+  <div class="g-grade"></div>
+  <div class="g-tint"></div>
+  <div class="g-veil"></div>
+</div>
+
 <header class="site-header">
-  <div class="wrap bar">
+  <div class="bar">
     <a class="wordmark" href="/">
-      <img class="mark" src="assets/img/mark.png" alt="" width="26" height="26">
-      <b>Hifz <span class="g">Quran</span></b>
+      <span class="mark" aria-hidden="true"></span>
+      <b>Hifz <i>Quran</i></b>
     </a>
     <nav class="nav">
       <a href="support.html">Support</a>
@@ -35,7 +43,8 @@
 </header>
 
 <main class="doc">
-  <a class="back" href="/">← Back to Hifz Quran</a>
+  <a class="back" href="/">‹ Back to Hifz Quran</a>
+  <div class="paper card glass">
   <h1>Terms of Use</h1>
   <p class="updated">Last updated: July 17, 2026</p>
 
@@ -64,15 +73,14 @@
   <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.</p>
 
   <h2>3. Your progress is yours</h2>
-  <p>Your memorization progress, review schedule, and practice history are <strong>your content</strong>. We do not
+  <p>Your reading place, your repeat settings, and your practice history are <strong>your content</strong>. We do not
   claim any ownership of them, and we do not access them. Because your data is stored on your device, keeping your
   own backups (for example through your iPhone’s device backup) is up to you. We are not responsible for content you lose if you delete
   the app, reset your device, or lose your phone.</p>
 
   <h2>4. A companion, not a replacement for a teacher</h2>
   <p>Hifz Quran is a tool to help you practice. It is <strong>not</strong> a substitute for learning from a
-  qualified teacher (an ustādh or shaykh). The app does not listen to you or assess your recitation. When you test
-  yourself, you reveal each āyah and judge your own recall. It cannot correct your tajwīd, your makhārij, or the
+  qualified teacher (an ustādh or shaykh). The app does not listen to you or assess your recitation. It cannot correct your tajwīd, your makhārij, or the
   finer points of recitation. Please verify your memorization and your recitation with a knowledgeable teacher.
   Rely on a printed mushaf and qualified scholarship for anything of religious consequence.</p>
 
@@ -136,8 +144,9 @@
   <p>Questions about these Terms? Email <a href="mailto:contact@bluetomatostudio.com">contact@bluetomatostudio.com</a>.</p>
 
   <div class="signoff">
-    <img class="mark" src="assets/img/mark.png" alt="" aria-hidden="true">
+    <span class="mark" aria-hidden="true"></span>
     <p>May Allah make it easy, and make it stay.</p>
+  </div>
   </div>
 </main>
 
@@ -145,10 +154,10 @@
   <div class="wrap foot-grid">
     <div>
       <a class="wordmark" href="/">
-        <img class="mark" src="assets/img/mark.png" alt="" width="26" height="26">
-        <b>Hifz <span class="g">Quran</span></b>
+        <span class="mark" aria-hidden="true"></span>
+        <b>Hifz <i>Quran</i></b>
       </a>
-      <p class="small muted" style="margin-top:10px; max-width:34ch;">Memorize the Quran by choosing an ayah and repeating it, at your own pace.</p>
+      <p class="foot-ayah" lang="ar" dir="rtl" aria-hidden="true">وَلَقَدۡ يَسَّرۡنَا ٱلۡقُرۡءَانَ لِلذِّكۡرِ</p>
     </div>
     <div>
       <div class="foot-links">
@@ -157,10 +166,11 @@
         <a href="terms.html">Terms</a>
         <a href="mailto:contact@bluetomatostudio.com">Contact</a>
       </div>
-      <p class="foot-note">© 2026 Hifz Quran · Made by Farhan Hossain · <a href="mailto:contact@bluetomatostudio.com" style="color:inherit;">contact@bluetomatostudio.com</a></p>
+      <p class="foot-note">© 2026 Hifz Quran · Made by Farhan Hossain</p>
     </div>
   </div>
 </footer>
 
+<script src="assets/sky.js?v=20260901"></script>
 </body>
 </html>

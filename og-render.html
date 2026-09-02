@@ -2,38 +2,47 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- The share card. Render it at 1200x630 to assets/img/og.png:
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars
+       --window-size=1200,630 --screenshot=assets/img/og.png "file://$PWD/og-render.html" -->
 <style>
   @font-face { font-family:"Fraunces"; src:url("assets/fonts/Fraunces-VF.ttf") format("truetype-variations"); font-weight:100 900; }
   @font-face { font-family:"Fraunces"; src:url("assets/fonts/Fraunces-Italic-VF.ttf") format("truetype-variations"); font-weight:100 900; font-style:italic; }
   @font-face { font-family:"UthmanicHafs"; src:url("assets/fonts/UthmanicHafsV22.ttf") format("truetype"); }
   * { margin:0; box-sizing:border-box; }
-  body { width:1200px; height:630px; overflow:hidden;
-    background:#14120D;
-    color:#E9E2D2; font-family:"Fraunces",Georgia,serif;
-    display:flex; align-items:center; padding:0 88px; position:relative; }
-  .halo { position:absolute; right:24px; top:50%; transform:translateY(-50%); width:440px; opacity:.12; }
-  .wm { display:flex; align-items:center; gap:16px; margin-bottom:34px; }
-  .wm img { width:46px; height:46px; }
-  .wm .t { font-size:30px; font-weight:520; letter-spacing:-.01em; }
-  .wm .t i { color:#3FC3DA; font-style:italic; }
-  h1 { font-size:82px; line-height:1.04; font-weight:470; letter-spacing:-.015em; }
-  h1 .g { color:#C9A85C; font-style:italic; }
-  p { margin-top:26px; font-family:-apple-system,system-ui,sans-serif; font-size:26px; color:#B4AB98; max-width:20ch; line-height:1.4; }
-  .ayah { position:absolute; left:88px; bottom:52px; font-family:"UthmanicHafs",serif; direction:rtl; font-size:34px; color:#C9A85C; opacity:.6; }
-  .free { position:absolute; right:88px; bottom:56px; font-family:-apple-system,system-ui,sans-serif; font-size:20px; letter-spacing:.14em; text-transform:uppercase; color:#3FC3DA; font-weight:600; }
+  html, body { width:1200px; height:630px; overflow:hidden; }
+  body { position:relative; color:#F1EAE0; font-family:"Fraunces",Georgia,serif; isolation:isolate; background:#2E2350; }
+  .sky { position:absolute; inset:0; z-index:-1; isolation:isolate; }
+  .sky > div { position:absolute; inset:-3%; }
+  .photo { background:url("assets/sky/evening.jpg") center 40% / cover no-repeat; }
+  .grade { background:linear-gradient(180deg,#151A3C 0%,#2E2350 22%,#5B3059 44%,#93435A 66%,#BC5F67 86%,#D68B7B 100%); mix-blend-mode:soft-light; opacity:.45; }
+  .scrim { background:linear-gradient(90deg, rgba(16,14,26,.72), rgba(16,14,26,.30) 55%, rgba(16,14,26,.05)); }
+  .in { position:absolute; left:84px; top:84px; right:84px; bottom:72px; display:flex; flex-direction:column; justify-content:space-between; }
+  .wm { display:flex; align-items:center; gap:18px; }
+  .wm img { width:64px; height:64px; }
+  .wm .t { font-size:32px; font-weight:520; letter-spacing:-.01em; color:#fff; }
+  .wm .t i { font-style:italic; font-weight:470; color:#F3D9A0; }
+  h1 { font-size:88px; line-height:1.02; font-weight:460; letter-spacing:-.025em; color:#fff; max-width:11ch; }
+  h1 em { font-style:italic; color:#F3D9A0; }
+  p { margin-top:22px; font-family:-apple-system,system-ui,sans-serif; font-size:25px; color:rgba(255,255,255,.86); max-width:30ch; line-height:1.4; }
+  .foot { display:flex; justify-content:space-between; align-items:flex-end; }
+  .ayah { font-family:"UthmanicHafs",serif; direction:rtl; font-size:34px; color:#F3D9A0; opacity:.9; }
+  .free { font-family:-apple-system,system-ui,sans-serif; font-size:17px; letter-spacing:.16em; text-transform:uppercase; color:#fff; font-weight:600;
+          padding:0 18px; height:40px; line-height:40px; border-radius:20px; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28); }
 </style>
 </head>
 <body>
-  <img class="halo" src="assets/img/mark.png" alt="">
-  <div>
-    <div class="wm">
-      <img src="assets/img/mark.png" alt="">
-      <span class="t">Hifz <i>Quran</i></span>
+  <div class="sky"><div class="photo"></div><div class="grade"></div><div class="scrim"></div></div>
+  <div class="in">
+    <div class="wm"><img src="assets/img/mark-pale.png" alt=""><span class="t">Hifz <i>Quran</i></span></div>
+    <div>
+      <h1>Read, repeat, <em>remember.</em></h1>
+      <p>The real Madina mushaf, any ayah on repeat, and prayer times for your city.</p>
     </div>
-    <h1>Repeat, test,<br><span class="g">remember.</span></h1>
-    <p>The Quran app for those who want to memorize it.</p>
+    <div class="foot">
+      <div class="ayah" lang="ar" dir="rtl">وَلَقَدۡ يَسَّرۡنَا ٱلۡقُرۡءَانَ لِلذِّكۡرِ</div>
+      <div class="free">Free · No account · No ads</div>
+    </div>
   </div>
-  <div class="ayah" lang="ar" dir="rtl">وَلَقَدۡ يَسَّرۡنَا ٱلۡقُرۡءَانَ لِلذِّكۡرِ</div>
-  <div class="free">Free · No permissions · No ads</div>
 </body>
 </html>

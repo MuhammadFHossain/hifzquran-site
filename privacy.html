@@ -2,30 +2,38 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Privacy Policy · Hifz Quran</title>
 <link rel="canonical" href="https://hifzquran.org/privacy.html">
 <meta property="og:url" content="https://hifzquran.org/privacy.html">
-<meta name="description" content="How Hifz Quran handles your data. The short version: the app asks for no permissions at all and collects nothing. No accounts, no analytics, no tracking.">
-<link rel="icon" type="image/png" href="assets/img/favicon-64.png">
+<meta name="description" content="How Hifz Quran handles your data. The short version: it collects nothing. No accounts, no analytics, no tracking. Location, notifications and alarms are optional and stay on your phone.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <meta property="og:title" content="Privacy Policy · Hifz Quran">
-<meta property="og:description" content="The app asks for no permissions at all and collects nothing. No accounts, no analytics, no tracking.">
+<meta property="og:description" content="The app collects nothing. No accounts, no analytics, no tracking. Location, notifications and alarms are optional and stay on your phone.">
 <meta property="og:image" content="https://hifzquran.org/assets/img/og.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://hifzquran.org/assets/img/og.png">
-<meta name="theme-color" content="#F7F8F6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#14120D" media="(prefers-color-scheme: dark)">
-<link rel="stylesheet" href="assets/styles.css?v=20260801">
+<meta name="theme-color" content="#F7F8F6">
+<link rel="stylesheet" href="assets/styles.css?v=20260901">
 </head>
 <body>
 
+<div class="ground" aria-hidden="true">
+  <div class="g-photo"></div>
+  <div class="g-night"><canvas></canvas></div>
+  <div class="g-grade"></div>
+  <div class="g-tint"></div>
+  <div class="g-veil"></div>
+</div>
+
 <header class="site-header">
-  <div class="wrap bar">
+  <div class="bar">
     <a class="wordmark" href="/">
-      <img class="mark" src="assets/img/mark.png" alt="" width="26" height="26">
-      <b>Hifz <span class="g">Quran</span></b>
+      <span class="mark" aria-hidden="true"></span>
+      <b>Hifz <i>Quran</i></b>
     </a>
     <nav class="nav">
       <a href="support.html">Support</a>
@@ -35,33 +43,32 @@
 </header>
 
 <main class="doc">
-  <a class="back" href="/">← Back to Hifz Quran</a>
+  <a class="back" href="/">‹ Back to Hifz Quran</a>
+  <div class="paper card glass">
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: July 30, 2026</p>
+  <p class="updated">Last updated: September 1, 2026</p>
 
   <div class="callout">
-    <p><strong>The short version.</strong> Hifz Quran asks for <strong>no permissions at all</strong>. No
-    microphone, no speech recognition, no camera, no contacts, no location, no notifications. There are no
-    accounts, no analytics, and no ads, and we run no servers of our own. Your progress lives on your iPhone
-    and goes nowhere else. We never see it. Under Apple’s definitions this app
-    is <strong>“Data Not Collected.”</strong></p>
+    <p><strong>The short version.</strong> Hifz Quran collects nothing. There are no accounts, no analytics,
+    no ads, and no servers of ours. Your progress stays on your iPhone and we never see it. The app asks for
+    no permission until you turn on a feature that needs one, and each one is optional: location for prayer
+    times and the qibla, notifications for prayer alerts, and alarms for a prayer that should wake you.
+    Under Apple's definitions this app is <strong>"Data Not Collected."</strong></p>
   </div>
 
-  <p>This policy explains what Hifz Quran (“the app”, “we”, “us”) does with your information. Hifz Quran is made
-  by Farhan Hossain. If anything here is unclear, email
+  <p>This policy explains what Hifz Quran ("the app", "we", "us") does with your information. Hifz Quran is
+  made by Farhan Hossain. If anything here is unclear, email
   <a href="mailto:contact@bluetomatostudio.com">contact@bluetomatostudio.com</a>.</p>
 
   <div class="callout">
-    <p><strong>What changed in this version.</strong> The earlier version of this policy described a “recite from
-    memory” feature that used the microphone and speech recognition. <strong>That feature has been removed from
-    the app in full.</strong> There is no microphone access, no speech recognition, and no speech model in the
-    app. Testing your memory is now done by hiding the āyāt on the page and revealing them yourself. The app
-    requests no permissions of any kind. iCloud sync has also been dropped: your progress is kept on your iPhone
-    and is not copied anywhere.</p>
+    <p><strong>What changed in this version.</strong> The app now has prayer times, prayer alerts and alarms,
+    and the three optional permissions that come with them are described below. The app still has no
+    microphone access and no speech recognition, still has no accounts, and still keeps everything on your
+    phone.</p>
   </div>
 
   <h2>1. Who this applies to</h2>
-  <p>This policy covers the Hifz Quran app for iPhone and this website, hifzquran.org.</p>
+  <p>This policy covers the Hifz Quran app for iPhone, its widgets, and this website, hifzquran.org.</p>
 
   <h2>2. Information we collect</h2>
   <p><strong>Personal information we collect: none.</strong> Hifz Quran has no login, no user accounts, and no
@@ -69,52 +76,60 @@
   and the app contains no third-party SDKs.</p>
   <p>The app creates and stores the following <strong>on your device</strong> so it can work:</p>
   <ul>
-    <li><strong>Your memorization progress.</strong> Which passages you are working on, what you have marked as
-    memorized, and your review schedule.</li>
-    <li><strong>Your test results.</strong> Whether a hide-and-reveal test came out solid or shaky, which is what
-    decides when a passage comes back around for review.</li>
-    <li><strong>Your settings.</strong> Small preferences like your chosen script, translation, reciter, and
-    repeat counts.</li>
+    <li><strong>Your reading place.</strong> Where you left off, and the passages you have been repeating.</li>
+    <li><strong>Your reading.</strong> Which days you read and how many pages, for the count on the Quran tab.</li>
+    <li><strong>Your settings.</strong> Small preferences like your chosen print, translation, reciter, repeat
+    counts, and theme.</li>
+    <li><strong>Your prayer settings.</strong> The city you chose, how the times are calculated, and which prayers
+    have an alert or an alarm turned on. The widgets read the city and the times from this same storage on your
+    phone.</li>
     <li><strong>Recitation audio you have played or downloaded</strong>, cached so it works offline.</li>
   </ul>
-  <p>This data stays in the app’s private storage on your iPhone. Deleting the app removes it.</p>
+  <p>This data stays in the app's private storage on your iPhone. Deleting the app removes it.</p>
 
-  <h2>3. Permissions: none</h2>
-  <p>Hifz Quran requests <strong>no permissions whatsoever</strong>. You will not see a permission prompt at any
-  point, because there is nothing for the app to ask for. It does not use, and cannot use:</p>
+  <h2>3. Permissions, all optional</h2>
+  <p>Hifz Quran never asks for a permission when it opens. It asks only when you turn on a feature that needs one,
+  and every feature has a way to work if you say no.</p>
   <ul>
-    <li>the <strong>microphone</strong>,</li>
-    <li><strong>speech recognition</strong>, on your device or Apple’s,</li>
-    <li>the camera, photos, contacts, calendars, location, or notifications.</li>
+    <li><strong>Location, while using the app.</strong> Asked only when you tap <strong>Use my location</strong> on
+    the Salah tab. Your position is used on the phone to work out the prayer times and the qibla direction. To
+    show the name of your city, the phone asks Apple's geocoding service, which is part of iOS, to turn the
+    position into a place name. Nothing is sent to us. You can pick a city by name from the built-in list
+    instead, with no permission at all.</li>
+    <li><strong>Notifications.</strong> Asked only when you turn on an alert or an adhan for a prayer. These are
+    local notifications, scheduled on your phone. There is no push server.</li>
+    <li><strong>Alarms.</strong> Asked only when you ask a prayer to wake you like an alarm, so it can sound through
+    the silent switch and a Focus. Set on your phone.</li>
   </ul>
-  <p>Your recitation is never heard, recorded, transcribed, or stored, by us or by anyone else. When you test
-  yourself, you recite aloud and tap to reveal each āyah to check your own memory. The app plays audio and shows
-  the page. It has no way to hear you.</p>
-  <p>The app does declare iOS’s background audio mode. That is ordinary playback, so a repeat drill keeps playing
+  <p>The app does not use, and cannot use, the <strong>microphone</strong>, <strong>speech recognition</strong>, the
+  camera, photos, contacts or calendars. Your recitation is never heard, recorded, transcribed or stored, by us
+  or by anyone else.</p>
+  <p>The app does declare iOS's background audio mode. That is ordinary playback, so a repeat drill keeps playing
   with your screen locked. It carries no access to anything on your phone.</p>
 
   <h2>4. Where your progress is kept</h2>
-  <p>Everything the app stores stays <strong>on your iPhone</strong>, in the app’s own private storage. Hifz Quran
+  <p>Everything the app stores stays <strong>on your iPhone</strong>, in the app's own private storage. Hifz Quran
   does not sync, does not use iCloud, and does not copy your progress anywhere. There is no account attached to it
-  and nothing for us to look at. Deleting the app deletes it, so use your iPhone’s own device backup if you want to
+  and nothing for us to look at. Deleting the app deletes it, so use your iPhone's own device backup if you want to
   keep it when you change phones.</p>
 
   <h2>5. Network access</h2>
-  <p>The Quran text, the mushaf pages, the fonts, and all ten translations are bundled inside the app and need no
-  network at all. The app uses the internet for <strong>one thing</strong>: fetching recitation audio when you
-  play or download it, from two public Quran audio hosts.</p>
+  <p>The Quran text, the mushaf pages, the fonts, the translations, the word meanings, the duas, the city list and
+  the adhan recordings are all inside the app and need no network. The app uses the internet for two things:</p>
   <ul>
-    <li><strong>everyayah.com</strong>, one MP3 per āyah, for nine of the reciters.</li>
-    <li><strong>mp3quran.net</strong>, surah recordings, for Badr al-Turki.</li>
+    <li><strong>Recitation audio</strong>, fetched when you play or download it, from one public Quran audio host,
+    <strong>everyayah.com</strong>, as one MP3 per ayah for every reciter. These requests fetch public files. They
+    carry no account, no identifier for you, and none of your progress, and the host is not ours. Audio is cached
+    on your iPhone after the first play.</li>
+    <li><strong>Your city's name</strong>, only if you tap Use my location, through Apple's geocoding service as
+    described above.</li>
   </ul>
-  <p>These requests fetch public audio files. They <strong>carry no account, no identifier for you, and none of
-  your progress</strong>, and neither host is ours. Audio is cached on your iPhone after the first play, so a
-  drill you have played once works offline afterwards.</p>
+  <p>Nothing else. Prayer times, the Hijri date and the qibla direction are calculated on the phone.</p>
 
   <h2>6. No advertising, analytics, or tracking</h2>
   <p>Hifz Quran contains no third-party advertising, analytics, or tracking software of any kind. We do not build
-  a profile of you and do not track you across other apps or websites. Under Apple’s definitions, Hifz Quran is
-  <strong>“Data Not Collected,”</strong> and the App Store privacy label says exactly that.</p>
+  a profile of you and do not track you across other apps or websites. Under Apple's definitions, Hifz Quran is
+  <strong>"Data Not Collected,"</strong> and the App Store privacy label says exactly that.</p>
 
   <h2>7. Purchases</h2>
   <p>Hifz Quran is free and has no in-app purchases. If we ever added a paid feature, any purchase would be
@@ -132,14 +147,13 @@
   to us. If you have a concern, email us and we will help.</p>
 
   <h2>10. Your choices and rights</h2>
-  <p>Because your data lives on your device, you are in control of it. You can reset your progress in the app and
-  clear the cached audio from Settings, and deleting the app removes its data from your phone. Depending on where
-  you live, you may have rights under laws like the GDPR or CCPA to access or delete personal data. Since we do
-  not hold your data, most of this is already in your hands; for anything you send us by email, contact us and we
-  will honor your request.</p>
+  <p>Because your data lives on your device, you are in control of it. You can clear the cached audio from Settings, and turn any alert, alarm or location use off again. Deleting the app
+  removes its data from your phone. Depending on where you live, you may have rights under laws like the GDPR or
+  CCPA to access or delete personal data. Since we do not hold your data, most of this is already in your hands;
+  for anything you send us by email, contact us and we will honor your request.</p>
 
   <h2>11. Security</h2>
-  <p>Your data is stored in the app’s protected storage on your iPhone and is covered by your device’s own
+  <p>Your data is stored in the app's protected storage on your iPhone and is covered by your device's own
   security, such as your passcode and encryption. No method of storage is perfect, but because nothing about you
   travels to our servers, there is very little for anyone else to reach.</p>
 
@@ -151,8 +165,9 @@
   <p>Questions about privacy? Email <a href="mailto:contact@bluetomatostudio.com">contact@bluetomatostudio.com</a>.</p>
 
   <div class="signoff">
-    <img class="mark" src="assets/img/mark.png" alt="" aria-hidden="true">
+    <span class="mark" aria-hidden="true"></span>
     <p>Your recitation is between you and your Lord. Nothing here records it.</p>
+  </div>
   </div>
 </main>
 
@@ -160,10 +175,10 @@
   <div class="wrap foot-grid">
     <div>
       <a class="wordmark" href="/">
-        <img class="mark" src="assets/img/mark.png" alt="" width="26" height="26">
-        <b>Hifz <span class="g">Quran</span></b>
+        <span class="mark" aria-hidden="true"></span>
+        <b>Hifz <i>Quran</i></b>
       </a>
-      <p class="small muted" style="margin-top:10px; max-width:34ch;">Memorize the Quran by choosing an ayah and repeating it, at your own pace.</p>
+      <p class="foot-ayah" lang="ar" dir="rtl" aria-hidden="true">وَلَقَدۡ يَسَّرۡنَا ٱلۡقُرۡءَانَ لِلذِّكۡرِ</p>
     </div>
     <div>
       <div class="foot-links">
@@ -172,10 +187,11 @@
         <a href="terms.html">Terms</a>
         <a href="mailto:contact@bluetomatostudio.com">Contact</a>
       </div>
-      <p class="foot-note">© 2026 Hifz Quran · Made by Farhan Hossain · <a href="mailto:contact@bluetomatostudio.com" style="color:inherit;">contact@bluetomatostudio.com</a></p>
+      <p class="foot-note">© 2026 Hifz Quran · Made by Farhan Hossain</p>
     </div>
   </div>
 </footer>
 
+<script src="assets/sky.js?v=20260901"></script>
 </body>
 </html>

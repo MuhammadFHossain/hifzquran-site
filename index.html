@@ -2,37 +2,47 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hifz Quran · Repeat, test, remember</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hifz Quran · Read, repeat, remember</title>
 <link rel="canonical" href="https://hifzquran.org/">
-<meta name="description" content="The Quran app for those who want to memorize it. Pick any ayah, repeat it as much as you need, then hide it and recite from memory on the real Madina mushaf. No account, no ads, no permissions.">
-<link rel="icon" type="image/png" href="assets/img/favicon-64.png">
+<meta name="description" content="The Quran app for people who want to memorize it. The real Madina mushaf, any ayah on repeat, and prayer times for your city. Free, no account, no ads.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<meta property="og:title" content="Hifz Quran · Repeat, test, remember">
-<meta property="og:description" content="The Quran app for those who want to memorize it. Pick any ayah, repeat it as much as you need, then hide it and check yourself.">
+<meta property="og:title" content="Hifz Quran · Read, repeat, remember">
+<meta property="og:description" content="The Quran app for people who want to memorize it. The real Madina mushaf, any ayah on repeat, and prayer times for your city. Free, no account, no ads.">
 <meta property="og:image" content="https://hifzquran.org/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hifzquran.org">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Hifz Quran · Repeat, test, remember">
-<meta name="twitter:description" content="The Quran app for those who want to memorize it. No account, no ads, no permissions.">
+<meta name="twitter:title" content="Hifz Quran · Read, repeat, remember">
+<meta name="twitter:description" content="The Quran app for people who want to memorize it. Free, no account, no ads.">
 <meta name="twitter:image" content="https://hifzquran.org/assets/img/og.png">
-<meta name="theme-color" content="#F7F8F6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#14120D" media="(prefers-color-scheme: dark)">
-<link rel="stylesheet" href="assets/styles.css?v=20260801">
+<meta name="theme-color" content="#F7F8F6">
+<link rel="stylesheet" href="assets/styles.css?v=20260901">
 </head>
 <body>
 
+<div class="ground" aria-hidden="true">
+  <div class="g-photo"></div>
+  <div class="g-night"><canvas></canvas></div>
+  <div class="g-grade"></div>
+  <div class="g-tint"></div>
+  <div class="g-veil"></div>
+</div>
+
 <header class="site-header">
-  <div class="wrap bar">
+  <div class="bar">
     <a class="wordmark" href="/">
-      <img class="mark" src="assets/img/mark.png" alt="" width="26" height="26">
-      <b>Hifz <span class="g">Quran</span></b>
+      <span class="mark" aria-hidden="true"></span>
+      <b>Hifz <i>Quran</i></b>
     </a>
     <nav class="nav">
-      <a href="#how" class="hide-sm">How it works</a>
+      <a href="#mushaf" class="hide-sm">Mushaf</a>
+      <a href="#repeat" class="hide-sm">Repeat</a>
+      <a href="#salah" class="hide-sm">Prayer</a>
       <a href="#private" class="hide-sm">Private</a>
       <a href="support.html">Support</a>
     </nav>
@@ -41,174 +51,171 @@
 
 <main>
 
-  <!-- HERO -->
+  <!-- HERO: the sky it is right now, sharp, as the Salah tab draws it -->
   <section class="hero">
-    <img class="halo" src="assets/img/mark.png" alt="" aria-hidden="true">
+    <div class="sky" aria-hidden="true">
+      <div class="s-photo"></div>
+      <div class="s-night"><canvas></canvas></div>
+      <div class="s-grade"></div>
+    </div>
+    <div class="scrim" aria-hidden="true"></div>
     <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow">For iPhone</p>
-        <h1>Repeat, test,<br><span class="soft">remember.</span></h1>
+      <div class="reveal">
+        <span class="skyTag"><i class="dot"></i><span id="skyLabel">Afternoon</span><span aria-hidden="true">·</span><span id="skyClock">16:40</span></span>
+        <h1>Read, repeat,<br><em>remember.</em></h1>
         <p class="lead">
-          The Quran app for those who want to memorize it. Pick any ayah,
-          repeat it as much as you need, and test yourself when you are ready.
+          The real Madina mushaf, any ayah on repeat, and prayer times for your city.
+          Free, no account, no ads.
         </p>
         <div class="cta">
-          <a class="btn btn-solid" href="https://apps.apple.com/us/app/hifz-quran/id6792413377">
-            <svg class="appleglyph" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141 0 184.5 0 273.5 0 300 4.8 327.3 14.4 355.6c12.8 37.3 59 128.9 107.2 127.4 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-83.9 102.6-121.3-65.2-30.7-61.7-90-57.7-93.7zM255.2 78.4C284.5 43.7 281.8 12.1 281 0c-27.9 1.6-60.2 19-78.6 40.5-20.3 23-32.2 51.4-29.6 82.8 30.1 2.3 57.5-13.2 82.4-44.9z"/></svg>
+          <a class="btn btn-store" href="https://apps.apple.com/us/app/hifz-quran/id6792413377">
+            <svg class="khatim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.2" y="5.2" width="13.6" height="13.6"/><rect x="5.2" y="5.2" width="13.6" height="13.6" transform="rotate(45 12 12)"/></svg>
             Download on the App Store
           </a>
-          <span class="btn btn-quiet" aria-disabled="true" style="cursor:default;">
-            <svg class="droidglyph" viewBox="3.2 1.7 17.6 17.6" aria-hidden="true"><path d="M7.5 3.2 9.3 6.2M16.5 3.2 14.7 6.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path fill="currentColor" fill-rule="evenodd" d="M4.6 10.6a7.4 7.4 0 0 1 14.8 0v6a1.2 1.2 0 0 1-1.2 1.2H5.8a1.2 1.2 0 0 1-1.2-1.2zM8.3 9.6a1 1 0 1 0 2 0 1 1 0 1 0-2 0zM13.7 9.6a1 1 0 1 0 2 0 1 1 0 1 0-2 0z"/></svg>
-            Coming soon to Android
-          </span>
         </div>
-        <p class="small muted fine">Free on iPhone · iOS 17 or later · No account, no ads, no permissions.</p>
+        <p class="fine">Free · iPhone, iOS 17 or later · Coming soon to Android</p>
       </div>
-
-      <!-- the mushaf card mirrors the app's own page; text is the real Uthmanic Hafs mushaf -->
-      <div class="mushaf" aria-label="A page of the mushaf, repeating an ayah">
-        <div class="surah-head">
-          <span class="name">Al-Fātiḥah</span>
-          <span class="meta">The Opener · Makkah · 7 āyāt · page 1</span>
+      <div class="reveal later">
+        <div class="phones">
+          <picture>
+          <source srcset="assets/shots/quran-night.webp" type="image/webp">
+          <img class="phone night" src="assets/shots/quran-night.png" width="660" height="1434" alt="The Quran tab at night: dark glass cards over a starry sky" loading="eager" decoding="async">
+        </picture>
+          <picture>
+          <source srcset="assets/shots/quran-day.webp" type="image/webp">
+          <img class="phone day" src="assets/shots/quran-day.png" width="660" height="1434" alt="The Quran tab in the afternoon: light glass cards over a golden sky, with the Continue card, Listen and Repeat, and the list of surahs" loading="eager" decoding="async">
+        </picture>
         </div>
-        <div class="lines" lang="ar" dir="rtl" aria-hidden="true">
-          <span class="ayah">بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ<span class="ayah-end">١</span></span>
-          <span class="ayah active">ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ<span class="ayah-end">٢</span></span>
-        </div>
-        <span class="listen"><span class="dot"></span> repeating · each ayah ×3</span>
+        <p class="phones-note">Afternoon and night. The colours follow the time of day.</p>
       </div>
     </div>
   </section>
 
-  <!-- HOW -->
-  <section id="how">
-    <div class="wrap">
-      <p class="eyebrow" style="text-align:center;">How it works</p>
-      <h2 style="text-align:center; margin-bottom:10px; max-width:20ch; margin-inline:auto;">Memorize a page in three steps.</h2>
-      <div class="rule-mark"><img class="mark" src="assets/img/mark.png" alt="" aria-hidden="true"></div>
-      <div class="steps">
-        <div class="step">
-          <div class="n">١</div>
-          <h3>Pick your passage</h3>
-          <p>Tap an ayah to set the start, tap another to set the end. That is what you are working on.</p>
-        </div>
-        <div class="step">
-          <div class="n">٢</div>
-          <h3>Repeat it</h3>
-          <p>Play it back with a reciter. Set how many times each ayah repeats, chain them together, and leave a gap to recite along.</p>
-        </div>
-        <div class="step">
-          <div class="n">٣</div>
-          <h3>Test yourself</h3>
-          <p>Hide the ayat on the page, recite each one from memory, then reveal it to check.</p>
-        </div>
+  <!-- THE MUSHAF: words left, screens right -->
+  <section id="mushaf" class="band">
+    <div class="wrap band-grid">
+      <div class="copy reveal">
+        <p class="eyebrow">The mushaf</p>
+        <h2>The real Madina mushaf.</h2>
+        <ul>
+          <li>Page 562 here is page 562 in print. Same lines, same fonts.</li>
+          <li>Madina, Classic and Indo-Pak prints, with tajweed colours if you want them.</li>
+          <li>Translations under each ayah. Hold a word for its meaning.</li>
+        </ul>
+      </div>
+      <div class="media two reveal later">
+        <picture>
+          <source srcset="assets/shots/mushaf.webp" type="image/webp">
+          <img class="phone" src="assets/shots/mushaf.png" width="660" height="1434" alt="Surah Al-Mulk on page 562 of the Madina mushaf, with the first four ayat selected" loading="lazy" decoding="async">
+        </picture>
+        <picture>
+          <source srcset="assets/shots/tajweed.webp" type="image/webp">
+          <img class="phone" src="assets/shots/tajweed.png" width="660" height="1434" alt="The same page with tajweed colours on" loading="lazy" decoding="async">
+        </picture>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section style="padding-top:0;">
-    <div class="wrap">
-      <h2 class="sr-only">Inside the app</h2>
-      <div class="features">
-        <div class="feature">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></div>
-          <span class="k">The core</span>
-          <h3>Choose an ayah and repeat it</h3>
-          <p>The heart of the app. Pick any ayah or passage and repeat it: set how many times each ayah plays, chain them together, and leave a gap to recite along. Ten reciters, works offline, and keeps going with the screen locked.</p>
-        </div>
-        <div class="feature">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2Z"/><path d="M19 20a2 2 0 0 0 2-2V6"/><path d="M8 8h7M8 12h7M8 16h4"/></svg></div>
-          <span class="k">Page-exact</span>
-          <h3>The real Madina mushaf</h3>
-          <p>Every page matches the printed 1441H Madina mushaf: same layout, same fonts, same fifteen lines, same ornamental surah bands. Page 47 in the app is page 47 in print. Plain or tajweed-colored, both the same edition.</p>
-        </div>
-        <div class="feature">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M8 7v10M16 7v10M4 10v4M20 10v4"/></svg></div>
-          <span class="k">Test yourself</span>
-          <h3>Hide it, then check yourself</h3>
-          <p>The ayat you are working on go blank on the page. Recite each one from memory, tap Reveal to check it, then mark the run solid or shaky. No microphone, no recording. Just you and the page.</p>
-        </div>
-        <div class="feature">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
-          <span class="k">Review</span>
-          <h3>Spaced repetition</h3>
-          <p>What you have memorized comes due on its own schedule, and how the last test went sets when. The Memorize tab lists what is ready today, one tap from a test.</p>
-        </div>
-        <div class="feature">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h7v14H4z"/><path d="M13 5h7v14h-7z"/><path d="M6.5 9h2M15.5 9h2M6.5 12h2M15.5 12h2"/></svg></div>
-          <span class="k">Translations</span>
-          <h3>Ten translations, three scripts</h3>
-          <p>Read in Madina, tajweed-colored, or Indopak script, with a translation under each ayah if you want one. Ten are included and work offline, across eight languages: English (three), Bengali, Urdu, French, Spanish, Indonesian, Turkish and Russian.</p>
-        </div>
-        <div class="feature">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.4 3 8.5 7 10 4-1.5 7-5.6 7-10V6z"/><path d="M9.5 12l1.8 1.8 3.5-3.6"/></svg></div>
-          <span class="k">Free</span>
-          <h3>No account, no ads</h3>
-          <p>No permissions: no microphone, no speech recognition, none at all. No account, no subscription, no ads, no analytics. Your progress stays on your iPhone.</p>
-        </div>
+  <!-- REPEAT: screen left, words right -->
+  <section id="repeat" class="band flip">
+    <div class="wrap band-grid">
+      <div class="copy reveal">
+        <p class="eyebrow">Repeat</p>
+        <h2>Play any ayah over and over.</h2>
+        <ul>
+          <li>Tap an ayah, or pick a range.</li>
+          <li>Set how many times each one plays, and a gap to recite along.</li>
+          <li>Thirty-one reciters, every one ayah by ayah. Works offline, and with the screen locked.</li>
+        </ul>
+      </div>
+      <div class="media reveal later">
+        <picture>
+          <source srcset="assets/shots/repeat.webp" type="image/webp">
+          <img class="phone" src="assets/shots/repeat.png" width="660" height="1434" alt="The Repeat sheet: how many times each ayah plays, the gap to recite along, and the reciter" loading="lazy" decoding="async">
+        </picture>
       </div>
     </div>
   </section>
 
-  <!-- SCREENSHOTS -->
-  <section id="look" style="padding-top:0;">
-    <div class="wrap shots-head">
-      <p class="eyebrow">A look inside</p>
-      <h2 style="margin-bottom:6px;">What it looks like.</h2>
-      <p class="small muted shots-hint">A few screens from inside.</p>
+  <!-- SALAH: words left, screen right, under a sky of its own -->
+  <section id="salah" class="band dusk">
+    <div class="sky" aria-hidden="true">
+      <div class="b-photo"></div>
+      <div class="b-grade"></div>
+      <div class="b-scrim"></div>
     </div>
-    <div class="wrap">
-      <div class="shots">
-        <figure><img src="assets/shots/01_mushaf.png" width="684" height="1486" alt="A page-exact page of the Madina mushaf, Surah Al-Mulk, with the first four ayat selected" loading="lazy"><figcaption><b>The mushaf</b>The page you memorize from</figcaption></figure>
-        <figure><img src="assets/shots/04_memorize.png" width="684" height="1486" alt="The Memorize screen: what is due for review, the passage you are working on, and your progress" loading="lazy"><figcaption><b>Memorize</b>Pick a surah, see your progress</figcaption></figure>
-        <figure><img src="assets/shots/05_repeat.png" width="684" height="1486" alt="The repeat sheet: how many times each ayah plays, the gap to recite along, and the reciter" loading="lazy"><figcaption><b>Repeat</b>Set the counts, then repeat</figcaption></figure>
-        <figure><img src="assets/shots/03_test.png" width="684" height="1486" alt="Testing yourself: the ayat blanked out on the page, with a Reveal button to check each one" loading="lazy"><figcaption><b>Test</b>Hide it, then check yourself</figcaption></figure>
-        <figure><img src="assets/shots/06_tajweed.png" width="684" height="1486" alt="The tajweed-colored mushaf, with the rules of recitation shown in color" loading="lazy"><figcaption><b>Tajweed</b>Every rule in color</figcaption></figure>
+    <div class="wrap band-grid">
+      <div class="copy reveal">
+        <p class="eyebrow">Salah</p>
+        <h2>Prayer times for your own city.</h2>
+        <ul>
+          <li>A countdown to the next prayer, and the whole day on one bar.</li>
+          <li>The qibla, with the distance to Makkah.</li>
+          <li>An adhan or an alarm for each prayer, and widgets for the Home Screen and Lock Screen.</li>
+        </ul>
+      </div>
+      <div class="media reveal later">
+        <picture>
+          <source srcset="assets/shots/salah.webp" type="image/webp">
+          <img class="phone" src="assets/shots/salah.png" width="660" height="1434" alt="The Salah tab at dusk: Isha in 1:01, the day drawn as a coloured bar, the six times, and tiles for the qibla and the evening adhkar" loading="lazy" decoding="async">
+        </picture>
       </div>
     </div>
   </section>
 
-  <!-- PRIVACY PLEDGE -->
-  <section id="private" style="padding-top:0;">
+  <!-- DUA: screen left, words right -->
+  <section id="dua" class="band flip">
+    <div class="wrap band-grid">
+      <div class="copy reveal">
+        <p class="eyebrow">Dua</p>
+        <h2>Morning and evening duas.</h2>
+        <ul>
+          <li>The morning and evening sets, duas after the prayer, and durood.</li>
+          <li>Every dua says where it comes from.</li>
+        </ul>
+      </div>
+      <div class="media reveal later">
+        <picture>
+          <source srcset="assets/shots/dua.webp" type="image/webp">
+          <img class="phone" src="assets/shots/dua.png" width="660" height="1434" alt="The Dua tab: the evening set first, then morning, after the prayer, durood, and duas for the moment" loading="lazy" decoding="async">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVATE -->
+  <section id="private">
     <div class="wrap">
-      <div class="pledge">
+      <div class="pledge card glass reveal">
         <img class="halo" src="assets/img/mark.png" alt="" aria-hidden="true">
         <p class="eyebrow">The promise</p>
         <h2>Free for you.</h2>
         <p>
-          Free, with no account to make and no permissions to grant. No microphone, no speech
-          recognition, no camera, no contacts, no location. No analytics, no advertising, and no
-          servers of ours. The only thing fetched from the internet is recitation audio. Your
-          progress stays on your iPhone. Read the
-          full <a href="privacy.html">privacy policy</a>.
+          No account, no ads, no analytics, and no servers of ours. Your progress stays on your
+          iPhone. Location, notifications and alarms are optional, and the app asks only when you
+          turn them on. Read the <a href="privacy.html">privacy policy</a>.
         </p>
         <div class="chips">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>No permissions at all</span>
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>No account</span>
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>No ads or analytics</span>
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Free, no in-app purchases</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Nothing is recorded</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ACKNOWLEDGEMENTS -->
-  <section class="thanks" style="padding-top:0;">
+  <!-- THANKS -->
+  <section class="thanks center" style="padding-top:0;">
     <div class="wrap">
-      <p class="eyebrow">With thanks</p>
-      <h2 style="margin-bottom:14px;">Built on the work of others.</h2>
-      <p>
-        The mushaf text, layout, and fonts come from the King Fahd Glorious Quran Printing Complex and
-        the Quranic Universal Library. The recitations are by well-known reciters, and the translations are
-        the work of their translators. Hifz Quran is free, and these sources are credited with thanks.
-      </p>
-      <div class="sources">
-        <span class="src">KFGQPC Uthmanic fonts</span>
-        <span class="src">Quran.com / QUL layout data</span>
-        <span class="src">everyayah.com reciters</span>
-        <span class="src">mp3quran.net (Badr al-Turki)</span>
-        <span class="src">Ten bundled translations</span>
+      <p class="eyebrow">With thanks to</p>
+      <div class="sources reveal" style="margin-top:6px;">
+        <span class="src">King Fahd Glorious Quran Printing Complex</span>
+        <span class="src">Quranic Universal Library</span>
+        <span class="src">Quran.com</span>
+        <span class="src">QuranWBW</span>
+        <span class="src">everyayah.com</span>
+        <span class="src">The reciters and translators</span>
       </div>
     </div>
   </section>
@@ -219,11 +226,10 @@
   <div class="wrap foot-grid">
     <div>
       <a class="wordmark" href="/">
-        <img class="mark" src="assets/img/mark.png" alt="" width="26" height="26">
-        <b>Hifz <span class="g">Quran</span></b>
+        <span class="mark" aria-hidden="true"></span>
+        <b>Hifz <i>Quran</i></b>
       </a>
-      <p class="small muted" style="margin-top:10px; max-width:34ch;">Memorize the Quran by choosing an ayah and repeating it, at your own pace.</p>
-      <p class="foot-ayah" lang="ar" dir="rtl" aria-hidden="true">وَلَقَدۡ يَسَّرۡنَا ٱلۡقُرۡءَانَ لِلذِّكۡرِ</p>
+            <p class="foot-ayah" lang="ar" dir="rtl" aria-hidden="true">وَلَقَدۡ يَسَّرۡنَا ٱلۡقُرۡءَانَ لِلذِّكۡرِ</p>
     </div>
     <div>
       <div class="foot-links">
@@ -237,5 +243,6 @@
   </div>
 </footer>
 
+<script src="assets/sky.js?v=20260901"></script>
 </body>
 </html>
