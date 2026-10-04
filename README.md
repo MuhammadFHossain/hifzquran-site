@@ -30,7 +30,8 @@ assets/
   sky.js          picks the sky from the clock and paints it
   sky/            the app's evening photograph, sharp for the hero and blurred for the ground
   fonts/          Fraunces (headings, OFL) + UthmanicHafsV22 (the mushaf face, KFGQPC)
-  img/            app-icon, mark (the gold rosette), apple-touch-icon, favicons, og.png
+  img/            Apple's App Store badges (black for day, white after dark, from
+                  toolbox.marketingtools.apple.com, never redrawn), app-icon, mark (the gold rosette), apple-touch-icon, favicons, og.png
   shots/          screens of the app at 2x for a 330pt phone, and the iPad's two-page
                   spread at 1920 wide, each as WebP with PNG behind it
 appstore-screenshots/
@@ -93,5 +94,3 @@ must be real; nothing is ever invented or paraphrased into a quote.
   the reviewer's name as the store shows it, chosen by the owner.
 - **A note from the maker:** a few honest lines from the owner on why the app
   exists, written or approved by them.
-- **Apple's App Store badge** in place of the lapis button, once the owner
-  approves downloading it from Apple's marketing tools.

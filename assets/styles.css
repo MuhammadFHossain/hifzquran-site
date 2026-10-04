@@ -341,10 +341,18 @@ body::after {
 .btn-solid:active, .btn-store:active { transform: scale(.985); }
 .btn-store { padding: 0 24px 0 20px; }
 .btn-store svg { width: 20px; height: 20px; flex: none; }
-/* Apple's own badge, when it is in place of the button. */
-.badge { display: inline-block; line-height: 0; border-radius: var(--rs); transition: transform var(--press) ease; }
+/* Apple's own badge, as Apple draws it: black on paper, white after dark,
+   never redrawn or recoloured, and at least 40 tall. */
+.badge { display: inline-block; line-height: 0; transition: transform var(--press) ease; }
 .badge img { height: 54px; width: auto; }
 .badge:hover { transform: translateY(-1px); }
+.night-only { display: none; }
+:root.dark .day-only { display: none; }
+:root.dark .night-only { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .day-only { display: none; }
+  :root:not(.light) .night-only { display: block; }
+}
 
 /* ---- sections ---- */
 section { padding: 64px 0; position: relative; }
