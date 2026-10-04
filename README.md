@@ -1,5 +1,10 @@
 # Hifz Quran, the website
 
+> **Waiting for 3.0.** Branch `release-3.0` holds the 3.0 site, finished and
+> approved by the owner on 4 October 2026. It is NOT live. Do not merge or push
+> it until Hifz Quran 3.0 is approved by Apple and live on the App Store. Then
+> follow "Going live" below.
+
 The marketing and legal site for **Hifz Quran** (iPhone and iPad, Android coming
 soon), at **hifzquran.org**. Plain static
 HTML, CSS and one small script. No build step, no framework, no tracking, no
@@ -94,3 +99,17 @@ must be real; nothing is ever invented or paraphrased into a quote.
   the reviewer's name as the store shows it, chosen by the owner.
 - **A note from the maker:** a few honest lines from the owner on why the app
   exists, written or approved by them.
+
+## Going live (once 3.0 is approved)
+
+1. Check the App Store page shows 3.0, and that the store link in `index.html`
+   (`https://apps.apple.com/us/app/hifz-quran/id6792413377`) opens it.
+2. If any screen in the app changed since 4 October, run
+   `python3 tools/export_assets.py screens` and look at the page again.
+3. Merge `release-3.0` into `main` and push. GitHub Pages publishes it in a
+   minute or two. Open https://hifzquran.org on a phone and a computer.
+4. In App Store Connect, keep Apple's standard EULA; the privacy and support
+   links stay as listed above.
+5. When the Android app is public on Google Play, change the "coming soon"
+   lines (hero, Questions, the end of the page, Support) to a Google Play
+   link, and drop `.android-only` / `.ios-only` from the store buttons.
