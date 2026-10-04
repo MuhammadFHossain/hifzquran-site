@@ -1,18 +1,29 @@
 #!/usr/bin/env python3
 """Exports the app's own pictures into the site.
 
-Skies: the three photographs the app grades into five daylight windows, once
+Skies: the three photographs the app graded into five daylight windows, once
 sharp for the hero and once blurred back to a ground, the way MushafGround
-draws them. Screens: today's shots at 2x for a 330pt phone. Crops: the five
-details the feature cards show. Icons: the rosette, cut from the app icon.
+drew them. Screens: the 3.0 shots at 2x for a 330pt phone, and the iPad's
+two-page spread at 1920 wide. Icons: the rosette, cut from the app icon.
+
+    python3 tools/export_assets.py [skies] [screens] [icons]
+
+With no names it exports all three. After a reshoot, `screens` is enough.
 """
 import os, sys
 from PIL import Image, ImageFilter, ImageOps
 
-WT = "/Users/farhanhossain/hifz-wt-sky"
-SITE = "/Users/farhanhossain/Desktop/Side Projects/App Projects/hifzquran-site/assets"
+# 3.0 lives on feature/ui-polish. Its shots are where AppStore/shoot.sh writes
+# them: the phone's in shots/, the iPad's in shots/ipad/.
+WT = os.path.expanduser("~/hifz-wt-polish")
 SHOTS = f"{WT}/AppStore/shots"
 CAT = f"{WT}/HifzQuran/Assets.xcassets"
+# 3.0 no longer ships the sky photographs, so the skies still come from the
+# worktree that had them.
+SKY_CAT = os.path.expanduser("~/hifz-wt-sky/HifzQuran/Assets.xcassets")
+SITE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets")
+SITE = os.path.normpath(SITE)
+PARTS = set(sys.argv[1:]) or {"skies", "screens", "icons"}
 
 os.makedirs(f"{SITE}/sky", exist_ok=True)
 os.makedirs(f"{SITE}/shots", exist_ok=True)
@@ -29,10 +40,11 @@ def save_pair(im, base, q=85):
     print(f"  {os.path.relpath(base, SITE):40s} webp {os.path.getsize(base+'.webp')//1024:4d} KB  png {os.path.getsize(base+'.png')//1024:4d} KB  {im.size}")
 
 # ---- skies ---------------------------------------------------------------
-print("skies")
 frames = {"morning": "SkyMorning", "golden": "SkyGoldenHour", "evening": "SkyEvening"}
-for name, asset in frames.items():
-    im = Image.open(f"{CAT}/{asset}.imageset/{asset}@2x.jpg").convert("RGB")
+if "skies" in PARTS:
+    print("skies")
+for name, asset in (frames.items() if "skies" in PARTS else ()):
+    im = Image.open(f"{SKY_CAT}/{asset}.imageset/{asset}@2x.jpg").convert("RGB")
     # The hero: sharp, with the JPEG grain taken off so a 2.7x upscale reads as
     # atmosphere rather than as blocks.
     save_jpg(im.filter(ImageFilter.GaussianBlur(1.2)), f"{SITE}/sky/{name}.jpg", 86)
@@ -55,17 +67,26 @@ for name, asset in frames.items():
     save_jpg(ground, f"{SITE}/sky/{name}-ground.jpg", 80)
 
 # ---- screens -------------------------------------------------------------
-print("screens (2x for a 330pt phone)")
 screens = {"01_quran": "quran-day", "12_night": "quran-night", "01_mushaf": "mushaf",
            "02_repeat": "repeat", "05_tajweed": "tajweed",
            "06_salah": "salah", "08_dua": "dua"}
-W = 660
-for src, dst in screens.items():
-    im = Image.open(f"{SHOTS}/{src}.png").convert("RGB")
+if "screens" in PARTS:
+    print("screens (2x for a 330pt phone)")
+    W = 660
+    for src, dst in screens.items():
+        im = Image.open(f"{SHOTS}/{src}.png").convert("RGB")
+        h = round(im.height * W / im.width)
+        save_pair(im.resize((W, h), Image.LANCZOS), f"{SITE}/shots/{dst}")
+    # The iPad on its side, two pages open: 2x for the 960pt column it fills.
+    print("ipad (2x for a 960pt column)")
+    W = 1920
+    im = Image.open(f"{SHOTS}/ipad/pad_spread.png").convert("RGB")
     h = round(im.height * W / im.width)
-    save_pair(im.resize((W, h), Image.LANCZOS), f"{SITE}/shots/{dst}")
+    save_pair(im.resize((W, h), Image.LANCZOS), f"{SITE}/shots/ipad-spread")
 
 # ---- icons ---------------------------------------------------------------
+if "icons" not in PARTS:
+    sys.exit(0)
 print("icons")
 icon = Image.open(f"{CAT}/AppIcon.appiconset/icon-1024.png").convert("RGBA")
 for size, name in ((512, "app-icon.png"), (180, "apple-touch-icon.png"), (64, "favicon-64.png"), (32, "favicon-32.png")):

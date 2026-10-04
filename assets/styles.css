@@ -407,6 +407,16 @@ section { padding: 72px 0; position: relative; }
 .band.dusk li::before { background: #F3D9A0; }
 .band.dusk .phone { border-color: rgba(255,255,255,.18); box-shadow: 0 34px 80px rgba(0,0,0,.55); }
 
+/* ---- the iPad: the open book, wide, under its own head ----
+   The screen is shown as it is, with the iPad's rounded corners and no drawn
+   frame, the way the phones are. */
+.spread { isolation: isolate; padding: 64px 0; }
+.spread .section-head { position: relative; max-width: 640px; }
+.spread .section-head .lead { margin: 16px auto 0; max-width: 46ch; }
+.spread picture { display: block; max-width: 960px; margin: 36px auto 0; }
+.tablet { display: block; width: 100%; height: auto; border-radius: 18px;
+  border: 1px solid var(--phoneEdge); box-shadow: var(--phoneShadow); background: var(--card); }
+
 /* ---- the pledge ---- */
 .pledge { padding: 44px 44px 40px; text-align: center; position: relative; overflow: hidden; }
 .pledge .halo { position: absolute; width: 300px; right: -70px; bottom: -90px; opacity: .07; pointer-events: none; }
@@ -430,7 +440,7 @@ section { padding: 72px 0; position: relative; }
    soft rise of paper a band gives its copy. */
 .more { isolation: isolate; }
 .more .section-head { position: relative; }
-.more .section-head::before { content: ""; position: absolute; inset: -30px -70px; z-index: -1; pointer-events: none;
+.more .section-head::before, .spread .section-head::before { content: ""; position: absolute; inset: -30px -70px; z-index: -1; pointer-events: none;
   background: radial-gradient(closest-side, rgba(var(--scrim), .58), rgba(var(--scrim), 0)); }
 .notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 30px; text-align: left; }
 .note { padding: 24px 26px 26px; }
@@ -553,6 +563,7 @@ section { padding: 72px 0; position: relative; }
   .band { padding: 40px 0; }
   .band .media.two { gap: 12px; }
   .band .media.two .phone:last-child { margin-top: 32px; }
+  .tablet { border-radius: 12px; }
   .pledge { padding: 34px 22px; }
   .notes { grid-template-columns: 1fr; gap: 12px; }
   .note { padding: 22px 22px 24px; }

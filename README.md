@@ -1,6 +1,7 @@
 # Hifz Quran, the website
 
-The marketing and legal site for **Hifz Quran**, at **hifzquran.org**. Plain static
+The marketing and legal site for **Hifz Quran** (iPhone and iPad, Android coming
+soon), at **hifzquran.org**. Plain static
 HTML, CSS and one small script. No build step, no framework, no tracking, no
 external requests.
 
@@ -13,7 +14,8 @@ checking the page at any hour.
 
 ```
 index.html        landing page
-privacy.html      Privacy Policy   (Apple requires a Privacy Policy URL)
+privacy.html      Privacy Policy   (Apple and Google Play both require a Privacy Policy URL;
+                  it covers the iPhone and iPad app, the Android app, their widgets and this site)
 terms.html        Terms of Use / EULA
 support.html      Support page     (Apple requires a Support URL)
 404.html          not-found page
@@ -26,16 +28,19 @@ assets/
   sky/            three of the app's photographs, sharp for the hero and blurred for the ground
   fonts/          Fraunces (headings, OFL) + UthmanicHafsV22 (the mushaf face, KFGQPC)
   img/            app-icon, mark (the gold rosette), apple-touch-icon, favicons, og.png
-  shots/          screens of the app at 2x for a 330pt phone, WebP with PNG behind it,
-                  and five crops the feature cards show
+  shots/          screens of the app at 2x for a 330pt phone, and the iPad's two-page
+                  spread at 1920 wide, each as WebP with PNG behind it
 appstore-screenshots/
   6.9-inch/       the 1320x2868 pages that went up to the store on 26 August 2026
   6.5-inch/       the same at 1284x2778
 ```
 
-`tools/export_assets.py` exports the screens in `assets/shots/` from
-`~/hifz-wt-sky/AppStore/shots/`, the sky grounds from the app's asset catalogue
-and the icon set from the app icon; run it after any reshoot.
+`tools/export_assets.py` exports the screens in `assets/shots/` from the 3.0
+shots in `~/hifz-wt-polish/AppStore/shots/` (the iPad's in `shots/ipad/`), the
+icon set from the app icon, and the sky grounds from `~/hifz-wt-sky`'s asset
+catalogue, since 3.0 no longer ships the photographs. After a reshoot,
+`python3 tools/export_assets.py screens` is enough. The share card,
+`assets/img/og.png`, shows no screens, so a reshoot does not touch it.
 `tools/shoot_site.py` photographs the site with headless Chrome over the DevTools
 protocol (the Browser pane cannot screenshot while it is hidden):
 `python3 tools/shoot_site.py out "top|http://localhost:8765/index.html?sky=asr|1440|900|0|0,900"`.
@@ -52,8 +57,8 @@ In App Store Connect, use these URLs:
 - **Marketing URL**: `https://hifzquran.org`
 - **EULA**: either leave Apple's standard EULA, or paste `https://hifzquran.org/terms.html`
 
-Store copy (name, subtitle, description, keywords) lives in
-`../HifzQuran/APPSTORE_LISTING.md`.
+Store copy for 3.0 (What's New, promotional text, description) lives in
+`~/hifz-wt-polish/ASO/APPSTORE_LISTING_3.0.md`. The site's claims should match it.
 
 ## Hosting
 
