@@ -1,27 +1,35 @@
-/* The sky, and the chrome that follows it.
+/* The sky, and the page that follows it.
    The app draws seven skies through the day from SkyPalette.swift. These are
-   the same stops, the same photographs, the same grading numbers. There are
-   no prayer times here, so the window is read off the clock: near enough for
-   a page, and the app itself does the real sums.
-   ?sky=maghrib forces a window, the way the app's -sky launch argument does. */
+   the same stops and the same light. There are no prayer times here, so the
+   window is read off the clock: near enough for a page, and the app itself
+   does the real sums.
+   By day the sky sits at the head of the paper, with its light where the sun
+   stands (MushafGround.hour). After dark the page turns dark and the sky is
+   the whole ground: the evening photograph at Maghrib, the drawn night
+   before dawn and after Isha.
+   ?sky=maghrib forces a window, the way the app's -sky launch argument does,
+   and ?clock=21:30 forces a time. */
 (function () {
   "use strict";
+  // glow: SkyPalette.glowGeometry, its colour, centre and peak. The ground
+  // lifts the peak by the strength times nine, up to 0.9.
   var SKIES = {
-    fajr:    { label: "Before dawn", dark: true,  photo: null,
+    fajr:    { dark: true,  photo: false, glow: [0x8A5F5E, .50, 1.04, .30],
                stops: ["#070C22 0%", "#131C41 34%", "#2C3159 62%", "#5B4867 84%", "#8A5F5E 100%"] },
-    shuruq:  { label: "Sunrise",     dark: false, photo: "morning", sat: 1,   lift: 0,
+    shuruq:  { dark: false, glow: [0xF6D9A4, .30, .88, .42],
                stops: ["#2E4E77 0%", "#6B7C93 30%", "#C58E58 56%", "#E9A85C 78%", "#F3CE8E 100%"] },
-    duha:    { label: "Mid morning", dark: false, photo: "morning", sat: .42, lift: .10,
+    duha:    { dark: false, glow: [0xEAF3F8, .30, .58, .26],
                stops: ["#1E63A8 0%", "#4C93C6 36%", "#94C0DC 68%", "#D3E4EE 100%"] },
-    dhuhr:   { label: "Midday",      dark: false, photo: "morning", sat: .34, lift: .16,
+    dhuhr:   { dark: false, glow: [0xF2F8FA, .50, .12, .30],
                stops: ["#2C7BB6 0%", "#66A6CE 40%", "#AECBDD 72%", "#E4EDF1 100%"] },
-    asr:     { label: "Afternoon",   dark: false, photo: "golden",  sat: .92, lift: .04,
+    asr:     { dark: false, glow: [0xE8C88C, .70, .52, .28],
                stops: ["#2A5C86 0%", "#6C7E93 32%", "#B98F5E 60%", "#D9A85F 84%", "#EBC98D 100%"] },
-    maghrib: { label: "Sunset",      dark: true,  photo: "evening", sat: 1,   lift: -.22,
+    maghrib: { dark: true,  photo: true,
                stops: ["#151A3C 0%", "#2E2350 22%", "#5B3059 44%", "#93435A 66%", "#BC5F67 86%", "#D68B7B 100%"] },
-    isha:    { label: "Night",       dark: true,  photo: null,
+    isha:    { dark: true,  photo: false,
                stops: ["#03040D 0%", "#080D22 42%", "#111938 74%", "#25304F 100%"] }
   };
+  var STRENGTH = 0.22;
 
   function windowAt(h) {
     if (h < 4) return "isha";
@@ -37,12 +45,9 @@
   var params = new URLSearchParams(location.search);
   var forced = params.get("sky");
   var clockArg = params.get("clock");
-  var base = (document.currentScript && document.currentScript.dataset.base) || "assets/sky/";
   var root = document.documentElement;
   var ground = document.querySelector(".ground");
   var hero = document.querySelector(".hero .sky");
-  var label = document.getElementById("skyLabel");
-  var clock = document.getElementById("skyClock");
   var meta = document.querySelector('meta[name="theme-color"]');
   var current = null;
 
@@ -103,28 +108,25 @@
 
   function paint(name) {
     var s = SKIES[name];
-    var grad = "linear-gradient(180deg," + s.stops.join(",") + ")";
     root.classList.toggle("dark", s.dark);
     root.classList.toggle("light", !s.dark);
-    root.style.setProperty("--skyGrad", grad);
-    if (s.photo) {
-      var gp = ground && ground.querySelector(".g-photo");
-      var hp = hero && hero.querySelector(".s-photo");
-      if (gp) gp.style.backgroundImage = "url(" + base + s.photo + "-ground.jpg)";
-      if (hp) hp.style.backgroundImage = "url(" + base + s.photo + ".jpg)";
-      root.style.setProperty("--sat", s.sat);
-      root.style.setProperty("--bri", 1 + s.lift);
+    root.style.setProperty("--skyGrad", "linear-gradient(180deg," + s.stops.join(",") + ")");
+    if (s.glow) {
+      var c = s.glow[0], a = Math.min(.9, s.glow[3] * STRENGTH * 9);
+      root.style.setProperty("--glow", "rgba(" + (c >> 16) + "," + ((c >> 8) & 255) + "," + (c & 255) + "," + a.toFixed(2) + ")");
+      root.style.setProperty("--glowX", (s.glow[1] * 100) + "%");
+      root.style.setProperty("--glowY", (s.glow[2] * 50) + "%");
     }
-    if (ground) ground.classList.toggle("night", !s.photo);
-    if (hero) hero.classList.toggle("night", !s.photo);
-    if (!s.photo) {
+    var night = s.dark && !s.photo;
+    if (ground) ground.classList.toggle("night", night);
+    if (hero) hero.classList.toggle("night", night);
+    if (night) {
       var gc = ground && ground.querySelector("canvas");
       var hc = hero && hero.querySelector("canvas");
       if (gc) stars(gc, false);
       if (hc) { stars(hc, true); moon(hc, name === "fajr"); }
     }
-    if (meta) meta.setAttribute("content", s.dark ? "#14120D" : "#F7F8F6");
-    if (label) label.textContent = s.label;
+    if (meta) meta.setAttribute("content", s.dark ? "#14120D" : "#FAF6EC");
     current = name;
   }
 
@@ -132,10 +134,6 @@
     var d = now();
     var name = (forced && SKIES[forced]) ? forced : windowAt(d.getHours() + d.getMinutes() / 60);
     if (name !== current) paint(name);
-    if (clock) {
-      var hh = d.getHours(), mm = d.getMinutes();
-      clock.textContent = (hh < 10 ? "0" : "") + hh + ":" + (mm < 10 ? "0" : "") + mm;
-    }
   }
 
   tick();
@@ -143,8 +141,14 @@
   var resizeTimer;
   window.addEventListener("resize", function () {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function () { if (current && !SKIES[current].photo) { var c = current; current = null; paint(c); } }, 150);
+    resizeTimer = setTimeout(function () { if (current && SKIES[current].dark && !SKIES[current].photo) { var c = current; current = null; paint(c); } }, 150);
   });
+})();
+
+/* An Android visitor is told the truth: the app is coming to Google Play, and
+   the App Store buttons, which cannot help them, step aside. */
+(function () {
+  if (/Android/i.test(navigator.userAgent)) document.documentElement.classList.add("android");
 })();
 
 /* Things below the fold rise a little as they arrive. Once, then they stay. */

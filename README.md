@@ -5,18 +5,21 @@ soon), at **hifzquran.org**. Plain static
 HTML, CSS and one small script. No build step, no framework, no tracking, no
 external requests.
 
-The site follows the app's design. The ground under every page is one of the
-app's own sky photographs, blurred back to its light, with the hour's gradient
-over it, the way `MushafGround` draws it in the app. Cards are glass over that.
-The chrome is light while the sky is and dark once it is not, read off the
-visitor's clock. `?sky=maghrib` forces a window and `?clock=21:30` a time, for
+The site follows the app's design and its measure, `Design/GEOMETRY.md`
+(Mizan). By day the ground is paper with al-Fatihah's lattice as a grain, and
+the hour's sky sits at the head of the page at 22%, the way `MushafGround`
+draws it in the app. Cards are paper on paper; glass is only for the floating
+bar; the button is lapis with cream on it, and gold is only lines and points.
+After Maghrib the page turns dark and the sky is the whole ground, read off
+the visitor's clock. The words follow `Design/WORDS.md`: plain enough for a
+grandmother who reads English as her second language. `?sky=maghrib` forces a window and `?clock=21:30` a time, for
 checking the page at any hour.
 
 ```
 index.html        landing page
 privacy.html      Privacy Policy   (Apple and Google Play both require a Privacy Policy URL;
                   it covers the iPhone and iPad app, the Android app, their widgets and this site)
-terms.html        Terms of Use / EULA
+terms.html        Terms of Use (sit alongside Apple's standard EULA and Google Play's terms)
 support.html      Support page     (Apple requires a Support URL)
 404.html          not-found page
 og-render.html    source for assets/img/og.png (the command to render it is inside)
@@ -25,7 +28,7 @@ CNAME             the custom domain (used by GitHub Pages; ignored elsewhere)
 assets/
   styles.css      the design system: tokens, the ground, glass, the type scale
   sky.js          picks the sky from the clock and paints it
-  sky/            three of the app's photographs, sharp for the hero and blurred for the ground
+  sky/            the app's evening photograph, sharp for the hero and blurred for the ground
   fonts/          Fraunces (headings, OFL) + UthmanicHafsV22 (the mushaf face, KFGQPC)
   img/            app-icon, mark (the gold rosette), apple-touch-icon, favicons, og.png
   shots/          screens of the app at 2x for a 330pt phone, and the iPad's two-page
@@ -55,7 +58,8 @@ In App Store Connect, use these URLs:
 - **Privacy Policy URL**: `https://hifzquran.org/privacy.html`
 - **Support URL**: `https://hifzquran.org/support.html`
 - **Marketing URL**: `https://hifzquran.org`
-- **EULA**: either leave Apple's standard EULA, or paste `https://hifzquran.org/terms.html`
+- **EULA**: leave Apple's standard EULA. terms.html is written to sit beside it, not
+  replace it; a custom EULA would also have to give a postal address and phone number.
 
 Store copy for 3.0 (What's New, promotional text, description) lives in
 `~/hifz-wt-polish/ASO/APPSTORE_LISTING_3.0.md`. The site's claims should match it.
@@ -77,3 +81,17 @@ Bump the number on any edit to either file.
 - No analytics, no cookies, no third-party requests. The site respects
   `prefers-reduced-motion`, and with no script it follows the system's
   light or dark setting instead of the clock.
+
+## Later
+
+Proof that people trust the app, parked by the owner on 4 October 2026. Each
+must be real; nothing is ever invented or paraphrased into a quote.
+
+- **The App Store rating:** the real star rating and count, read from the
+  store, shown only once it is worth showing.
+- **Real reviews:** two or three App Store reviews, quoted word for word with
+  the reviewer's name as the store shows it, chosen by the owner.
+- **A note from the maker:** a few honest lines from the owner on why the app
+  exists, written or approved by them.
+- **Apple's App Store badge** in place of the lapis button, once the owner
+  approves downloading it from Apple's marketing tools.

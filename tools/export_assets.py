@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Exports the app's own pictures into the site.
 
-Skies: the three photographs the app graded into five daylight windows, once
-sharp for the hero and once blurred back to a ground, the way MushafGround
-drew them. Screens: the 3.0 shots at 2x for a 330pt phone, and the iPad's
+Skies: the evening photograph, the one sky the site still shows (by day the
+ground is paper, and the other dark hours are drawn), once sharp for the hero
+and once blurred back to a ground, the way MushafGround draws it. Screens: the 3.0 shots at 2x for a 330pt phone, and the iPad's
 two-page spread at 1920 wide. Icons: the rosette, cut from the app icon.
 
     python3 tools/export_assets.py [skies] [screens] [icons]
@@ -40,7 +40,7 @@ def save_pair(im, base, q=85):
     print(f"  {os.path.relpath(base, SITE):40s} webp {os.path.getsize(base+'.webp')//1024:4d} KB  png {os.path.getsize(base+'.png')//1024:4d} KB  {im.size}")
 
 # ---- skies ---------------------------------------------------------------
-frames = {"morning": "SkyMorning", "golden": "SkyGoldenHour", "evening": "SkyEvening"}
+frames = {"evening": "SkyEvening"}
 if "skies" in PARTS:
     print("skies")
 for name, asset in (frames.items() if "skies" in PARTS else ()):
@@ -69,7 +69,8 @@ for name, asset in (frames.items() if "skies" in PARTS else ()):
 # ---- screens -------------------------------------------------------------
 screens = {"01_quran": "quran-day", "12_night": "quran-night", "01_mushaf": "mushaf",
            "02_repeat": "repeat", "05_tajweed": "tajweed",
-           "06_salah": "salah", "08_dua": "dua"}
+           "06_salah": "salah", "08_dua": "dua",
+           "04_indopak": "indopak", "09_widgets": "widgets"}
 if "screens" in PARTS:
     print("screens (2x for a 330pt phone)")
     W = 660

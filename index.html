@@ -20,8 +20,8 @@
 <meta name="twitter:title" content="Hifz Quran · Read, repeat, remember">
 <meta name="twitter:description" content="The Quran app for people who want to memorize it. Free, no account, no ads.">
 <meta name="twitter:image" content="https://hifzquran.org/assets/img/og.png">
-<meta name="theme-color" content="#F7F8F6">
-<link rel="stylesheet" href="assets/styles.css?v=20261004">
+<meta name="theme-color" content="#FAF6EC">
+<link rel="stylesheet" href="assets/styles.css?v=20261005">
 </head>
 <body>
 
@@ -40,19 +40,20 @@
       <b>Hifz <i>Quran</i></b>
     </a>
     <nav class="nav">
-      <a href="#mushaf" class="hide-sm">Mushaf</a>
-      <a href="#repeat" class="hide-sm">Repeat</a>
-      <a href="#salah" class="hide-sm">Prayer</a>
-      <a href="#private" class="hide-sm">Private</a>
-      <a href="#android" class="hide-sm">Android</a>
-      <a href="support.html">Support</a>
+      <a href="#repeat" class="hide-md">Repeat</a>
+      <a href="#mushaf" class="hide-md">Mushaf</a>
+      <a href="#salah" class="hide-md">Salah</a>
+      <a href="#questions" class="hide-md">Questions</a>
+      <a href="#private" class="hide-md">Privacy</a>
+      <a href="support.html" class="hide-sm">Support</a>
+      <a href="https://apps.apple.com/us/app/hifz-quran/id6792413377" class="nav-cta ios-only">Download</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-  <!-- HERO: the sky it is right now, sharp, as the Salah tab draws it -->
+  <!-- HERO: by day the hour at the head of the paper; after dark the sky itself -->
   <section class="hero">
     <div class="sky" aria-hidden="true">
       <div class="s-photo"></div>
@@ -62,7 +63,7 @@
     <div class="scrim" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div class="reveal">
-        <span class="skyTag"><i class="dot"></i><span id="skyLabel">Afternoon</span><span aria-hidden="true">·</span><span id="skyClock">16:40</span></span>
+        <p class="eyebrow">Quran app for iPhone and iPad</p>
         <h1>Read, repeat,<br><em>remember.</em></h1>
         <p class="lead">
           The real Madina mushaf, any ayah on repeat, and prayer times for your city.
@@ -70,10 +71,11 @@
         </p>
         <div class="cta">
           <a class="btn btn-store" href="https://apps.apple.com/us/app/hifz-quran/id6792413377">
-            <svg class="khatim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.2" y="5.2" width="13.6" height="13.6"/><rect x="5.2" y="5.2" width="13.6" height="13.6" transform="rotate(45 12 12)"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.2" y="5.2" width="13.6" height="13.6"/><rect x="5.2" y="5.2" width="13.6" height="13.6" transform="rotate(45 12 12)"/></svg>
             Download on the App Store
           </a>
         </div>
+        <p class="android-only lead-note">On Android? It is coming soon to Google Play, free, like the app for iPhone and iPad.</p>
         <p class="fine">Free · iPhone and iPad, iOS 17 or later · Coming soon to Android</p>
       </div>
       <div class="reveal later">
@@ -87,65 +89,22 @@
           <img class="phone day" src="assets/shots/quran-day.png" width="660" height="1434" alt="The Quran tab in the afternoon: the Continue card with Listen and Repeat, the surahs read lately, and the list of surahs" loading="eager" decoding="async">
         </picture>
         </div>
-        <p class="phones-note">Afternoon and night. The colours follow the time of day.</p>
+        <p class="phones-note">By day and at night. The colours follow the time of day.</p>
       </div>
     </div>
   </section>
 
-  <!-- THE MUSHAF: words left, screens right -->
-  <section id="mushaf" class="band">
-    <div class="wrap band-grid">
-      <div class="copy reveal">
-        <p class="eyebrow">The mushaf</p>
-        <h2>The real Madina mushaf.</h2>
-        <ul>
-          <li>Page 562 here is page 562 in print. Same lines, same fonts.</li>
-          <li>Madina, Classic and Indopak prints. The Madina print can show tajweed colours.</li>
-          <li>The Indopak 15-line pages, checked line by line against the printed book.</li>
-          <li>Nineteen translations in seventeen languages. Hold any word for its own meaning.</li>
-          <li>A short tafsir for every ayah, in nine languages, and all of it offline.</li>
-        </ul>
-      </div>
-      <div class="media two reveal later">
-        <picture>
-          <source srcset="assets/shots/mushaf.webp" type="image/webp">
-          <img class="phone" src="assets/shots/mushaf.png" width="660" height="1434" alt="Surah Al-Mulk on page 562 of the Madina mushaf, with the first four ayat selected" loading="lazy" decoding="async">
-        </picture>
-        <picture>
-          <source srcset="assets/shots/tajweed.webp" type="image/webp">
-          <img class="phone" src="assets/shots/tajweed.png" width="660" height="1434" alt="The same page with tajweed colours on" loading="lazy" decoding="async">
-        </picture>
-      </div>
-    </div>
-  </section>
-
-  <!-- IPAD: the open book, wide, under its own head -->
-  <section id="ipad" class="spread center">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">iPad</p>
-        <h2>Two pages open, like a printed Quran.</h2>
-        <p class="lead">Turn your iPad on its side. The surah list and the meaning sit beside the page. The Salah
-        tab is a large clock you can read from across the room.</p>
-      </div>
-      <picture class="reveal later">
-        <source srcset="assets/shots/ipad-spread.webp" type="image/webp">
-        <img class="tablet" src="assets/shots/ipad-spread.png" width="1920" height="1440" alt="An iPad on its side with pages 1 and 2 open together: Al-Fatihah on the right and the start of Al-Baqarah on the left" loading="lazy" decoding="async">
-      </picture>
-    </div>
-  </section>
-
-  <!-- REPEAT: screen left, words right -->
-  <section id="repeat" class="band flip">
+  <!-- REPEAT: the heart of the app, first -->
+  <section id="repeat" class="band">
     <div class="wrap band-grid">
       <div class="copy reveal">
         <p class="eyebrow">Repeat</p>
-        <h2>Play any ayah over and over.</h2>
+        <h2>Play any ayah <em>over and over.</em></h2>
         <ul>
-          <li>Tap an ayah, or pick a range.</li>
-          <li>Set how many times each one plays, and a gap to recite along.</li>
-          <li>Or press Listen to play straight through, ayah by ayah down the page.</li>
-          <li>Thirty-one reciters, every one ayah by ayah. It keeps playing with the screen locked.</li>
+          <li>Tap an ayah. To play more than one, tap the first and the last.</li>
+          <li>Choose how many times each ayah plays, and a pause after it so you can recite.</li>
+          <li>Or press Listen to play from this page to the end of the surah.</li>
+          <li>31 reciters. It keeps playing when your phone is locked.</li>
           <li>An ayah you have played once plays again with no internet.</li>
         </ul>
       </div>
@@ -158,17 +117,39 @@
     </div>
   </section>
 
-  <!-- SALAH: words left, screen right, under a sky of its own -->
-  <section id="salah" class="band dusk">
-    <div class="sky" aria-hidden="true">
-      <div class="b-photo"></div>
-      <div class="b-grade"></div>
-      <div class="b-scrim"></div>
+  <!-- THE MUSHAF: screens left, words right, both prints shown -->
+  <section id="mushaf" class="band flip">
+    <div class="wrap band-grid">
+      <div class="copy reveal">
+        <p class="eyebrow">The mushaf</p>
+        <h2>The real <em>Madina mushaf.</em></h2>
+        <ul>
+          <li>Page 562 here is page 562 in your printed Quran, line for line.</li>
+          <li>Madina, Classic and Indopak prints. The Madina print can show tajweed colours.</li>
+          <li>The Indopak 15-line pages, checked line by line against the printed book.</li>
+          <li>19 translations in 17 languages. Press and hold a word to see what it means.</li>
+          <li>A short tafsir for every ayah, in 9 languages. It works with no internet.</li>
+        </ul>
+      </div>
+      <div class="media two reveal later">
+        <picture>
+          <source srcset="assets/shots/tajweed.webp" type="image/webp">
+          <img class="phone" src="assets/shots/tajweed.png" width="660" height="1434" alt="Surah Al-Mulk on page 562 of the Madina mushaf, with tajweed colours on" loading="lazy" decoding="async">
+        </picture>
+        <picture>
+          <source srcset="assets/shots/indopak.webp" type="image/webp">
+          <img class="phone" src="assets/shots/indopak.png" width="660" height="1434" alt="Surah Ya-Sin on page 441 of the Indopak 15-line mushaf, with ayat 1 to 9 chosen to repeat" loading="lazy" decoding="async">
+        </picture>
+      </div>
     </div>
+  </section>
+
+  <!-- SALAH: words left, screens right -->
+  <section id="salah" class="band">
     <div class="wrap band-grid">
       <div class="copy reveal">
         <p class="eyebrow">Salah</p>
-        <h2>Prayer times for your own city.</h2>
+        <h2>Prayer times for <em>your own city.</em></h2>
         <ul>
           <li>A countdown to the next prayer.</li>
           <li>The whole day on one page, with the path of the sun. Swipe to see another day.</li>
@@ -177,10 +158,14 @@
           <li>Widgets for the Home Screen and Lock Screen.</li>
         </ul>
       </div>
-      <div class="media reveal later">
+      <div class="media two reveal later">
         <picture>
           <source srcset="assets/shots/salah.webp" type="image/webp">
-          <img class="phone" src="assets/shots/salah.png" width="660" height="1434" alt="The Salah tab in Dubai in the late afternoon: Maghrib in 41 minutes, the path of the sun through the day, the six times, and tiles for the qibla and the evening duas" loading="lazy" decoding="async">
+          <img class="phone" src="assets/shots/salah.png" width="660" height="1434" alt="The Salah tab in Istanbul in the late afternoon: Maghrib in 1 hour 23 minutes, the path of the sun through the day, and the six times" loading="lazy" decoding="async">
+        </picture>
+        <picture>
+          <source srcset="assets/shots/widgets.webp" type="image/webp">
+          <img class="phone" src="assets/shots/widgets.png" width="660" height="1434" alt="Hifz Quran widgets on an iPhone Home Screen at night: the day's prayer times, the time until Fajr, and the Islamic date" loading="lazy" decoding="async">
         </picture>
       </div>
     </div>
@@ -191,7 +176,7 @@
     <div class="wrap band-grid">
       <div class="copy reveal">
         <p class="eyebrow">Dua</p>
-        <h2>Morning and evening duas.</h2>
+        <h2>Morning and <em>evening duas.</em></h2>
         <ul>
           <li>The duas for this time of day come first.</li>
           <li>The morning and evening sets, duas after the prayer, and durood.</li>
@@ -207,37 +192,88 @@
     </div>
   </section>
 
+  <!-- IPAD: the open book, wide, under its own head -->
+  <section id="ipad" class="spread center">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">iPad</p>
+        <h2>Two pages open, <em>like a printed Quran.</em></h2>
+        <p class="lead">Turn your iPad on its side. The surah list and the meaning sit beside the page. The Salah
+        tab is a large clock you can read from across the room.</p>
+      </div>
+      <picture class="reveal later">
+        <source srcset="assets/shots/ipad-spread.webp" type="image/webp">
+        <img class="tablet" src="assets/shots/ipad-spread.png" width="1920" height="1440" alt="An iPad on its side with pages 1 and 2 open together: Al-Fatihah on the right and the start of Al-Baqarah on the left" loading="lazy" decoding="async">
+      </picture>
+    </div>
+  </section>
+
   <!-- MORE: the parts of the app that have no screen of their own -->
   <section id="more" class="center more">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Also in the app</p>
-        <h2>The rest of it.</h2>
+        <h2>More in <em>the app.</em></h2>
       </div>
       <div class="notes">
-        <div class="note card glass reveal">
+        <div class="note card reveal">
           <h3>Pick up where you stopped</h3>
           <p>The card at the top of the Quran tab takes you straight back to the page you left, and shows how many pages you have read today.</p>
         </div>
-        <div class="note card glass reveal">
+        <div class="note card reveal">
           <h3>Your days in a row</h3>
           <p>The Quran tab shows how many days in a row you have read. On Friday, a note on the Quran tab reminds you to read Surah al-Kahf.</p>
         </div>
-        <div class="note card glass reveal">
+        <div class="note card reveal">
           <h3>The screen stays on</h3>
           <p>It will not dim or lock while a page is open, so you can read to the end of it without touching the screen.</p>
         </div>
-        <div class="note card glass reveal">
+        <div class="note card reveal">
           <h3>Find your place</h3>
           <p>The Quran tab lists all 114 surahs, or the 30 juz. Tap a juz to open the page where it starts. On the page, a mark in the margin shows where a juz begins.</p>
         </div>
-        <div class="note card glass reveal">
-          <h3>Works offline</h3>
+        <div class="note card reveal">
+          <h3>Works with no internet</h3>
           <p>The mushaf, the Quran text, the translations, the tafsir and the duas are all in the app. Only the recordings are downloaded, each one the first time you play it.</p>
         </div>
-        <div class="note card glass reveal">
+        <div class="note card reveal">
           <h3>Light by day, dark after Maghrib</h3>
           <p>The top of the page takes the colour of the sky at that hour. If you prefer, choose Light or Dark in Settings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUESTIONS: the doubts people have before they download -->
+  <section id="questions" class="questions">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Questions</p>
+        <h2>Before you <em>download.</em></h2>
+      </div>
+      <div class="qa">
+        <div class="q card reveal">
+          <h3>Is it really free?</h3>
+          <p>Yes. No ads, no subscription, nothing to buy, and no account to make.</p>
+        </div>
+        <div class="q card reveal">
+          <h3>Is the mushaf the same as my printed one?</h3>
+          <p>Yes. The Madina pages match the printed mushaf line for line. The Indopak 15-line pages were checked line by line against the printed book.</p>
+        </div>
+        <div class="q card reveal">
+          <h3>Do I need the internet?</h3>
+          <p>Only the first time you play a recitation. The mushaf, translations, tafsir and duas are inside the app.</p>
+        </div>
+        <div class="q card reveal">
+          <h3>Does the app listen to me?</h3>
+          <p>No. The app cannot use the microphone. Nothing you recite is heard or recorded.</p>
+        </div>
+        <div class="q card reveal">
+          <h3>Is it on Android?</h3>
+          <p>Coming soon to Google Play. It is the same app, and it will be free.</p>
+        </div>
+        <div class="q card reveal">
+          <h3>Something else?</h3>
+          <p>The <a href="support.html">Support page</a> answers more, and a real person reads every email.</p>
         </div>
       </div>
     </div>
@@ -246,37 +282,37 @@
   <!-- PRIVATE -->
   <section id="private">
     <div class="wrap">
-      <div class="pledge card glass reveal">
-        <img class="halo" src="assets/img/mark.png" alt="" aria-hidden="true">
-        <p class="eyebrow">The promise</p>
-        <h2>Free for you.</h2>
+      <div class="pledge card reveal">
+        <p class="eyebrow">Privacy</p>
+        <h2>Free. No account. <em>No ads.</em></h2>
         <p>
-          No account, no ads, no analytics, and no servers of ours. Your progress stays on your
-          phone or iPad. Location, notifications and alarms are optional, and the app asks only when you
+          We have no servers, and nothing about you comes to us. Your progress stays on your
+          phone or iPad. Location, alerts and alarms are your choice, and the app asks only when you
           turn them on. Read the <a href="privacy.html">privacy policy</a>.
         </p>
-        <div class="chips">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>No account</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>No ads or analytics</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Free, no in-app purchases</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Nothing is recorded</span>
-        </div>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>No account</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>No ads</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Free, nothing to buy</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Your progress stays on your phone</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- ANDROID -->
-  <section id="android" style="padding-top:0;">
+  <!-- GET IT: the button again, at the end of the page -->
+  <section id="get" class="get center">
     <div class="wrap">
-      <div class="beta card glass reveal">
-        <img class="halo" src="assets/img/mark.png" alt="" aria-hidden="true">
-        <p class="eyebrow">Android</p>
-        <h2>Coming soon to Android.</h2>
-        <p class="lead">
-          It is the same app: the same mushaf, the same repeat, the same prayer times.
-          Free, like the app for iPhone and iPad.
-        </p>
+      <img class="get-icon" src="assets/img/app-icon.png" width="96" height="96" alt="" aria-hidden="true">
+      <h2>Get Hifz Quran. <em>It is free.</em></h2>
+      <p class="lead">For iPhone and iPad. No ads, no account.</p>
+      <div class="cta">
+        <a class="btn btn-store" href="https://apps.apple.com/us/app/hifz-quran/id6792413377">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.2" y="5.2" width="13.6" height="13.6"/><rect x="5.2" y="5.2" width="13.6" height="13.6" transform="rotate(45 12 12)"/></svg>
+          Download on the App Store
+        </a>
       </div>
+      <p class="android-only lead-note">On Android? It is coming soon to Google Play.</p>
     </div>
   </section>
 
@@ -318,10 +354,11 @@
         <a href="mailto:contact@bluetomatostudio.com">Contact</a>
       </div>
       <p class="foot-note">© 2026 Hifz Quran · Made by Farhan Hossain · <a href="mailto:contact@bluetomatostudio.com" style="color:inherit;">contact@bluetomatostudio.com</a></p>
+      <p class="foot-note">Apple, iPhone, iPad and App Store are trademarks of Apple Inc. Android and Google Play are trademarks of Google LLC.</p>
     </div>
   </div>
 </footer>
 
-<script src="assets/sky.js?v=20260910"></script>
+<script src="assets/sky.js?v=20261005"></script>
 </body>
 </html>
