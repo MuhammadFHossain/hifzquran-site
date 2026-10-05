@@ -1,9 +1,8 @@
 # Hifz Quran, the website
 
-> **Waiting for 3.0.** Branch `release-3.0` holds the 3.0 site, finished and
-> approved by the owner on 4 October 2026. It is NOT live. Do not merge or push
-> it until Hifz Quran 3.0 is approved by Apple and live on the App Store. Then
-> follow "Going live" below.
+> **3.0 is live.** Hifz Quran 3.0 went out on the App Store on 5 October 2026,
+> and this site went live with it. Android is still "coming soon": step 5 of
+> "Going live" below says what to change when it is public on Google Play.
 
 The marketing and legal site for **Hifz Quran** (iPhone and iPad, Android coming
 soon), at **hifzquran.org**. Plain static
