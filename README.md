@@ -1,10 +1,10 @@
-# Hifz Quran, the website
+# Quran Pages, the website
 
-> **3.0 is live.** Hifz Quran 3.0 went out on the App Store on 5 October 2026,
+> **3.0 is live.** Quran Pages 3.0 went out on the App Store on 5 October 2026,
 > and this site went live with it. Android is still "coming soon": step 5 of
 > "Going live" below says what to change when it is public on Google Play.
 
-The marketing and legal site for **Hifz Quran** (iPhone and iPad, Android coming
+The marketing and legal site for **Quran Pages** (iPhone and iPad, Android coming
 soon), at **hifzquran.org**. Plain static
 HTML, CSS and one small script. No build step, no framework, no tracking, no
 external requests.
