@@ -315,9 +315,12 @@ body::after {
 .nav a.nav-cta { color: var(--onLapis); background: var(--lapis); font-weight: 600; padding: 0 16px; margin-left: 4px; }
 .nav a.nav-cta:hover { color: var(--onLapis); filter: brightness(1.08); }
 
-/* Android visitors: the store buttons step aside and a plain line says what is true */
+/* Android visitors: the App Store steps aside and Google Play stays. Everyone
+   else sees both stores side by side. */
 .android-only { display: none; }
 :root.android .android-only { display: block; }
+.android-only-inline { display: none !important; }
+:root.android .android-only-inline { display: inline-block !important; }
 :root.android .ios-only, :root.android .btn-store { display: none; }
 .lead-note { font-size: 16px; color: var(--ink2); margin: 16px 0 0; }
 
@@ -346,6 +349,16 @@ body::after {
 .badge { display: inline-block; line-height: 0; transition: transform var(--press) ease; }
 .badge img { height: 54px; width: auto; }
 .badge:hover { transform: translateY(-1px); }
+/* Google Play, in the same black-on-paper and white-after-dark as Apple's
+   badge beside it, so the two stores read as a pair. Words only: no logo. */
+.play-badge { display: inline-flex; flex-direction: column; justify-content: center; line-height: 1.05;
+  height: 54px; padding: 0 18px; border-radius: 9px; background: #000; color: #fff; text-decoration: none;
+  border: 1px solid #a6a6a6; font-family: var(--ui); }
+.play-badge .play-small { font-size: 10px; letter-spacing: .06em; font-weight: 500; }
+.play-badge .play-big { font-size: 21px; font-weight: 600; letter-spacing: -.01em; }
+:root.dark .play-badge { background: #fff; color: #000; border-color: #fff; }
+@media (prefers-color-scheme: dark) { :root:not(.light) .play-badge { background: #fff; color: #000; border-color: #fff; } }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .night-only { display: none; }
 :root.dark .day-only { display: none; }
 :root.dark .night-only { display: block; }

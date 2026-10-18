@@ -109,6 +109,6 @@ must be real; nothing is ever invented or paraphrased into a quote.
    minute or two. Open https://hifzquran.org on a phone and a computer.
 4. In App Store Connect, keep Apple's standard EULA; the privacy and support
    links stay as listed above.
-5. When the Android app is public on Google Play, change the "coming soon"
-   lines (hero, Questions, the end of the page, Support) to a Google Play
-   link, and drop `.android-only` / `.ios-only` from the store buttons.
+5. Done 18 Oct 2026: Quran Pages is public on Google Play. Every page shows
+   the App Store badge and a Google Play badge side by side (Android visitors
+   see only Google Play), and the "coming soon" lines are gone.
