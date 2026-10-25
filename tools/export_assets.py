@@ -30,6 +30,8 @@ PEN = os.path.expanduser("~/Desktop/Blue Tomato Studio/Hifz/Quran Pages 3.2 Duo 
 # The open iPhone Duo's screen outline, from the simulator's device profile.
 DUO_MASK = "/Library/Developer/CoreSimulator/Profiles/DeviceTypes/iPhone Duo.simdevicetype/Contents/Resources/BF0DC480-5EE2-4EC1-B02B-C75E94759832.pdf"
 PARTS = set(sys.argv[1:]) or {"skies", "screens", "wide", "icons"}
+if "screens" in PARTS:
+    PARTS.add("widgets")
 
 os.makedirs(f"{SITE}/sky", exist_ok=True)
 os.makedirs(f"{SITE}/shots", exist_ok=True)
@@ -76,7 +78,22 @@ for name, asset in (frames.items() if "skies" in PARTS else ()):
 screens = {"01_quran": "quran-day", "12_night": "quran-night", "01_mushaf": "mushaf",
            "02_repeat": "repeat", "05_tajweed": "tajweed",
            "06_salah": "salah", "08_dua": "dua",
-           "04_indopak": "indopak", "09_widgets": "widgets"}
+           "04_indopak": "indopak"}
+
+def clear_dock(im):
+    """The simulator's Home Screen has an empty dock: a pale bar with no apps
+    in it. It is iOS's, not the app's, so it goes: each row of it takes the
+    night sky from the screen's two edges, blended across."""
+    im = im.copy(); px = im.load(); W, H = im.size
+    top, x0, x1 = round(H * 0.886), round(W * 0.015), round(W * 0.985)
+    for y in range(top, H):
+        left = [sum(px[x, y][c] for x in range(2, x0 - 2)) / (x0 - 4) for c in range(3)]
+        right = [sum(px[x, y][c] for x in range(x1 + 2, W - 2)) / (W - x1 - 4) for c in range(3)]
+        for x in range(x0, x1):
+            t = (x - x0) / (x1 - x0)
+            px[x, y] = tuple(round(left[c] * (1 - t) + right[c] * t) for c in range(3))
+    return im
+
 if "screens" in PARTS:
     print("screens (2x for a 330pt phone)")
     W = 660
@@ -84,6 +101,13 @@ if "screens" in PARTS:
         im = Image.open(f"{SHOTS}/{src}.png").convert("RGB")
         h = round(im.height * W / im.width)
         save_pair(im.resize((W, h), Image.LANCZOS), f"{SITE}/shots/{dst}")
+if "widgets" in PARTS:
+    print("widgets (2x for a 330pt phone, the empty dock taken out)")
+    W = 660
+    im = clear_dock(Image.open(f"{SHOTS}/09_widgets.png").convert("RGB"))
+    h = round(im.height * W / im.width)
+    save_pair(im.resize((W, h), Image.LANCZOS), f"{SITE}/shots/widgets")
+if "screens" in PARTS:
     # The iPad on its side, two pages open: 2x for the 960pt column it fills.
     print("ipad (2x for a 960pt column)")
     W = 1920
