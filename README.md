@@ -1,9 +1,8 @@
 # Quran Pages, the website
 
 > **3.2 is live.** Quran Pages 3.2 went out on the App Store on 25 October 2026,
-> with iPhone Duo, the pen and Saved recitations. Branch `site-3.2` brings the
-> site up to it, with the first two App Store reviews. It goes live only on the
-> owner's word: merge it into `main` and push.
+> with iPhone Duo, the pen and Saved recitations. The site caught up on 26
+> October, with the first two App Store reviews.
 
 The marketing and legal site for **Quran Pages** (iPhone, iPhone Duo, iPad and
 Android), at **hifzquran.org**. Plain static
