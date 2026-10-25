@@ -88,11 +88,6 @@ Bump the number on any edit to either file.
 
 ## Notes
 
-- **The contact email is `contact@farhanhossain.com` for now** (the owner's
-  word, 26 October 2026), until `contact@bluetomatostudio.com` works again.
-  Every page uses it. The apps' own Contact button in Settings still opens the
-  Blue Tomato address until a new release changes it.
-
 - Fonts are bundled. Fraunces is OFL; the KFGQPC Uthmanic Hafs font is free to
   use and distribute (not to modify or sell), the same terms under which the
   app ships it.
