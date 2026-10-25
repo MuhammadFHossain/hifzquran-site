@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- The 3.0 site (branch release-3.0). Not live yet: merge and push only once
-     Quran Pages 3.0 is approved and on the App Store. See README.md, "Going live". -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -23,7 +21,7 @@
 <meta name="twitter:description" content="The Quran on pages that match the printed book. Free forever, no ads, no account.">
 <meta name="twitter:image" content="https://hifzquran.org/assets/img/og.png">
 <meta name="theme-color" content="#FAF6EC">
-<link rel="stylesheet" href="assets/styles.css?v=20261018">
+<link rel="stylesheet" href="assets/styles.css?v=20261026">
 </head>
 <body>
 
@@ -111,6 +109,7 @@
           <li>Or press Listen to play from this page to the end of the surah.</li>
           <li>31 reciters. It keeps playing when your phone is locked.</li>
           <li>An ayah you have played once plays again with no internet.</li>
+          <li>Or save any surah, or all 114, ahead of time: go to Settings, then Saved recitations.</li>
         </ul>
       </div>
       <div class="media two reveal later">
@@ -201,19 +200,43 @@
     </div>
   </section>
 
-  <!-- IPAD: the open book, wide, under its own head -->
-  <section id="ipad" class="spread center">
+  <!-- IPHONE DUO AND IPAD: the open book, wide, under its own head -->
+  <section id="duo" class="spread center">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">iPad</p>
+        <p class="eyebrow">iPhone Duo and iPad</p>
         <h2>Two pages open, <em>like a printed Quran.</em></h2>
-        <p class="lead">Turn your iPad on its side. The surah list and the meaning sit beside the page. The Salah
-        tab is a large clock you can read from across the room.</p>
+        <p class="lead">Open your iPhone Duo, or turn your iPad on its side. Tap the page to show the buttons,
+        and again to hide them. The surah list and the meaning open beside the page.</p>
       </div>
       <picture class="reveal later">
-        <source srcset="assets/shots/ipad-spread.webp" type="image/webp">
-        <img class="tablet" src="assets/shots/ipad-spread.png" width="1920" height="1440" alt="An iPad on its side with pages 1 and 2 open together: Al-Fatihah on the right and the start of Al-Baqarah on the left" loading="lazy" decoding="async">
+        <source srcset="assets/shots/duo-spread.webp" type="image/webp">
+        <img class="duo" src="assets/shots/duo-spread.png" width="1920" height="1351" alt="An open iPhone Duo with pages 1 and 2 side by side: Al-Fatihah on the right and the start of Al-Baqarah on the left" loading="lazy" decoding="async">
       </picture>
+      <p class="spread-note">Closed, the iPhone Duo shows one page, like any iPhone.</p>
+    </div>
+  </section>
+
+  <!-- THE PEN: words left, the iPad right -->
+  <section id="pen" class="band">
+    <div class="wrap band-grid">
+      <div class="copy reveal">
+        <p class="eyebrow">The pen</p>
+        <h2>Write on <em>the page.</em></h2>
+        <ul>
+          <li>On iPad and the open iPhone Duo, tap Pen and write with Apple Pencil or your finger.</li>
+          <li>A pen or a highlighter, in one of five colours.</li>
+          <li>Your writing sits under the letters, so it never covers the words of the Quran.</li>
+          <li>It stays on its page. One switch hides it.</li>
+          <li>It is kept on your iPad or phone, and nowhere else.</li>
+        </ul>
+      </div>
+      <div class="media pad-media reveal later">
+        <picture>
+          <source srcset="assets/shots/pen.webp" type="image/webp">
+          <img class="pad" src="assets/shots/pen.png" width="760" height="1013" alt="Al-Fatihah on an iPad with the pen out: the second ayah highlighted in gold, a red line under the fifth, a blue tick in the margin, and the pen's tools at the foot of the page" loading="lazy" decoding="async">
+        </picture>
+      </div>
     </div>
   </section>
 
@@ -242,12 +265,44 @@
         </div>
         <div class="note card reveal">
           <h3>Works with no internet</h3>
-          <p>The mushaf, the Quran text, the translations, the tafsir and the duas are all in the app. Only the recordings are downloaded, each one the first time you play it.</p>
+          <p>The mushaf, the Quran text, the translations, the tafsir and the duas are all in the app. Only the recordings are downloaded, each one the first time you play it, or whole surahs ahead of time from Saved recitations in Settings.</p>
         </div>
         <div class="note card reveal">
           <h3>Light by day, dark after Maghrib</h3>
           <p>The top of the page takes the colour of the sky at that hour. If you prefer, choose Light or Dark in Settings.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS: App Store reviews, word for word, with the names the store shows.
+       Only real ones, chosen by the owner. -->
+  <section id="reviews" class="reviews center">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">From the App Store</p>
+        <h2>In their <em>own words.</em></h2>
+      </div>
+      <div class="said">
+        <figure class="review card reveal">
+          <blockquote>
+            <p class="r-title">Best Quran App</p>
+            <p>The best well thought out Quran app I ever used. I have used multiple different ones over the last few years but this one is clean, and the UI is very nice. May Allah bless the maker of this app</p>
+          </blockquote>
+          <figcaption>runnerboy67 <span>· Canada, October 2026</span></figcaption>
+        </figure>
+        <figure class="review card reveal">
+          <blockquote lang="ar" dir="rtl">
+            <p class="r-title">تطبيق رائع جدا</p>
+            <p>تطبيق مرة حلو يخليك تحفظ جد وشكر خاص للمطور🫡</p>
+          </blockquote>
+          <div class="r-english">
+            <p class="r-label">In English</p>
+            <p class="r-title">A really great app</p>
+            <p>A very nice app. It really makes you memorize. Special thanks to the developer.</p>
+          </div>
+          <figcaption><bdi lang="ar">ناقد اسطوري</bdi> <span>· Saudi Arabia, September 2026</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -270,7 +325,7 @@
         </div>
         <div class="q card reveal">
           <h3>Do I need the internet?</h3>
-          <p>Only the first time you play a recitation. The mushaf, translations, tafsir and duas are inside the app.</p>
+          <p>Only to download a recitation: the first time you play it, or ahead of time from Settings, then Saved recitations. The mushaf, translations, tafsir and duas are inside the app.</p>
         </div>
         <div class="q card reveal">
           <h3>Does the app listen to me?</h3>
@@ -368,11 +423,11 @@
         <a href="mailto:contact@bluetomatostudio.com">Contact</a>
       </div>
       <p class="foot-note">© 2026 Blue Tomato Studio LLC · Made by Farhan Hossain</p>
-      <p class="foot-note">Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Android and Google Play are trademarks of Google LLC.</p>
+      <p class="foot-note">Apple, the Apple logo, iPhone, iPad and Apple Pencil are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Android and Google Play are trademarks of Google LLC.</p>
     </div>
   </div>
 </footer>
 
-<script src="assets/sky.js?v=20261018"></script>
+<script src="assets/sky.js?v=20261026"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Photographs the site with headless Chrome over the DevTools protocol.
 usage: shoot_site.py <outdir> <spec>... where spec = name|url|width|height|mobile|y0,y1,...
+A y can also be a section's #id, which puts that section's top just under the bar.
 """
 import sys, os, json, time, base64, subprocess, urllib.request
 from websocket import create_connection
@@ -37,6 +38,11 @@ try:
         send("Page.navigate", url=url)
         time.sleep(3.0)
         for y in ys.split(","):
+            if y.startswith("#"):
+                tag = y[1:]
+                send("Runtime.evaluate", expression=f"document.getElementById('{tag}').scrollIntoView({{behavior:'instant'}})")
+                time.sleep(0.8)  # let lazy pictures above it load and settle the layout
+                y = send("Runtime.evaluate", returnByValue=True, expression=f"Math.round(document.getElementById('{tag}').getBoundingClientRect().top + scrollY - 72)")["result"]["value"]
             send("Runtime.evaluate", expression=f"window.scrollTo({{top:{int(y)}, left:0, behavior:'instant'}})")
             time.sleep(1.4)  # long enough for the reveal to finish
             shot = send("Page.captureScreenshot", format="png")

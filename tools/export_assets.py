@@ -4,18 +4,20 @@
 Skies: the evening photograph, the one sky the site still shows (by day the
 ground is paper, and the other dark hours are drawn), once sharp for the hero
 and once blurred back to a ground, the way MushafGround draws it. Screens: the 3.0 shots at 2x for a 330pt phone, and the iPad's
-two-page spread at 1920 wide. Icons: the rosette, cut from the app icon.
+two-page spread at 1920 wide. Wide: the open iPhone Duo cut to its own round
+screen, and the pen on an iPad. Icons: the rosette, cut from the app icon.
 
-    python3 tools/export_assets.py [skies] [screens] [icons]
+    python3 tools/export_assets.py [skies] [screens] [wide] [icons]
 
 With no names it exports all three. After a reshoot, `screens` is enough.
 """
 import os, sys
 from PIL import Image, ImageFilter, ImageOps
 
-# 3.0 lives on feature/ui-polish. Its shots are where AppStore/shoot.sh writes
-# them: the phone's in shots/, the iPad's in shots/ipad/.
-WT = os.path.expanduser("~/hifz-wt-polish")
+# The app's main branch, checked out in ~/hifz-wt-merge. Its shots are where
+# AppStore/shoot.sh writes them: the phone's in shots/, the iPad's in
+# shots/ipad/, the open iPhone Duo's in shots/duo-inner/.
+WT = os.path.expanduser("~/hifz-wt-merge")
 SHOTS = f"{WT}/AppStore/shots"
 CAT = f"{WT}/HifzQuran/Assets.xcassets"
 # 3.0 no longer ships the sky photographs, so the skies still come from the
@@ -23,7 +25,11 @@ CAT = f"{WT}/HifzQuran/Assets.xcassets"
 SKY_CAT = os.path.expanduser("~/hifz-wt-sky/HifzQuran/Assets.xcassets")
 SITE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets")
 SITE = os.path.normpath(SITE)
-PARTS = set(sys.argv[1:]) or {"skies", "screens", "icons"}
+# The pen on an iPad, from the 3.2 review sheets (no store shot has writing).
+PEN = os.path.expanduser("~/Desktop/Blue Tomato Studio/Hifz/Quran Pages 3.2 Duo preview/pen-and-saved-ui/ipad/02-pen-on-bar.png")
+# The open iPhone Duo's screen outline, from the simulator's device profile.
+DUO_MASK = "/Library/Developer/CoreSimulator/Profiles/DeviceTypes/iPhone Duo.simdevicetype/Contents/Resources/BF0DC480-5EE2-4EC1-B02B-C75E94759832.pdf"
+PARTS = set(sys.argv[1:]) or {"skies", "screens", "wide", "icons"}
 
 os.makedirs(f"{SITE}/sky", exist_ok=True)
 os.makedirs(f"{SITE}/shots", exist_ok=True)
@@ -34,7 +40,7 @@ def save_jpg(im, path, q=84):
     print(f"  {os.path.relpath(path, SITE):40s} {os.path.getsize(path)//1024:5d} KB  {im.size}")
 
 def save_pair(im, base, q=85):
-    im = im.convert("RGB")
+    im = im.convert("RGBA" if im.mode == "RGBA" else "RGB")
     im.save(base + ".webp", quality=q, method=6)
     im.save(base + ".png", optimize=True)
     print(f"  {os.path.relpath(base, SITE):40s} webp {os.path.getsize(base+'.webp')//1024:4d} KB  png {os.path.getsize(base+'.png')//1024:4d} KB  {im.size}")
@@ -84,6 +90,32 @@ if "screens" in PARTS:
     im = Image.open(f"{SHOTS}/ipad/pad_spread.png").convert("RGB")
     h = round(im.height * W / im.width)
     save_pair(im.resize((W, h), Image.LANCZOS), f"{SITE}/shots/ipad-spread")
+
+# ---- wide: iPhone Duo and the pen ------------------------------------------
+if "wide" in PARTS:
+    import subprocess, tempfile
+    print("duo (2x for a 960pt column, cut to the screen's own corners)")
+    W = 1920
+    im = Image.open(f"{SHOTS}/duo-inner/pad_spread.png").convert("RGBA")
+    # The outline is drawn upright; the open phone lies on its side. Its four
+    # corners are the same, so either quarter turn fits.
+    with tempfile.TemporaryDirectory() as tmp:
+        subprocess.run(["sips", "-s", "format", "png", DUO_MASK, "--out", f"{tmp}/mask.png"],
+                       check=True, capture_output=True)
+        mask = Image.open(f"{tmp}/mask.png").getchannel("A")
+    mask = mask.resize((im.height, im.width), Image.LANCZOS).rotate(90, expand=True)
+    im.putalpha(mask)
+    h = round(im.height * W / im.width)
+    save_pair(im.resize((W, h), Image.LANCZOS), f"{SITE}/shots/duo-spread")
+    print("pen (2x for a 380pt column)")
+    W = 760
+    im = Image.open(PEN).convert("RGB")
+    # iPadOS draws a window's resize handle in the lower corner; it is not the
+    # app's, so it goes, under the page's own warm white.
+    from PIL import ImageDraw
+    ImageDraw.Draw(im).rectangle((im.width - 96, im.height - 96, im.width, im.height), fill=im.getpixel((im.width - 120, im.height - 40)))
+    h = round(im.height * W / im.width)
+    save_pair(im.resize((W, h), Image.LANCZOS), f"{SITE}/shots/pen")
 
 # ---- icons ---------------------------------------------------------------
 if "icons" not in PARTS:

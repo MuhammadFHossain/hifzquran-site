@@ -1,11 +1,12 @@
 # Quran Pages, the website
 
-> **3.0 is live.** Quran Pages 3.0 went out on the App Store on 5 October 2026,
-> and this site went live with it. Android is still "coming soon": step 5 of
-> "Going live" below says what to change when it is public on Google Play.
+> **3.2 is live.** Quran Pages 3.2 went out on the App Store on 25 October 2026,
+> with iPhone Duo, the pen and Saved recitations. Branch `site-3.2` brings the
+> site up to it, with the first two App Store reviews. It goes live only on the
+> owner's word: merge it into `main` and push.
 
-The marketing and legal site for **Quran Pages** (iPhone and iPad, Android coming
-soon), at **hifzquran.org**. Plain static
+The marketing and legal site for **Quran Pages** (iPhone, iPhone Duo, iPad and
+Android), at **hifzquran.org**. Plain static
 HTML, CSS and one small script. No build step, no framework, no tracking, no
 external requests.
 
@@ -36,22 +37,29 @@ assets/
   fonts/          Fraunces (headings, OFL) + UthmanicHafsV22 (the mushaf face, KFGQPC)
   img/            Apple's App Store badges (black for day, white after dark, from
                   toolbox.marketingtools.apple.com, never redrawn), app-icon, mark (the gold rosette), apple-touch-icon, favicons, og.png
-  shots/          screens of the app at 2x for a 330pt phone, and the iPad's two-page
-                  spread at 1920 wide, each as WebP with PNG behind it
+  shots/          screens of the app at 2x for a 330pt phone, the open iPhone Duo at
+                  1920 wide, cut to its own round screen (duo-spread), the pen on an
+                  iPad (pen), and the iPad's two-page spread (no longer shown), each
+                  as WebP with PNG behind it
 appstore-screenshots/
   6.9-inch/       the 1320x2868 pages that went up to the store on 26 August 2026
   6.5-inch/       the same at 1284x2778
 ```
 
-`tools/export_assets.py` exports the screens in `assets/shots/` from the 3.0
-shots in `~/hifz-wt-polish/AppStore/shots/` (the iPad's in `shots/ipad/`), the
-icon set from the app icon, and the sky grounds from `~/hifz-wt-sky`'s asset
-catalogue, since 3.0 no longer ships the photographs. After a reshoot,
-`python3 tools/export_assets.py screens` is enough. The share card,
+`tools/export_assets.py` exports the screens in `assets/shots/` from the shots
+on the app's main branch in `~/hifz-wt-merge/AppStore/shots/` (the iPad's in
+`shots/ipad/`, the open Duo's in `shots/duo-inner/`), the icon set from the app
+icon, and the sky grounds from `~/hifz-wt-sky`'s asset catalogue, since 3.0 no
+longer ships the photographs. After a reshoot,
+`python3 tools/export_assets.py screens` is enough; `wide` makes the Duo and
+pen pictures. The Duo is cut with the simulator's own outline of its screen,
+and the pen picture comes from the 3.2 review sheets, since no store shot has
+writing on it. The share card,
 `assets/img/og.png`, shows no screens, so a reshoot does not touch it.
 `tools/shoot_site.py` photographs the site with headless Chrome over the DevTools
 protocol (the Browser pane cannot screenshot while it is hidden):
-`python3 tools/shoot_site.py out "top|http://localhost:8765/index.html?sky=asr|1440|900|0|0,900"`.
+`python3 tools/shoot_site.py out "top|http://localhost:8765/index.html?sky=asr|1440|900|0|0,900"`
+(a position can also be a section's `#id`).
 Nothing on this site may imply the app listens to you: it has no microphone
 access and no speech recognition. Location, notifications and alarms are
 optional and asked for only when a feature is turned on, and the site says so.
@@ -66,8 +74,9 @@ In App Store Connect, use these URLs:
 - **EULA**: leave Apple's standard EULA. terms.html is written to sit beside it, not
   replace it; a custom EULA would also have to give a postal address and phone number.
 
-Store copy for 3.0 (What's New, promotional text, description) lives in
-`~/hifz-wt-polish/ASO/APPSTORE_LISTING_3.0.md`. The site's claims should match it.
+Store copy for 3.2 (What's New, promotional text, description) lives in
+`ASO/APPSTORE_LISTING_3.2.md` on the app's main branch. The site's claims should
+match it.
 
 ## Hosting
 
@@ -87,15 +96,22 @@ Bump the number on any edit to either file.
   `prefers-reduced-motion`, and with no script it follows the system's
   light or dark setting instead of the clock.
 
+## Reviews
+
+"In their own words" on the home page quotes App Store reviews word for word,
+with the name the store shows, the storefront and the month. Only real ones,
+chosen by the owner; nothing is ever invented or paraphrased into a quote. An
+Arabic review keeps its own words and gets an English version under it, marked
+as such. The two there now (26 October 2026, both 5 stars) were the only
+written reviews then: runnerboy67 (Canada, 5 October) and ناقد اسطوري (Saudi
+Arabia, 9 September). Apple's public feed shows a storefront's reviews:
+`https://itunes.apple.com/<country>/rss/customerreviews/id=6792413377/sortby=mostrecent/json`.
+
 ## Later
 
-Proof that people trust the app, parked by the owner on 4 October 2026. Each
-must be real; nothing is ever invented or paraphrased into a quote.
-
 - **The App Store rating:** the real star rating and count, read from the
-  store, shown only once it is worth showing.
-- **Real reviews:** two or three App Store reviews, quoted word for word with
-  the reviewer's name as the store shows it, chosen by the owner.
+  store, shown only once it is worth showing. Held by the owner on 26 October
+  2026, at 4.7 from 15 ratings.
 - **A note from the maker:** a few honest lines from the owner on why the app
   exists, written or approved by them.
 

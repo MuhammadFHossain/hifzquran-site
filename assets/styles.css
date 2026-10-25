@@ -68,6 +68,7 @@
   --barBg:       linear-gradient(180deg, rgba(255,254,250,.82), rgba(255,254,250,.68));
   --phoneEdge:   rgba(34,39,31,.12);
   --phoneShadow: 0 24px 56px rgba(60,48,20,.18), 0 2px 6px rgba(0,0,0,.06);
+  --shapeShadow: drop-shadow(0 0 .75px rgba(34,39,31,.28)) drop-shadow(0 20px 28px rgba(60,48,20,.16));
 
   /* the hour: asr until the script says otherwise */
   --skyGrad: linear-gradient(180deg, #2A5C86 0%, #6C7E93 32%, #B98F5E 60%, #D9A85F 84%, #EBC98D 100%);
@@ -114,6 +115,7 @@
   --barBg:       linear-gradient(180deg, rgba(30,27,20,.72), rgba(30,27,20,.58));
   --phoneEdge:   rgba(255,255,255,.12);
   --phoneShadow: 0 30px 70px rgba(0,0,0,.62), 0 2px 6px rgba(0,0,0,.4);
+  --shapeShadow: drop-shadow(0 0 .75px rgba(255,255,255,.22)) drop-shadow(0 26px 36px rgba(0,0,0,.55));
   --skyGrad: linear-gradient(180deg, #151A3C 0%, #2E2350 22%, #5B3059 44%, #93435A 66%, #BC5F67 86%, #D68B7B 100%);
   --scrimOn: 1;
   color-scheme: dark;
@@ -143,6 +145,7 @@
     --barBg:       linear-gradient(180deg, rgba(30,27,20,.72), rgba(30,27,20,.58));
     --phoneEdge:   rgba(255,255,255,.12);
     --phoneShadow: 0 30px 70px rgba(0,0,0,.62), 0 2px 6px rgba(0,0,0,.4);
+    --shapeShadow: drop-shadow(0 0 .75px rgba(255,255,255,.22)) drop-shadow(0 26px 36px rgba(0,0,0,.55));
     --skyGrad: linear-gradient(180deg, #151A3C 0%, #2E2350 22%, #5B3059 44%, #93435A 66%, #BC5F67 86%, #D68B7B 100%);
     --scrimOn: 1;
     color-scheme: dark;
@@ -463,6 +466,14 @@ section { padding: 64px 0; position: relative; }
 .spread picture { display: block; max-width: 960px; margin: 32px auto 0; }
 .tablet { display: block; width: 100%; height: auto; border-radius: 18px;
   border: 1px solid var(--phoneEdge); box-shadow: var(--phoneShadow); background: var(--card); }
+/* the open iPhone Duo: its own round screen is cut into the picture, so the
+   shadow follows the picture's shape instead of a box */
+.duo { display: block; width: 100%; height: auto; filter: var(--shapeShadow); }
+.spread-note { font-size: 13px; color: var(--inkSoft); margin: 24px auto 0; }
+
+/* ---- the pen: an iPad standing up, in a band ---- */
+.band .pad { position: relative; width: 380px; height: auto; border-radius: 16px;
+  border: 1px solid var(--phoneEdge); box-shadow: var(--phoneShadow); background: var(--card); }
 
 /* ---- the pledge ---- */
 .pledge { padding: 48px; position: relative; }
@@ -481,6 +492,27 @@ section { padding: 64px 0; position: relative; }
 .note { padding: 24px; }
 .note h3 { font-family: var(--ui); font-size: 19px; font-weight: 600; letter-spacing: -.01em; color: var(--ink); margin: 0 0 8px; line-height: 1.3; }
 .note p { font-size: 16px; color: var(--ink2); line-height: 1.5; margin: 0; max-width: none; }
+
+/* ---- reviews: what people wrote on the App Store, word for word ---- */
+.reviews .section-head { max-width: 600px; }
+.said { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 880px; margin: 32px auto 0; text-align: start; }
+.review { margin: 0; padding: 32px; display: flex; flex-direction: column; gap: 16px; }
+.review blockquote { margin: 0; }
+.review p { font-size: 19px; line-height: 1.5; color: var(--ink2); margin: 0; }
+.review .r-title { font-family: var(--serif); font-weight: 540; font-size: 23px; line-height: 1.25;
+  letter-spacing: -.01em; color: var(--ink); margin: 0 0 8px; }
+/* the store's Arabic in a face made for prose; the mushaf's face is for the Quran alone */
+.review [lang="ar"], .review [lang="ar"] p, .review [lang="ar"] .r-title {
+  font-family: "Geeza Pro", "SF Arabic", "Noto Naskh Arabic", "Segoe UI", Tahoma, sans-serif; letter-spacing: 0; }
+.review blockquote[lang="ar"] p { font-size: 23px; line-height: 1.7; }
+.review blockquote[lang="ar"] .r-title { font-size: 27px; font-weight: 600; }
+.r-english { border-top: 1px solid var(--rule); padding-top: 16px; }
+.r-english .r-label { font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--inkSoft); margin: 0 0 8px; }
+.r-english .r-title { font-size: 19px; margin-bottom: 4px; }
+.r-english p { font-size: 16px; }
+.review figcaption { margin-top: auto; font-size: 16px; font-weight: 600; color: var(--ink); }
+.review figcaption span { font-weight: 400; color: var(--inkSoft); }
 
 /* ---- questions: the doubts people have before they download ---- */
 .questions .section-head { max-width: 600px; }
@@ -585,6 +617,8 @@ section { padding: 64px 0; position: relative; }
   section { padding: 64px 0; }
   .pledge { padding: 48px 32px; }
   .notes, .qa { grid-template-columns: repeat(2, 1fr); }
+  .band .media.pad-media > picture { width: min(400px, 86%); }
+  .band .pad { width: 100%; }
 }
 @media (max-width: 980px) and (prefers-color-scheme: dark) {
   :root:not(.light) .phone.night { top: 8%; }
@@ -620,6 +654,13 @@ section { padding: 64px 0; position: relative; }
   .note h3, .q h3 { font-size: 16px; margin-bottom: 4px; }
   .note p, .q p { font-size: 16px; }
   .tablet { border-radius: 12px; }
+  .band .pad { border-radius: 12px; }
+  .said { grid-template-columns: 1fr; }
+  .review { padding: 24px; }
+  .review p { font-size: 16px; }
+  .review blockquote[lang="ar"] p { font-size: 19px; }
+  .review blockquote[lang="ar"] .r-title { font-size: 23px; }
+  .review .r-title { font-size: 19px; }
   .pledge { padding: 32px 24px; }
   .ticks { flex-direction: column; gap: 12px; }
   .notes, .qa { grid-template-columns: 1fr; gap: 12px; }
