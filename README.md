@@ -1,9 +1,9 @@
 # Quran Pages, the website
 
-> **Branch `release-4.0`: the site for Quran Pages 4.0, the app painted in
-> gold and blue.** Ready to go live the day Apple approves 4.0; the steps are under
-> "Going live" at the end. `main` is still the 3.2 site, live since 26 October
-> 2026.
+> **4.0 is live.** The site for Quran Pages 4.0, the app painted in gold and
+> blue, went live on 28 October 2026 at the owner's word, merged from
+> `release-4.0`. The pen on iPad is still the 3.2 picture until there is a 4.0
+> shot of it (see "Going live", step 1).
 
 The marketing and legal site for **Quran Pages** (iPhone, iPhone Duo, iPad and
 Android), at **hifzquran.org**. Plain static HTML, CSS and one small script.
@@ -73,7 +73,10 @@ banner, icon A) and the paintings in `~/hifz-wt-illuminated` (branch
 `feature/illuminated`, `HifzQuran/Resources/Illumination`). After a reshoot,
 `python3 tools/export_assets.py screens` is enough; `wide` makes the Duo and
 the pen pictures once the 4.0 iPad and Duo shots exist. If those worktrees are
-gone after the merge, point `STORE` and `ART` at the app's main checkout. The
+gone after the merge (`~/hifz-wt-illuminated` was, on 28 October), point
+`STORE` and `ART` at a checkout of the app's branch. `tools/check_site.py`
+reads the app's text straight from `feature/illuminated` (or `main`) in
+`~/Developer/HifzQuran` with `git show`, so it needs no checkout. The
 share card shows the Al-Fatihah screen, so a reshoot of that screen means
 rendering `og-render.html` again.
 
@@ -153,7 +156,7 @@ reviews yet. Apple's public feed shows a storefront's reviews:
 - **A note from the maker:** a few lines from the owner on why the app exists,
   written or approved by them.
 
-## Going live (once 4.0 is approved)
+## Going live (done 28 October 2026; kept for the next release)
 
 Before the day:
 

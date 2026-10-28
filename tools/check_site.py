@@ -19,7 +19,18 @@ Exits 1 on any failure.
 import glob, html, json, os, re, sys
 
 SITE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-APP = os.path.expanduser("~/hifz-wt-illuminated/HifzQuran/Resources")
+# The app's text, read from its 4.0 branch in the app's repo (git show, so no
+# checkout of it is needed; the 4.0 worktree may be gone after a merge).
+APP_REPO = os.path.expanduser("~/Developer/HifzQuran")
+APP_REFS = ("feature/illuminated", "main")
+
+def app_json(name):
+    import subprocess
+    for ref in APP_REFS:
+        r = subprocess.run(["git", "-C", APP_REPO, "show", f"{ref}:HifzQuran/Resources/{name}"], capture_output=True)
+        if r.returncode == 0:
+            return json.loads(r.stdout.decode("utf-8"))
+    raise SystemExit(f"cannot read {name} from {APP_REPO} ({', '.join(APP_REFS)})")
 
 WORDS = r"\b(best|top[- ]rated)\b|#1\b"
 
@@ -58,10 +69,10 @@ for path in pages:
         fail(f"{name}: {m.group(0)!r} in ...{ctx}...")
 
 # The footer's ayah, on every page that shows it.
-ayahs = json.load(open(f"{APP}/ayahs.json", encoding="utf-8"))
+ayahs = app_json("ayahs.json")
 i = next(k for k, d in enumerate(ayahs) if d["s"] == 54 and d["a"] == 17)
 arabic = ayahs[i]["u"].strip()
-english = json.load(open(f"{APP}/tr_en-saheeh.json", encoding="utf-8"))["verses"][i]
+english = app_json("tr_en-saheeh.json")["verses"][i]
 for path in sorted(glob.glob(f"{SITE}/*.html")):
     raw = open(path, encoding="utf-8").read()
     for m in re.finditer(r'<figure class="foot-ayah">(.*?)</figure>', raw, flags=re.S):
