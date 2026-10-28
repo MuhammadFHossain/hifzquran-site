@@ -12,22 +12,17 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <meta property="og:title" content="Privacy Policy · Quran Pages">
 <meta property="og:description" content="The app collects nothing. No accounts, no analytics, no tracking. Location, notifications and alarms are optional, and asked for only when you turn a feature on.">
-<meta property="og:image" content="https://hifzquran.org/assets/img/og.png">
+<meta property="og:image" content="https://hifzquran.org/assets/img/og.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://hifzquran.org/assets/img/og.png">
-<meta name="theme-color" content="#FAF6EC">
-<link rel="stylesheet" href="assets/styles.css?v=20261026">
+<meta name="twitter:image" content="https://hifzquran.org/assets/img/og.jpg">
+<meta name="theme-color" content="#1F3479">
+<script>(function(){var r=document.documentElement,t=new URLSearchParams(location.search).get("theme");if(t==="dark"||t==="light")r.classList.add(t);r.classList.add("js")})();</script>
+<link rel="stylesheet" href="assets/styles.css?v=20261028b">
 </head>
 <body>
 
-<div class="ground" aria-hidden="true">
-  <div class="g-photo"></div>
-  <div class="g-night"><canvas></canvas></div>
-  <div class="g-grade"></div>
-  <div class="g-tint"></div>
-  <div class="g-veil"></div>
-</div>
+<div class="ground" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="bar">
@@ -46,7 +41,7 @@
   <a class="back" href="/">‹ Back to Quran Pages</a>
   <div class="paper card">
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: October 26, 2026</p>
+  <p class="updated">Last updated: October 28, 2026</p>
 
   <div class="callout">
     <p><strong>The short version.</strong> Quran Pages collects nothing. There are no accounts, no analytics,
@@ -121,6 +116,10 @@
   keep playing a recitation with the screen locked, to vibrate, to show a prayer alarm on the screen where
   Android allows it, and to set the prayer alarms again after the phone restarts. None of these gives the app
   anything of yours.</p>
+  <p><strong>The motion sensor, with no permission.</strong> From version 4.0 the gold in the app catches the
+  light as you move your phone. To do this, the app reads how the phone is tilted, on the device, while a painted
+  screen is showing. It keeps nothing and sends nothing, and it needs no permission. On iPhone and iPad it stops
+  with Reduce Motion on or in Low Power Mode.</p>
   <p>The app does not use, and cannot use, the <strong>microphone</strong>, <strong>speech recognition</strong>, the
   camera, photos, contacts or calendars. Your recitation is never heard, recorded, transcribed or stored, by us
   or by anyone else.</p>
@@ -169,7 +168,8 @@
   <p>This site is a simple set of static pages. It uses no advertising or tracking cookies and does not ask you to
   sign in. It is hosted on GitHub Pages, and GitHub may keep server logs, including your internet address, to keep
   the site running and secure. The fonts and pictures are on the site itself, so a visit makes no requests to
-  anyone else. Because neither the site nor the app tracks you, both treat everyone the same whether or not your
+  anyone else. On the home page, the gold in the paintings catches the light as you move your mouse or your
+  phone. That happens in your browser, and nothing is sent. Because neither the site nor the app tracks you, both treat everyone the same whether or not your
   browser sends a "Do Not Track" signal.</p>
 
   <h3>If you email us</h3>
@@ -224,7 +224,11 @@
         <span class="mark" aria-hidden="true"></span>
         <b>Quran <i>Pages</i></b>
       </a>
-      <p class="foot-ayah" lang="ar" dir="rtl" aria-hidden="true">وَلَقَدۡ يَسَّرۡنَا ٱلۡقُرۡءَانَ لِلذِّكۡرِ</p>
+      <figure class="foot-ayah">
+        <p class="ar" lang="ar" dir="rtl">وَلَقَدۡ يَسَّرۡنَا ٱلۡقُرۡءَانَ لِلذِّكۡرِ فَهَلۡ مِن مُّدَّكِرٖ</p>
+        <p class="en">And We have certainly made the Qur’ān easy for remembrance, so is there any who will remember?</p>
+        <p class="ref">Al-Qamar 54:17, Saheeh International</p>
+      </figure>
     </div>
     <div>
       <div class="foot-links">
@@ -239,6 +243,6 @@
   </div>
 </footer>
 
-<script src="assets/sky.js?v=20261026"></script>
+<script src="assets/site.js?v=20261028"></script>
 </body>
 </html>
