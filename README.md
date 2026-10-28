@@ -156,19 +156,13 @@ no reviews yet. Apple's public feed shows a storefront's reviews:
 Before the day:
 
 1. Wait for the store session's final 4.0 shots (it reshoots every set once
-   iPhone, iPad, Duo, Android and Indopak have all landed). These pictures
-   on this branch are stand-ins until then:
-   - `shots/quran-day` and `shots/quran-night`: the Quran tab before the calmer
-     tab (lapis Continue plate, round Recently read).
-   - `shots/salah`: the Salah tab still with its sky; 4.0 has none (paper by
-     day, lapis by night, the sun's path in gold).
-   - The Indopak page: the old picture is off the page. Once the Mughal
-     Indopak page is shot, put `shots/indopak` back beside Al-Baqarah in the
-     Mushaf band (the comment there marks the place) and make it `media two`.
-   - `shots/duo-spread` and `shots/pen`: the 3.2 look.
-   No picture here shows the Madina page at night (lapis in 4.0).
-   Then run `python3 tools/export_assets.py screens wide` (for `wide`, the
-   iPad pen shot must be at `AppStore/shots/ipad/pad_pen.png`, or change `PEN`).
+   iPhone, iPad, Duo, Android and Indopak have all landed). On 28 October
+   the site took the store kit's reshoot of 27 October (the calmer Quran tab,
+   the Mughal Indopak page, Salah with no sky, the open Duo on the Indopak
+   opening). One picture is still a stand-in: `shots/pen`, the 3.2 look, until
+   there is a 4.0 iPad shot with the pen out.
+   Then run `python3 tools/export_assets.py screens wide` (for the pen, the
+   iPad shot must be at `AppStore/shots/ipad/pad_pen.png`, or change `PEN`).
    If the Al-Fatihah screen changed, render the share card again
    (`og-render.html`).
 2. Read the page against the 4.0 build: every claim must be true of the build

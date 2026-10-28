@@ -34,7 +34,7 @@ PARTS = set(sys.argv[1:]) or {"screens", "art", "icons"}
 # and the 4.0 wide shots the store kit is to make: the open Duo's first two
 # pages, and a page on the iPad with the pen out.
 DUO_MASK = "/Library/Developer/CoreSimulator/Profiles/DeviceTypes/iPhone Duo.simdevicetype/Contents/Resources/BF0DC480-5EE2-4EC1-B02B-C75E94759832.pdf"
-DUO = f"{SHOTS}/duo-inner/pad_spread.png"
+DUO = f"{SHOTS}/duo-inner/pad_indopak.png"   # the Mughal Indopak opening, the 4.0 Duo set's spread
 PEN = f"{SHOTS}/ipad/pad_pen.png"
 
 for d in ("shots", "art", "img"):
@@ -64,6 +64,7 @@ SCREENS = {
     "06_salah": "salah", "07_qibla": "qibla", "08_dua": "dua",
     "04_indopak": "indopak",
 }
+# 15_opening2 (Al-Baqarah) was shot from 4.0 (36) and is still the store kit's.
 if "screens" in PARTS:
     print("screens (2x for a 330pt phone)")
     for src, dst in SCREENS.items():
@@ -85,12 +86,15 @@ if "wide" in PARTS:
         mask = Image.open(f"{tmp}/mask.png").getchannel("A")
     im.putalpha(mask.resize((im.height, im.width), Image.LANCZOS).rotate(90, expand=True))
     im = fit_width(im, 1920)
+    # WebP only: a PNG of this, for browsers without WebP, would be 2.4 MB
     save_webp(im, f"{SITE}/shots/duo-spread.webp", 82)
-    save_png(im, f"{SITE}/shots/duo-spread.png")
-    print("pen (2x for a 380pt column)")
-    im = fit_width(Image.open(PEN).convert("RGB"), 760)
-    save_webp(im, f"{SITE}/shots/pen.webp", 82)
-    im.save(f"{SITE}/shots/pen.png", optimize=True)
+    if os.path.exists(PEN):
+        print("pen (2x for a 380pt column)")
+        im = fit_width(Image.open(PEN).convert("RGB"), 760)
+        save_webp(im, f"{SITE}/shots/pen.webp", 82)
+        im.save(f"{SITE}/shots/pen.png", optimize=True)
+    else:
+        print(f"  no pen shot yet at {PEN}: shots/pen stays as it is")
 
 # ---- art -----------------------------------------------------------------
 PAPER = np.array([249, 245, 235], float)   # the banner's paper
