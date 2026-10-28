@@ -61,7 +61,7 @@
 }
 </script>
 <link rel="preload" as="image" href="assets/shots/fatihah.webp" type="image/webp">
-<link rel="stylesheet" href="assets/styles.css?v=20261028b">
+<link rel="stylesheet" href="assets/styles.css?v=20261028c">
 </head>
 <body>
 
@@ -77,6 +77,7 @@
       <a href="#repeat" class="hide-md">Repeat</a>
       <a href="#mushaf" class="hide-md">Mushaf</a>
       <a href="#salah" class="hide-md">Salah</a>
+      <a href="#pen" class="hide-md">Pen</a>
       <a href="#questions" class="hide-md">Questions</a>
       <a href="support.html" class="hide-sm">Support</a>
       <a href="https://apps.apple.com/us/app/quran-pages-read-repeat/id6792413377" class="cartouche cream ios-only">Download</a>
@@ -316,26 +317,48 @@
     </div>
   </section>
 
-  <!-- THE PEN: words left, the iPad right -->
-  <section id="pen" class="band">
-    <div class="wrap band-grid">
-      <div class="copy reveal">
-        <p class="eyebrow">The pen</p>
-        <h2>Write on <em>the page.</em></h2>
-        <ul>
-          <li>On iPad and the open iPhone Duo, tap Pen and write with Apple Pencil or your finger.</li>
-          <li>A pen or a highlighter, in one of five colours.</li>
-          <li>Your writing goes under the letters, so it never covers the words of the Quran.</li>
-          <li>It stays on its page. One switch hides it.</li>
-          <li>It is kept on your iPad or phone, and nowhere else.</li>
-        </ul>
+  <!-- THE PEN: a page of its own. Writing on the page, and People: each
+       person on one iPad keeps their own writing. The pen bar and People are
+       real 4.0 screens; the page with writing is the 3.2 picture until the
+       store kit shoots 4.0's. -->
+  <section id="pen" class="pen-feature">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The pen, on iPad</p>
+        <h2>Write notes on <em>the page.</em></h2>
+        <p class="lead">Highlight an ayah, underline a word, or make a mark in the margin, with Apple Pencil
+        or your finger. Your writing goes under the letters, so it never covers the words of the Quran.</p>
       </div>
-      <div class="media pad-media reveal later">
-        <picture>
-          <source srcset="assets/shots/pen.webp" type="image/webp">
-          <img class="pad" src="assets/shots/pen.png" width="760" height="1013" alt="Al-Fatihah on an iPad with the pen out: the second ayah highlighted in gold, a red line under the fifth, a blue tick in the margin, and the pen's tools at the foot of the page" loading="lazy" decoding="async">
-        </picture>
+      <div class="pen-grid">
+        <figure class="pen-page reveal">
+          <picture>
+            <source srcset="assets/shots/pen.webp" type="image/webp">
+            <img class="pad" src="assets/shots/pen.png" width="760" height="1013" alt="Al-Fatihah on an iPad with the pen out: the second ayah highlighted in gold, a red line under the fifth, a blue tick in the margin, and the pen's tools at the foot of the page" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+        <div class="pen-steps">
+          <div class="pen-step card reveal">
+            <p class="step-n">1</p>
+            <h3>Highlight, underline, write</h3>
+            <p>Tap the page, then Pen. Choose the pen or the highlighter, and one of five colours. The eraser rubs out.</p>
+            <img class="bar day-only" src="assets/shots/pen-bar.webp" width="1368" height="110" alt="The pen's bar: the name of the person writing (Me), the pen, the highlighter and the eraser, five colours, and Done" loading="lazy" decoding="async">
+            <img class="bar night-only" src="assets/shots/pen-bar-dark.webp" width="1368" height="110" alt="The pen's bar in Dark: the name of the person writing (Me), the pen, the highlighter and the eraser, five colours, and Done" loading="lazy" decoding="async">
+          </div>
+          <div class="pen-step card reveal later">
+            <p class="step-n">2</p>
+            <h3>Everyone keeps their own writing</h3>
+            <p>A family or a class can share one iPad. Tap your name in the pen's bar to choose who is writing,
+            or Add someone. The page shows only that person's writing.</p>
+            <img class="people day-only" src="assets/shots/people.webp" width="804" height="1016" alt="People: Me, and Aisha, Yusuf and Maryam under Others, each with their own writing, and Add someone" loading="lazy" decoding="async">
+            <img class="people night-only" src="assets/shots/people-dark.webp" width="804" height="1016" alt="People in Dark: Me, and Aisha, Yusuf and Maryam under Others, and Add someone" loading="lazy" decoding="async">
+          </div>
+        </div>
       </div>
+      <ul class="pen-notes reveal">
+        <li>Your writing stays on its page. One switch hides it.</li>
+        <li>Kept on your iPad and in its backup, and nowhere else.</li>
+        <li>The pen works on the open iPhone Duo too.</li>
+      </ul>
     </div>
   </section>
 
