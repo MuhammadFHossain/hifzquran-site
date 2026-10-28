@@ -28,10 +28,11 @@ WebGL, the still painting shows.
 
 The words follow `Design/WORDS.md`: plain enough for a grandmother who reads
 English as her second language. Say "painted in gold and blue", never
-"illuminated": the owner found nobody knows the word (27 October 2026). None of the words the store rules ban
-(`ASO/LISTING_RULES.md`: nothing about what the app asks you to pay, and
-nothing that ranks it above others) and no em dashes; `tools/check_site.py`
-checks both.
+"illuminated": the owner found nobody knows the word (27 October 2026). The
+site says plainly that the app is free forever, with no ads and no account
+(owner, 27 October 2026); the App Store text never does, by Apple's rules.
+Nothing in our own words ranks the app above others, and no em dashes.
+`tools/check_site.py` checks these.
 
 ```
 index.html        landing page
@@ -51,7 +52,7 @@ assets/
                   toolbox.marketingtools.apple.com, never redrawn), icon A (app-icon,
                   apple-touch-icon, favicons), its mark for the wordmark, og.jpg
   art/            the app's paintings with their maps (-base, -time, -mat): the shamsa,
-                  the crown, twelve surahs; the banner's border (frame) and its gold
+                  the crown, twelve surahs, three vines; the banner's border (frame) and its gold
                   rule (rule); the ground's rosettes (ground-day.svg, ground-night.svg)
                   and grain
   shots/          screens of the app at 2x for a 330pt phone, as WebP with a JPEG behind;
@@ -60,7 +61,9 @@ appstore-screenshots/   the 3.0 store pages of 26 August 2026 (not linked)
 preview/                pictures of the 3.0 site (not linked)
 tools/
   export_assets.py  the screens, the art and the icons, from the app and its store kit
-  check_site.py     the store-rule words, em dashes, and the Quran text
+  paint_vines.py    paints the vines with the app's illumination engine, and their maps
+  subset_fonts.py   cuts Fraunces down to what the site uses
+  check_site.py     ranking words, em dashes, "illuminated", and the Quran text
   shoot_site.py     photographs the site with headless Chrome
 ```
 
@@ -116,6 +119,12 @@ Bump the number on any edit to either file.
 - No analytics, no cookies, no third-party requests. The site respects
   `prefers-reduced-motion`, and with no script it still follows the system's
   light or dark setting.
+- The surahs' paintings are shown, not sold: a strip of tiles drifting past,
+  with no heading (owner, 27 October 2026: "not a value prop"). Three vines
+  painted for the site with the app's engine (`tools/paint_vines.py`) grow
+  across the page between sections, as the app paints its pages in.
+- The line is "Read, repeat, remember." (owner, 27 October 2026: "pray isn't
+  something we make people do").
 - The Quran on the site is one ayah, in the footer: Al-Qamar 54:17, taken
   letter for letter from the app's `ayahs.json`, with Saheeh International
   from the app's `tr_en-saheeh.json`. `tools/check_site.py` compares them.
@@ -127,11 +136,11 @@ Bump the number on any edit to either file.
 with the name the store shows, the storefront and the month. Only real ones,
 chosen by the owner; nothing is ever invented or paraphrased into a quote. An
 Arabic review keeps its own words and gets an English version under it, marked
-as such. On 26 October 2026 there were two: runnerboy67 (Canada, 5 October)
-and ناقد اسطوري (Saudi Arabia, 9 September). The 4.0 site shows only the
-second: the first one's title and text rank the app above others, and 4.0 has
-no ranking words anywhere. It is still on `main`. Apple's public feed
-shows a storefront's reviews:
+as such. The owner asked for as many as there are (27 October 2026). On that
+day every storefront's feed held three written reviews, all 5 stars, and all
+three are on the page: runnerboy67 (Canada, 5 October), ناقد اسطوري (Saudi
+Arabia, 9 September) and Izza_chockly (India, 24 October). Google Play shows
+no reviews yet. Apple's public feed shows a storefront's reviews:
 `https://itunes.apple.com/<country>/rss/customerreviews/id=6792413377/sortby=mostrecent/json`.
 
 ## Later
@@ -147,12 +156,17 @@ shows a storefront's reviews:
 Before the day:
 
 1. Wait for the store session's final 4.0 shots (it reshoots every set once
-   iPhone, iPad, Duo, Android and Indopak have all landed). Four pictures on
-   this branch are stand-ins until then:
+   iPhone, iPad, Duo, Android and Indopak have all landed). These pictures
+   on this branch are stand-ins until then:
    - `shots/quran-day` and `shots/quran-night`: the Quran tab before the calmer
      tab (lapis Continue plate, round Recently read).
-   - `shots/indopak`: the Indopak opening before the Mughal painting.
+   - `shots/salah`: the Salah tab still with its sky; 4.0 has none (paper by
+     day, lapis by night, the sun's path in gold).
+   - The Indopak page: the old picture is off the page. Once the Mughal
+     Indopak page is shot, put `shots/indopak` back beside Al-Baqarah in the
+     Mushaf band (the comment there marks the place) and make it `media two`.
    - `shots/duo-spread` and `shots/pen`: the 3.2 look.
+   No picture here shows the Madina page at night (lapis in 4.0).
    Then run `python3 tools/export_assets.py screens wide` (for `wide`, the
    iPad pen shot must be at `AppStore/shots/ipad/pad_pen.png`, or change `PEN`).
    If the Al-Fatihah screen changed, render the share card again

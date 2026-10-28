@@ -116,7 +116,11 @@
     "  vec4 ground = texture2D(B, v);",
     "  float t = texture2D(T, v).r;",
     "  float show = t < 0.004 ? 1.0 : smoothstep(t - soft, t, prog * (1.0 + soft));",
-    "  vec4 col = mix(ground, full, show);",
+    // mixed as the colours lie on the page (premultiplied), so a stroke
+    // growing onto a clear ground fades in in its own colour, not through grey
+    "  float a = mix(ground.a, full.a, show);",
+    "  vec3 pm = mix(ground.rgb * ground.a, full.rgb * full.a, show);",
+    "  vec4 col = vec4(a > 0.001 ? pm / a : full.rgb, a);",
     "  vec3 m = texture2D(M, v).rgb;",
     "  float g = m.r * show, lap = m.g * show;",
     "  vec3 lit = col.rgb;",
@@ -162,7 +166,7 @@
   ["F", "B", "T", "M", "prog", "soft", "L", "size"].forEach(function (n) { U[n] = gl.getUniformLocation(prog, n); });
   gl.uniform1i(U.F, 0); gl.uniform1i(U.B, 1); gl.uniform1i(U.T, 2); gl.uniform1i(U.M, 3);
 
-  function texture(src) {
+  function texture(src, rgba) {
     var t = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, t);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
@@ -170,10 +174,11 @@
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     if (src) gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, src);
-    else gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 255]));
+    else gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array(rgba || [0, 0, 0, 255]));
     return t;
   }
   var NOW = texture(null);   // a time map of zero: everything shows at once
+  var CLEAR = texture(null, [0, 0, 0, 0]);   // a clear ground, for a painting that grows onto the page
   function load(src) {
     return new Promise(function (ok, no) { var i = new Image(); i.onload = function () { ok(i); }; i.onerror = no; i.src = src; });
   }
@@ -223,7 +228,7 @@
       load(it.path + "-mat.png")];
     Promise.all(want).then(function (imgs) {
       it.tex = [texture(imgs[0]), imgs[1] ? texture(imgs[1]) : null, imgs[2] ? texture(imgs[2]) : NOW, texture(imgs[3])];
-      if (!it.tex[1]) it.tex[1] = it.tex[0];
+      if (!it.tex[1]) it.tex[1] = it.grows ? CLEAR : it.tex[0];
       var c = document.createElement("canvas");
       c.setAttribute("aria-hidden", "true");
       it.el.appendChild(c);
@@ -259,17 +264,29 @@
     it.ctx.drawImage(glc, 0, glc.height - h, w, h, 0, 0, w, h);
   }
 
-  var io = new IntersectionObserver(function (es) {
+  // Two watchers: one fetches a painting a little before it arrives, the
+  // other starts it growing only once it is really on the screen.
+  function find(el) { return items.find(function (x) { return x.el === el; }); }
+  var ahead = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { var it = find(e.target); if (it) prepare(it); } });
+  }, { rootMargin: "400px 0px 400px 0px" });
+  // How much of a painting's height is on the screen. A vine is wider than a
+  // phone, so its share of area never passes a half; its height does.
+  var steps = [];
+  for (var k = 0; k <= 20; k++) steps.push(k / 20);
+  var seen = new IntersectionObserver(function (es) {
     es.forEach(function (e) {
-      var it = items.find(function (x) { return x.el === e.target; });
+      var it = find(e.target);
       if (!it) return;
-      it.visible = e.isIntersecting; it.ratio = e.intersectionRatio;
+      var was = it.visible;
+      it.visible = e.isIntersecting;
+      it.ratio = e.intersectionRect.height / Math.max(1, e.boundingClientRect.height);
       if (e.isIntersecting) prepare(it);
-      if (e.isIntersecting && e.intersectionRatio > 0.45 && it.grows) play(it);
-      if (e.isIntersecting && it.ready) draw(it);
+      if (e.isIntersecting && it.ratio > 0.45 && it.grows) play(it);
+      if (!was && it.visible && it.ready) draw(it);   // the light may have moved while it was away
     });
-  }, { threshold: [0, 0.5], rootMargin: "300px 0px 300px 0px" });
-  items.forEach(function (it) { if (it.eager) prepare(it); io.observe(it.el); });
+  }, { threshold: steps });
+  items.forEach(function (it) { if (it.eager) prepare(it); ahead.observe(it.el); seen.observe(it.el); });
   window.addEventListener("resize", function () {
     items.forEach(function (it) { if (it.ready) { size(it); draw(it); } });
   });

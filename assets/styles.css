@@ -351,20 +351,23 @@ section { padding: 72px 0; position: relative; }
   color: var(--lapis); background: var(--cartouche); border: 1px solid var(--edge); }
 :root.dark .new { color: var(--lapis); }
 
-/* ---- the surahs, painted: the app's own tiles, each ruled like its row ---- */
-.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px 20px; margin: 40px 0 0; padding: 0; list-style: none; }
-.tile { margin: 0; text-align: left; }
-.tile .illum { aspect-ratio: 480 / 261; border: 1px solid var(--line); box-shadow: 0 6px 18px rgba(60, 48, 20, .12); overflow: hidden; background: var(--lapis); }
-.tile figcaption { margin-top: 8px; font-size: 13px; color: var(--inkSoft); display: flex; gap: 8px; align-items: baseline; }
-.tile figcaption b { font-family: var(--serif); font-weight: 560; font-size: 17px; color: var(--ink); letter-spacing: -.01em; }
-.painted-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; text-align: left; }
-.painted-notes .card { padding: 28px; }
-.painted-notes h3 { margin-bottom: 8px; }
-.painted-notes p { margin: 0; color: var(--ink2); }
-.hint { margin-top: 20px; font-size: 13px; color: var(--inkSoft); }
-.hint-fine { display: none; }
-@media (hover: hover) and (pointer: fine) { .hint-fine { display: inline; } }
-.more-help { margin: 24px 0 0; color: var(--ink2); }
+/* ---- the vines: the app's scroll, grown across the page ----
+   A band wider than most screens, centred, so a phone sees its heart and a
+   wide screen nearly all of it. It grows from the middle out as it arrives. */
+.vine { overflow: hidden; padding: 8px 0; pointer-events: none; }
+.vine .illum { width: clamp(1000px, 112vw, 1600px); position: relative; left: 50%; transform: translateX(-50%); }
+
+/* ---- the surahs' paintings: a strip of the app's own tiles, drifting past
+   between gold rules. Shown, not sold: no heading, no words. ---- */
+.frieze { padding: 0; overflow: hidden; margin: 24px 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  box-shadow: inset 0 3px 0 var(--gold), inset 0 4px 0 var(--line), inset 0 -3px 0 var(--gold), inset 0 -4px 0 var(--line);
+  background: color-mix(in srgb, var(--card) 60%, transparent); }
+.frieze-track { display: flex; width: max-content; padding: 22px 0; animation: drift 140s linear infinite; }
+.frieze-row { display: flex; gap: 16px; margin: 0; padding: 0 8px; list-style: none; }
+.frieze-row li { width: 240px; flex: none; }
+.frieze .illum { aspect-ratio: 480 / 261; border: 1px solid var(--line); box-shadow: 0 6px 16px rgba(28, 25, 22, .16); overflow: hidden; background: var(--lapis); }
+@keyframes drift { to { transform: translateX(-50%); } }
 
 /* ---- iPhone Duo and iPad: the open book, wide ---- */
 .spread .section-head .lead { margin: 16px auto 0; max-width: 46ch; }
@@ -381,7 +384,7 @@ section { padding: 72px 0; position: relative; }
 .note p { font-size: 16px; color: var(--ink2); margin: 0; }
 
 /* ---- reviews: what people wrote on the App Store, word for word ---- */
-.said { display: grid; grid-template-columns: minmax(0, 520px); justify-content: center; gap: 16px; margin: 40px auto 0; text-align: start; }
+.said { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 16px; max-width: 1040px; margin: 40px auto 0; text-align: start; }
 .review { margin: 0; padding: 36px; display: flex; flex-direction: column; gap: 16px; }
 .review blockquote { margin: 0; }
 .review p { font-size: 19px; line-height: 1.5; color: var(--ink2); margin: 0; }
@@ -516,8 +519,8 @@ section { padding: 72px 0; position: relative; }
   .band .media.one > picture { width: min(320px, 76%); }
   .band .media.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 600px; margin: 0 auto; width: 100%; }
   .band .media.two > picture { width: auto; }
-  .tiles { grid-template-columns: repeat(3, 1fr); }
-  .notes, .qa, .painted-notes { grid-template-columns: repeat(2, 1fr); }
+  .notes, .qa { grid-template-columns: repeat(2, 1fr); }
+  .said { grid-template-columns: minmax(0, 560px); justify-content: center; }
   .pledge { padding: 48px 32px; }
   .band .media.pad-media > picture { width: min(400px, 86%); }
   .band .pad { width: 100%; }
@@ -537,10 +540,10 @@ section { padding: 72px 0; position: relative; }
   .band .media.two { gap: 12px; }
   .band .media.two > picture:last-child { margin-top: 32px; }
   .band li, .pledge p { font-size: 17px; }
-  .tiles { grid-template-columns: repeat(2, 1fr); gap: 16px 12px; }
-  .tile figcaption b { font-size: 15px; }
-  .notes, .qa, .painted-notes { grid-template-columns: 1fr; gap: 12px; }
-  .note, .q, .painted-notes .card { padding: 24px; }
+  .frieze-row li { width: 180px; }
+  .frieze-track { padding: 16px 0; }
+  .notes, .qa { grid-template-columns: 1fr; gap: 12px; }
+  .note, .q { padding: 24px; }
   .pledge { padding: 32px 24px; }
   .pledge h2 { font-size: 30px; }
   .ticks { flex-direction: column; gap: 12px; }
@@ -570,4 +573,6 @@ section { padding: 72px 0; position: relative; }
   html { scroll-behavior: auto; }
   .cartouche:active, .badge:hover { transform: none; }
   .reveal { opacity: 1; transition: none; }
+  .frieze { overflow-x: auto; }
+  .frieze-track { animation: none; }
 }
