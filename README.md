@@ -1,7 +1,7 @@
 # Quran Pages, the website
 
-> **Branch `release-4.0`: the site for Quran Pages 4.0, the illuminated
-> release.** Ready to go live the day Apple approves 4.0; the steps are under
+> **Branch `release-4.0`: the site for Quran Pages 4.0, the app painted in
+> gold and blue.** Ready to go live the day Apple approves 4.0; the steps are under
 > "Going live" at the end. `main` is still the 3.2 site, live since 26 October
 > 2026.
 
@@ -9,7 +9,7 @@ The marketing and legal site for **Quran Pages** (iPhone, iPhone Duo, iPad and
 Android), at **hifzquran.org**. Plain static HTML, CSS and one small script.
 No build step, no framework, no tracking, no external requests.
 
-The site follows the app, which in 4.0 is painted like an illuminated Quran.
+The site follows the app, which in 4.0 is painted in gold and blue.
 By day the ground is the app's bright cream paper, lit from the top, with a
 touch of burnished grain and the rosette lattice pressed in tone on tone; in
 the dark it is the app's lapis night with the same rosettes in cream. The bar
@@ -27,7 +27,8 @@ paint shader (`Illumination.metal`, `IllumLight.h`) ported to WebGL in
 WebGL, the still painting shows.
 
 The words follow `Design/WORDS.md`: plain enough for a grandmother who reads
-English as her second language. None of the words the store rules ban
+English as her second language. Say "painted in gold and blue", never
+"illuminated": the owner found nobody knows the word (27 October 2026). None of the words the store rules ban
 (`ASO/LISTING_RULES.md`: nothing about what the app asks you to pay, and
 nothing that ranks it above others) and no em dashes; `tools/check_site.py`
 checks both.

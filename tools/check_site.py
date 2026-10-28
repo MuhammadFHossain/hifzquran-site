@@ -7,7 +7,8 @@
    about price (a warranty "free of errors", the indemnity's "legal costs",
    and the refund line Apple asks every developer's terms to carry); each is
    listed below, and nothing else passes.
-2. No em dashes.
+2. No em dashes, and not the word "illuminated" (say "painted in gold and
+   blue": the owner found nobody knows the word).
 3. The Quran shown on the site is the app's own text: the footer's Al-Qamar
    54:17, letter for letter against ayahs.json, and its English against
    Saheeh International (tr_en-saheeh.json), both in the app.
@@ -55,6 +56,8 @@ for path in pages:
     raw = open(path, encoding="utf-8").read()
     if "—" in raw:
         fail(f"{name}: an em dash")
+    if name.endswith(".html") and re.search(r"illuminat", visible(raw), flags=re.I):
+        fail(f"{name}: the word illuminated (say painted in gold and blue)")
     if name in ("og-render.html",):
         continue
     text = visible(raw) if name.endswith(".html") else raw
