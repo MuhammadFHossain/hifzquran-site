@@ -6,7 +6,8 @@
 > shot of it (see "Going live", step 1).
 
 The marketing and legal site for **Quran Pages** (iPhone, iPhone Duo, iPad and
-Android), at **hifzquran.org**. Plain static HTML, CSS and one small script.
+Android), at **quranpages.org**. The old address, hifzquran.org, sends every
+page to the same page here (repo `hifzquran-redirect`, see Hosting). Plain static HTML, CSS and one small script.
 No build step, no framework, no tracking, no external requests.
 
 The site follows the app, which in 4.0 is painted in gold and blue.
@@ -97,9 +98,9 @@ The motion sensor moves only the light on the gold, and the site says that too.
 
 In App Store Connect, use these URLs:
 
-- **Privacy Policy URL**: `https://hifzquran.org/privacy.html`
-- **Support URL**: `https://hifzquran.org/support.html`
-- **Marketing URL**: `https://hifzquran.org`
+- **Privacy Policy URL**: `https://quranpages.org/privacy.html`
+- **Support URL**: `https://quranpages.org/support.html`
+- **Marketing URL**: `https://quranpages.org`
 - **EULA**: leave Apple's standard EULA. terms.html is written to go beside it,
   not replace it; a custom EULA would also have to give a postal address and
   phone number.
@@ -111,7 +112,21 @@ site's claims should match it.
 ## Hosting
 
 Everything here is static, so any static host works. It is on GitHub Pages:
-push to `main`, and the `CNAME` file sets the domain.
+push to `main`, and the `CNAME` file sets the domain, quranpages.org (since
+28 October 2026; before that it was hifzquran.org).
+
+hifzquran.org is a second, tiny GitHub Pages site, `MuhammadFHossain/hifzquran-redirect`
+(local copy beside this folder). Every page there sends the visitor to the
+same page on quranpages.org, path, query and all: its `404.html` does it for
+any address, and `privacy.html`, `support.html` and `terms.html` also carry a
+meta refresh for browsers with no script. The apps up to 4.0 link to
+hifzquran.org/privacy.html and share hifzquran.org, so keep that domain
+renewed and that repo in place for good.
+
+DNS, both at GoDaddy: quranpages.org and hifzquran.org each have the four
+GitHub Pages `A` records (185.199.108.153 to 185.199.111.153), the four `AAAA`
+records (2606:50c0:8000::153 to 8003::153), and `www` as a `CNAME` to
+`muhammadfhossain.github.io`.
 
 The stylesheet and the script are linked with `?v=YYYYMMDD` because GitHub
 Pages caches them hard and a stale copy reads as the change never landing.
