@@ -2,52 +2,50 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- The share card. Render it at 1200x630 to assets/img/og.png, served over http
-     (a file:// page cannot load the rosette as a mask): python3 -m http.server 8765, then
+<!-- The share card, laid out like the 4.0 store banner: paper in the banner's
+     painted border, the words on the left, the Al-Fatihah opening on the shamsa
+     on the right. Render it at 1200x630, served over http:
+     python3 -m http.server 8765, then
      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars
-       --window-size=1200,630 --screenshot=assets/img/og.png "http://localhost:8765/og-render.html" -->
+       --window-size=1200,630 --screenshot=/tmp/og.png "http://localhost:8765/og-render.html"
+     and save /tmp/og.png as assets/img/og.jpg at quality 88.
+     The phone is a real 4.0 screen (assets/shots/fatihah), so a reshoot of that
+     screen means rendering this again. -->
 <style>
-  @font-face { font-family:"Fraunces"; src:url("assets/fonts/Fraunces-VF.ttf") format("truetype-variations"); font-weight:100 900; }
-  @font-face { font-family:"Fraunces"; src:url("assets/fonts/Fraunces-Italic-VF.ttf") format("truetype-variations"); font-weight:100 900; font-style:italic; }
-  @font-face { font-family:"UthmanicHafs"; src:url("assets/fonts/UthmanicHafsV22.ttf") format("truetype"); }
+  @font-face { font-family:"Fraunces"; src:url("assets/fonts/Fraunces-VF.woff") format("woff"); font-weight:100 900; }
+  @font-face { font-family:"Fraunces"; src:url("assets/fonts/Fraunces-Italic-VF.woff") format("woff"); font-weight:100 900; font-style:italic; }
   * { margin:0; box-sizing:border-box; }
   html, body { width:1200px; height:630px; overflow:hidden; }
-  /* The app's day ground: paper lit from the top, the hour's sky at its head at
-     0.22 with its light where the sun stands, and al-Fatihah's lattice as grain. */
-  body { position:relative; color:#22271F; font-family:"Fraunces",Georgia,serif; isolation:isolate; background:#FAF6EC; }
-  .g { position:absolute; inset:0; z-index:-1; }
-  .lit { background:linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,0) 50%, rgba(34,39,31,.03)); }
-  .sky { background:linear-gradient(180deg,#2A5C86 0%,#6C7E93 32%,#B98F5E 60%,#D9A85F 84%,#EBC98D 100%); opacity:.22;
-         -webkit-mask-image:linear-gradient(180deg,#000 25%,transparent 100%); }
-  .glow { background:radial-gradient(ellipse 60% 70% at 72% 26%, rgba(232,200,140,.55), transparent 72%); }
-  .grain { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cg fill='none' stroke='%23BA8836' stroke-opacity='.07' stroke-width='.7'%3E%3Crect x='4.09' y='4.09' width='19.82' height='19.82'/%3E%3Cpath d='M14 0 28 14 14 28 0 14Z'/%3E%3C/g%3E%3C/svg%3E"); background-size:28px 28px; }
-  .in { position:absolute; left:84px; top:80px; right:84px; bottom:72px; display:flex; flex-direction:column; justify-content:space-between; }
-  .wm { display:flex; align-items:center; gap:16px; }
-  .wm .m { width:60px; height:60px; background:#A8842F; -webkit-mask:url("assets/img/mark.png") center / contain no-repeat; }
+  /* The app's day ground: bright cream paper lit from the top, the rosettes pressed in. */
+  body { position:relative; color:#22271F; font-family:"Fraunces",Georgia,serif;
+         background:linear-gradient(180deg,#FFFAEE,#FDF5E3 45%,#F8ECD3); }
+  .pattern { position:absolute; inset:0; background:url("assets/art/ground-day.svg") 0 0 / 88px 88px; }
+  .frame { position:absolute; inset:14px; border:44px solid transparent;
+           border-image:url("assets/art/frame.webp") 113 round; }
+  .in { position:absolute; left:104px; top:96px; width:560px; }
+  .wm { display:flex; align-items:center; gap:14px; }
+  .wm .m { width:58px; height:58px; background:url("assets/img/mark.png") center / contain no-repeat; }
   .wm .t { font-size:32px; font-weight:540; letter-spacing:-.01em; }
-  .wm .t i { font-style:italic; font-weight:500; color:#866818; }
-  h1 { font-size:92px; line-height:1.02; font-weight:540; letter-spacing:-.025em; max-width:11ch; }
-  h1 em { font-style:italic; font-weight:520; color:#866818; }
-  p { margin-top:24px; font-family:-apple-system,system-ui,sans-serif; font-size:26px; color:#4A4F43; max-width:30ch; line-height:1.4; }
-  .foot { display:flex; justify-content:space-between; align-items:flex-end; }
-  .ayah { font-family:"UthmanicHafs",serif; direction:rtl; font-size:34px; color:#A8842F; }
-  .free { font-family:-apple-system,system-ui,sans-serif; font-size:16px; letter-spacing:.12em; text-transform:uppercase; color:#4A4F43; font-weight:600;
-          display:flex; align-items:center; gap:14px; }
-  .free i { width:6px; height:6px; background:#A8842F; transform:rotate(45deg); }
+  .wm .t i { font-style:italic; font-weight:500; color:#86621F; }
+  h1 { margin-top:44px; font-size:88px; line-height:1.02; font-weight:540; letter-spacing:-.025em; }
+  h1 em { font-style:italic; font-weight:520; color:#86621F; }
+  .rule { display:block; width:240px; margin:26px 0 22px; }
+  p { font-family:-apple-system,system-ui,sans-serif; font-size:25px; color:#4A4F43; max-width:26ch; line-height:1.4; }
+  .shamsa { position:absolute; width:560px; left:620px; top:35px; }
+  .phone { position:absolute; width:220px; left:790px; top:76px; border-radius:31px / 31px;
+           border:1px solid rgba(28,25,22,.5); box-shadow:0 18px 40px rgba(60,48,20,.22), 0 2px 6px rgba(0,0,0,.06); }
 </style>
 </head>
 <body>
-  <div class="g lit"></div><div class="g sky"></div><div class="g glow"></div><div class="g grain"></div>
+  <div class="pattern"></div>
+  <img class="shamsa" src="assets/art/shamsa.webp" alt="">
+  <img class="phone" src="assets/shots/fatihah.webp" alt="">
+  <div class="frame"></div>
   <div class="in">
     <div class="wm"><span class="m"></span><span class="t">Quran <i>Pages</i></span></div>
-    <div>
-      <h1>Read, repeat, <em>pray.</em></h1>
-      <p>The real Madina mushaf, any ayah on repeat, and prayer times for your city.</p>
-    </div>
-    <div class="foot">
-      <div class="ayah" lang="ar" dir="rtl">وَلَقَدۡ يَسَّرۡنَا ٱلۡقُرۡءَانَ لِلذِّكۡرِ</div>
-      <div class="free">Free forever<i></i>No ads, ever</div>
-    </div>
+    <h1>Read, repeat, <em>pray.</em></h1>
+    <img class="rule" src="assets/art/rule.webp" alt="">
+    <p>Painted like an illuminated Quran. Any ayah on repeat, and prayer times for your city.</p>
   </div>
 </body>
 </html>
