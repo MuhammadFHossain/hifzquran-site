@@ -56,7 +56,10 @@ assets/
                   rule (rule); the ground's rosettes (ground-day.svg, ground-night.svg)
                   and grain
   shots/          screens of the app at 2x for a 330pt phone, as WebP with a JPEG behind;
-                  the open iPhone Duo (duo-spread) and the pen on an iPad (pen)
+                  the open iPhone Duo (duo-spread) and the pen on an iPad (pen); close-ups of
+                  the 4.0 pen bar (pen-bar, pen-bar-dark) and the People list (people,
+                  people-dark), cut from 4.0 captures the iPad and design sessions made on
+                  28 and 27 October; the store kit should reshoot them with the pen page
 appstore-screenshots/   the 3.0 store pages of 26 August 2026 (not linked)
 preview/                pictures of the 3.0 site (not linked)
 tools/

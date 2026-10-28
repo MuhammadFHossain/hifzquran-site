@@ -374,8 +374,34 @@ section { padding: 72px 0; position: relative; }
 .spread picture { display: block; max-width: 960px; margin: 32px auto 0; }
 .duo { display: block; width: 100%; height: auto; filter: var(--artShadow); }
 .spread-note { font-size: 13px; color: var(--inkSoft); margin: 24px auto 0; }
-.band .pad { display: block; width: 380px; height: auto; border-radius: 16px;
+/* ---- the pen: a page of its own, the iPad big, two steps beside it ---- */
+.pen-feature .section-head { margin: 0 auto; text-align: center; max-width: 720px; }
+.pen-feature .section-head .lead { margin: 16px auto 0; max-width: 52ch; }
+.pen-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; margin-top: 48px; }
+.pen-page { margin: 0; }
+.pen-page .pad { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; border-radius: 22px;
   border: 1px solid var(--phoneEdge); box-shadow: var(--phoneShadow); background: var(--card); }
+.pen-steps { display: flex; flex-direction: column; gap: 20px; }
+.pen-step { padding: 32px; position: relative; }
+.pen-step h3 { font-family: var(--serif); font-weight: 560; font-size: 23px; color: var(--ink); margin: 0 0 8px; }
+.pen-step p { color: var(--ink2); margin: 0; }
+/* the step's number in a gold point, like the app's verse marks */
+.pen-step .step-n { width: 32px; height: 32px; margin: 0 0 12px; display: grid; place-items: center;
+  font-family: var(--serif); font-weight: 600; font-size: 16px; color: var(--lapis);
+  background: var(--goldLight); border: 1px solid var(--line); border-radius: 50%; box-shadow: inset 0 0 0 2px var(--gold); }
+.pen-step img.bar { width: 100%; height: auto; margin-top: 20px; border-radius: 12px; box-shadow: 0 4px 14px rgba(28, 25, 22, .14); }
+.pen-step img.people { width: min(100%, 340px); height: auto; margin: 20px auto 0; border-radius: 18px 18px 4px 4px;
+  border: 1px solid var(--edge); box-shadow: 0 6px 18px rgba(28, 25, 22, .14); }
+.pen-step img.night-only { display: none; }
+:root.dark .pen-step img.day-only { display: none; }
+:root.dark .pen-step img.night-only { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .pen-step img.day-only { display: none; }
+  :root:not(.light) .pen-step img.night-only { display: block; }
+}
+.pen-notes { list-style: none; padding: 0; margin: 40px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 32px; }
+.pen-notes li { display: inline-flex; align-items: center; gap: 10px; color: var(--ink2); }
+.pen-notes li::before { content: ""; width: 7px; height: 7px; flex: none; background: var(--gold); box-shadow: 0 0 0 .7px var(--line); transform: rotate(45deg); }
 
 /* ---- more: the parts of the app with no screen of their own ---- */
 .notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; text-align: left; }
@@ -522,8 +548,8 @@ section { padding: 72px 0; position: relative; }
   .notes, .qa { grid-template-columns: repeat(2, 1fr); }
   .said { grid-template-columns: minmax(0, 560px); justify-content: center; }
   .pledge { padding: 48px 32px; }
-  .band .media.pad-media > picture { width: min(400px, 86%); }
-  .band .pad { width: 100%; }
+  .pen-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .pen-page .pad { max-width: 440px; }
 }
 @media (max-width: 620px) {
   :root { --margin: 16px; }
@@ -561,7 +587,9 @@ section { padding: 72px 0; position: relative; }
   .doc h2 { font-size: 19px; }
   .sources .src { display: block; }
   .sources .src::after { display: none; }
-  .band .pad { border-radius: 12px; }
+  .pen-page .pad { border-radius: 14px; }
+  .pen-step { padding: 24px; }
+  .pen-notes { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 380px) {
   .nav .cartouche { padding: 0 calc(var(--tip) + 8px); }
