@@ -136,11 +136,13 @@ Bump the number on any edit to either file.
 with the name the store shows, the storefront and the month. Only real ones,
 chosen by the owner; nothing is ever invented or paraphrased into a quote. An
 Arabic review keeps its own words and gets an English version under it, marked
-as such. The owner asked for as many as there are (27 October 2026). On that
-day every storefront's feed held three written reviews, all 5 stars, and all
-three are on the page: runnerboy67 (Canada, 5 October), ناقد اسطوري (Saudi
-Arabia, 9 September) and Izza_chockly (India, 24 October). Google Play shows
-no reviews yet. Apple's public feed shows a storefront's reviews:
+as such, newest first. The owner asked for as many as there are (27 October
+2026). On 28 October every storefront's feed held four written reviews, all
+5 stars, and all four are on the page: ImmortalChef (Canada, 26 October),
+Izza_chockly (India, 24 October), runnerboy67 (Canada, 5 October) and
+ناقد اسطوري (Saudi Arabia, 9 September). A new review can take a day or two
+to reach the feed; App Store Connect shows it first. Google Play shows no
+reviews yet. Apple's public feed shows a storefront's reviews:
 `https://itunes.apple.com/<country>/rss/customerreviews/id=6792413377/sortby=mostrecent/json`.
 
 ## Later

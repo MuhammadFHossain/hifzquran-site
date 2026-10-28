@@ -384,7 +384,7 @@ section { padding: 72px 0; position: relative; }
 .note p { font-size: 16px; color: var(--ink2); margin: 0; }
 
 /* ---- reviews: what people wrote on the App Store, word for word ---- */
-.said { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 16px; max-width: 1040px; margin: 40px auto 0; text-align: start; }
+.said { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 16px; max-width: 900px; margin: 40px auto 0; text-align: start; }
 .review { margin: 0; padding: 36px; display: flex; flex-direction: column; gap: 16px; }
 .review blockquote { margin: 0; }
 .review p { font-size: 19px; line-height: 1.5; color: var(--ink2); margin: 0; }
