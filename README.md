@@ -61,6 +61,11 @@ assets/
                   the 4.0 pen bar (pen-bar, pen-bar-dark) and the People list (people,
                   people-dark), cut from 4.0 captures the iPad and design sessions made on
                   28 and 27 October; the store kit should reshoot them with the pen page
+adhans/           the eight adhans the app fetches when someone chooses one, a clip and a
+                  whole recording each. Copied as they are from the app repo's Site/adhans:
+                  the app refuses any file whose SHA-256 differs from its manifest, so never
+                  edit or re-encode one here, and check with the app repo's
+                  Scripts/release/check_adhans_online.py after a push (not linked)
 appstore-screenshots/   the 3.0 store pages of 26 August 2026 (not linked)
 preview/                pictures of the 3.0 site (not linked)
 tools/
