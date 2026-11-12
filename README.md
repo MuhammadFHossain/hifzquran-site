@@ -158,18 +158,26 @@ Bump the number on any edit to either file.
 
 ## Reviews
 
-"In their own words" on the home page quotes App Store reviews word for word,
-with the name the store shows, the storefront and the month. Only real ones,
-chosen by the owner; nothing is ever invented or paraphrased into a quote. An
-Arabic review keeps its own words and gets an English version under it, marked
-as such, newest first. The owner asked for as many as there are (27 October
-2026). On 28 October every storefront's feed held four written reviews, all
-5 stars, and all four are on the page: ImmortalChef (Canada, 26 October),
-Izza_chockly (India, 24 October), runnerboy67 (Canada, 5 October) and
-ناقد اسطوري (Saudi Arabia, 9 September). A new review can take a day or two
-to reach the feed; App Store Connect shows it first. Google Play shows no
-reviews yet. Apple's public feed shows a storefront's reviews:
+"In their own words" on the home page quotes App Store and Google Play reviews
+word for word, with the name the store shows, the storefront and the month.
+Only real ones, chosen by the owner; nothing is ever invented or paraphrased
+into a quote. An Arabic review keeps its own words and gets an English version
+under it, marked as such, newest first. The owner asked for as many as there
+are (27 October 2026). On 12 November there were eight written reviews, all
+5 stars, and all eight are on the page: Samir Ahmed (Google Play, 11 November),
+Al Quran Memorizer💖 (United States, 11 November), Steamcore (United States,
+10 November), Abu Dihyah (Malaysia, 31 October), ImmortalChef (Canada,
+26 October), Izza_chockly (India, 24 October), runnerboy67 (Canada, 5 October)
+and ناقد اسطوري (Saudi Arabia, 9 September). Google Play shows no country on a
+review, so that card names the store instead.
+
+Where to read them: App Store Connect's `GET /v1/apps/6792413377/customerReviews`
+has every storefront first; Apple's public feed shows one storefront's reviews a
+day or two later:
 `https://itunes.apple.com/<country>/rss/customerreviews/id=6792413377/sortby=mostrecent/json`.
+Google Play's `/reviews` API returns only the last 7 days, so check it weekly or
+read the Play Console. A Play review's text starts with a tab: the empty title
+before it, not part of the review.
 
 ## Later
 
