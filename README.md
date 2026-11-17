@@ -156,20 +156,37 @@ Bump the number on any edit to either file.
   from the app's `tr_en-saheeh.json`. `tools/check_site.py` compares them.
   The surah names under the paintings are the app's own (`surahs.json`).
 
+## The look, after the 17 November 2026 clean-up
+
+The owner shared a post on "unslopping" a website and said "learn from this".
+The page went through it pass by pass (declutter, spacing, copy, alignment,
+font, font size, imagery, details). What stays true now:
+
+- Headings are one upright serif in ink. No gold italic second half.
+- No small capital labels over headings, no "New" tags. The only label left
+  is "With thanks to", which is that list's heading.
+- Facts live in the section they belong to. There is no grid of loose
+  feature boxes; the questions are a ruled list, not boxes.
+- "Free forever, no ads, no account" is said in the hero and in the last
+  painted panel, once each, with the reason (nothing you would not want your
+  family to see next to the Quran).
+
 ## Reviews
 
-"In their own words" on the home page quotes App Store and Google Play reviews
+The reviews section on the home page quotes App Store and Google Play reviews
 word for word, with the name the store shows, the storefront and the month.
-Only real ones, chosen by the owner; nothing is ever invented or paraphrased
-into a quote. An Arabic review keeps its own words and gets an English version
-under it, marked as such, newest first. The owner asked for as many as there
-are (27 October 2026). On 12 November there were eight written reviews, all
-5 stars, and all eight are on the page: Samir Ahmed (Google Play, 11 November),
-Al Quran Memorizer💖 (United States, 11 November), Steamcore (United States,
-10 November), Abu Dihyah (Malaysia, 31 October), ImmortalChef (Canada,
-26 October), Izza_chockly (India, 24 October), runnerboy67 (Canada, 5 October)
-and ناقد اسطوري (Saudi Arabia, 9 September). Google Play shows no country on a
-review, so that card names the store instead.
+Only real ones; nothing is ever invented or paraphrased into a quote. A review
+in another language keeps its own words and gets an English version under it,
+marked as such. Newest first. The owner asked for every written review, the
+4-star ones too (27 October and 12 November 2026). On 17 November there were
+eleven, and all eleven are on the page: owaisraza12 (Pakistan, 15 November,
+4 stars, asks for Kanz ul Iman, which 4.8 adds), Abdul571 (Germany,
+15 November), Wabunnn (Japan, 15 November, written in Indonesian), Samir Ahmed
+(Google Play, 11 November), Al Quran Memorizer💖 (United States, 11 November),
+Steamcore (United States, 10 November), Abu Dihyah (Malaysia, 31 October),
+ImmortalChef (Canada, 26 October), Izza_chockly (India, 24 October),
+runnerboy67 (Canada, 5 October) and ناقد اسطوري (Saudi Arabia, 9 September).
+Google Play shows no country on a review, so that card names the store instead.
 
 Where to read them: App Store Connect's `GET /v1/apps/6792413377/customerReviews`
 has every storefront first; Apple's public feed shows one storefront's reviews a
