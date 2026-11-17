@@ -143,12 +143,14 @@ a:hover { text-decoration-color: currentColor; }
 img { max-width: 100%; display: block; }
 .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--margin); }
 
-/* The store pages' caption: Fraunces, the second half in gold italic. */
+/* One calm serif for every heading, upright and in ink: no gold italic
+   accent word (17 November 2026, the owner's "unslop" lesson). Words under
+   the headings are the system face, as in the app. */
 h1, h2 {
   font-family: var(--serif);
-  font-weight: 540;
-  line-height: 1.06;
-  letter-spacing: -.02em;
+  font-weight: 520;
+  line-height: 1.1;
+  letter-spacing: -.015em;
   margin: 0;
   font-optical-sizing: auto;
   text-wrap: balance;
@@ -156,7 +158,6 @@ h1, h2 {
 /* The ladder, 16 × 1.189ⁿ: 13 · 16 · 19 · 23 · 27 · 32 · 45 · 64 · 76. */
 h1 { font-size: clamp(45px, 6.4vw, 76px); }
 h2 { font-size: clamp(32px, 4vw, 45px); }
-h1 em, h2 em { font-style: italic; font-weight: 520; color: var(--goldText); }
 h3 { font-family: var(--ui); font-size: 19px; font-weight: 600; letter-spacing: -.01em; line-height: 1.3; margin: 0; }
 p { margin: 0 0 1em; }
 .lead { font-size: clamp(19px, 2vw, 23px); line-height: 1.45; color: var(--ink2); text-wrap: pretty; }
@@ -296,8 +297,6 @@ body::before {
 :root.gl .illum:not(.still) > img { visibility: hidden; }
 .illum.still > canvas { display: none; }
 
-/* the crest over a centred heading: the app's crown, rays and all */
-.crest { width: 132px; margin: 0 auto 16px; }
 /* the gold rule with a rosette, from under the banner's caption */
 .rule { width: 266px; height: auto; margin: 24px 0; }
 .center .rule { margin-left: auto; margin-right: auto; }
@@ -346,10 +345,6 @@ section { padding: 72px 0; position: relative; }
 .band .media > picture { display: block; width: 280px; }
 .band .media.one > picture { width: 320px; }
 .band .media.two > picture:last-child { margin-top: 48px; }
-.new { display: inline-block; margin-left: 6px; padding: 1px 8px 2px; vertical-align: 2px;
-  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--lapis); background: var(--cartouche); border: 1px solid var(--edge); }
-:root.dark .new { color: var(--lapis); }
 
 /* ---- the vines: the app's scroll, grown across the page ----
    A band wider than most screens, centred, so a phone sees its heart and a
@@ -399,15 +394,10 @@ section { padding: 72px 0; position: relative; }
   :root:not(.light) .pen-step img.day-only { display: none; }
   :root:not(.light) .pen-step img.night-only { display: block; }
 }
-.pen-notes { list-style: none; padding: 0; margin: 40px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 32px; }
-.pen-notes li { display: inline-flex; align-items: center; gap: 10px; color: var(--ink2); }
-.pen-notes li::before { content: ""; width: 7px; height: 7px; flex: none; background: var(--gold); box-shadow: 0 0 0 .7px var(--line); transform: rotate(45deg); }
-
-/* ---- more: the parts of the app with no screen of their own ---- */
-.notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; text-align: left; }
-.note { padding: 28px; }
-.note h3 { color: var(--ink); margin: 0 0 8px; }
-.note p { font-size: 16px; color: var(--ink2); margin: 0; }
+/* three short notes in a row of three, each starting on the same line */
+.pen-notes { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 32px; }
+.pen-notes li { display: flex; align-items: baseline; gap: 10px; color: var(--ink2); }
+.pen-notes li::before { content: ""; width: 7px; height: 7px; flex: none; background: var(--gold); box-shadow: 0 0 0 .7px var(--line); transform: translateY(-2px) rotate(45deg); }
 
 /* ---- reviews: what people wrote on the App Store, word for word ---- */
 .said { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 16px; max-width: 900px; margin: 40px auto 0; text-align: start; }
@@ -427,20 +417,13 @@ section { padding: 72px 0; position: relative; }
 .review figcaption { margin-top: auto; font-size: 16px; font-weight: 600; color: var(--ink); }
 .review figcaption span { font-weight: 400; color: var(--inkSoft); }
 
-/* ---- questions ---- */
-.qa { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
-.q { padding: 28px; }
-.q h3 { margin: 0 0 8px; color: var(--ink); }
-.q p { font-size: 16px; color: var(--ink2); margin: 0; }
-
-/* ---- our promise ---- */
-.pledge { padding: 48px; }
-.pledge h2 { margin-bottom: 16px; }
-.pledge p { color: var(--ink2); font-size: 19px; line-height: 1.45; max-width: 640px; margin: 0; }
-.pledge p + p { margin-top: 16px; font-size: 16px; }
-.ticks { list-style: none; padding: 0; margin: 32px 0 0; display: flex; flex-wrap: wrap; gap: 12px 32px; }
-.ticks li { display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 500; color: var(--ink); }
-.ticks li::before { content: ""; width: 7px; height: 7px; flex: none; background: var(--gold); box-shadow: 0 0 0 .7px var(--line); transform: rotate(45deg); }
+/* ---- questions: a ruled list, two columns, each answer under a gold
+   hairline as the app divides its rows ---- */
+.qa { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; max-width: 960px; margin: 40px auto 0; text-align: start; }
+.q { padding: 24px 0 28px; border-top: 1px solid color-mix(in srgb, var(--gold) 70%, transparent); }
+/* the questions' titles in the headings' serif, like the pen's steps and the reviews */
+.q h3 { margin: 0 0 8px; color: var(--ink); font-family: var(--serif); font-size: 21px; font-weight: 540; line-height: 1.25; }
+.q p { font-size: 17px; line-height: 1.5; color: var(--ink2); margin: 0; }
 
 /* ---- get it: a page in the banner's own painted border ---- */
 .get .framed {
@@ -454,8 +437,9 @@ section { padding: 72px 0; position: relative; }
 :root.js .get .framed:not(.in) { border-image-source: none; }
 .get-icon { width: 96px; height: 96px; border-radius: 22px; margin: 0 auto 24px;
   box-shadow: 0 8px 24px rgba(16, 22, 46, .22), 0 1px 2px rgba(0, 0, 0, .1); }
-.get h2 { margin-bottom: 12px; }
-.get .lead { margin: 0 auto; max-width: 30ch; }
+.get h2 { margin-bottom: 16px; }
+.get .lead { margin: 0 auto; max-width: 34ch; font-size: clamp(19px, 2vw, 21px); }
+.get .promise { margin: 16px auto 0; max-width: 46ch; font-size: 16px; color: var(--ink2); }
 .get .cta { justify-content: center; margin-top: 32px; }
 
 /* ---- thanks ---- */
@@ -545,9 +529,7 @@ section { padding: 72px 0; position: relative; }
   .band .media.one > picture { width: min(320px, 76%); }
   .band .media.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 600px; margin: 0 auto; width: 100%; }
   .band .media.two > picture { width: auto; }
-  .notes, .qa { grid-template-columns: repeat(2, 1fr); }
   .said { grid-template-columns: minmax(0, 560px); justify-content: center; }
-  .pledge { padding: 48px 32px; }
   .pen-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .pen-page .pad { max-width: 440px; }
 }
@@ -565,14 +547,13 @@ section { padding: 72px 0; position: relative; }
   .band { padding: 40px 0; }
   .band .media.two { gap: 12px; }
   .band .media.two > picture:last-child { margin-top: 32px; }
-  .band li, .pledge p { font-size: 17px; }
+  .band li { font-size: 17px; }
   .frieze-row li { width: 180px; }
   .frieze-track { padding: 16px 0; }
-  .notes, .qa { grid-template-columns: 1fr; gap: 12px; }
-  .note, .q { padding: 24px; }
-  .pledge { padding: 32px 24px; }
-  .pledge h2 { font-size: 30px; }
-  .ticks { flex-direction: column; gap: 12px; }
+  .qa { grid-template-columns: minmax(0, 1fr); }
+  .q { padding: 20px 0 24px; }
+  .q h3 { font-size: 20px; }
+  .get .promise { font-size: 15px; }
   .review { padding: 28px 24px; }
   .review p { font-size: 17px; }
   .review blockquote[lang="ar"] p { font-size: 21px; }
@@ -589,7 +570,7 @@ section { padding: 72px 0; position: relative; }
   .sources .src::after { display: none; }
   .pen-page .pad { border-radius: 14px; }
   .pen-step { padding: 24px; }
-  .pen-notes { flex-direction: column; align-items: flex-start; }
+  .pen-notes { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 380px) {
   .nav .cartouche { padding: 0 calc(var(--tip) + 8px); }
